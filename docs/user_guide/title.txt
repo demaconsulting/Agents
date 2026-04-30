@@ -1,0 +1,13 @@
+---
+title: DEMA Agents User Guide
+subtitle: Shared Agent Definitions and Coding Standards
+author: DEMA Consulting
+description: User guide for the DEMA shared agent definitions and coding standards
+lang: en-US
+keywords:
+  - DEMA Agents
+  - GitHub Copilot
+  - AI Agents
+  - Coding Standards
+  - Documentation
+---

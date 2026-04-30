@@ -11,6 +11,17 @@ Read these standards first before applying this standard:
 - **`testing-principles.md`** - Universal testing principles and dependency boundaries
 - **`cpp-language.md`** - C++ language development standards
 
+# File Organization
+
+Test files mirror the source tree under a `test/` root:
+
+```text
+test/
+└── {system_name}/
+    └── {subsystem_name}/
+        └── {unit_name}_tests.cpp   # unit tests for src/{system_name}/{subsystem_name}/{unit_name}.cpp
+```
+
 # Package Reference
 
 Use `GTest` and `GMock` from the CMake `GTest` package. Link test targets with

@@ -45,6 +45,8 @@ AGENTS.md
         software-architect.agent.md
     standards/
         coding-principles.md
+        cpp-language.md
+        cpp-testing.md
         csharp-language.md
         csharp-testing.md
         design-documentation.md
@@ -129,9 +131,11 @@ based on the type of work being performed:
 | Standards file | When to load |
 | -------------- | ------------ |
 | `coding-principles.md` | Any source code changes |
+| `cpp-language.md` | C++ source code |
+| `cpp-testing.md` | C++ tests |
 | `csharp-language.md` | C# source code |
-| `testing-principles.md` | Any test changes |
 | `csharp-testing.md` | C# tests |
+| `testing-principles.md` | Any test changes |
 | `requirements-principles.md` | Requirements authoring or review |
 | `software-items.md` | Categorizing software components |
 | `reqstream-usage.md` | Requirements management with ReqStream |

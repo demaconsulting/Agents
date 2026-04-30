@@ -1,3 +1,10 @@
+# Project Overview
+
+- **name**: TODO
+- **description**: TODO
+- **languages**: TODO
+- **technologies**: TODO
+
 # Project Structure
 
 ```text

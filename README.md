@@ -60,47 +60,6 @@ producing a populated review report saved to `.agent-logs/reviews/`.
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
 | `lint-fix` | Pre-PR sweep — loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
 
-## Linting
-
-The repository uses `cspell` for spell-checking and `markdownlint-cli2` for
-Markdown formatting. Node.js must be installed to run linting.
-
-**Install dependencies:**
-
-```sh
-npm install
-```
-
-**Check for issues:**
-
-```pwsh
-pwsh ./lint.ps1
-```
-
-**Auto-fix Markdown formatting:**
-
-```pwsh
-pwsh ./fix.ps1
-```
-
-## Standards
-
-All standards documents live in `src/.github/standards/`. They are loaded
-selectively by agents based on the type of work being performed:
-
-| Standards file | When to load |
-| -------------- | ------------ |
-| `coding-principles.md` | Any source code changes |
-| `csharp-language.md` | C# source code |
-| `testing-principles.md` | Any test changes |
-| `csharp-testing.md` | C# tests |
-| `requirements-principles.md` | Requirements authoring or review |
-| `software-items.md` | Categorizing software components |
-| `reqstream-usage.md` | Requirements management with ReqStream |
-| `design-documentation.md` | Design documentation |
-| `reviewmark-usage.md` | Review configuration with ReviewMark |
-| `technical-documentation.md` | Any documentation |
-
 ## License
 
 [MIT](LICENSE)

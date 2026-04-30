@@ -36,7 +36,7 @@ jobs:
   # Builds the supporting documentation including build notes and user guide.
   build-docs:
     name: Build Documents
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: quality-checks
     permissions:
       contents: read
@@ -63,20 +63,24 @@ jobs:
         run: dotnet tool restore
 
       - name: Create artifacts directory
+        shell: bash
         run: mkdir -p artifacts
 
       - name: Capture tool versions
+        shell: bash
         run: >
           dotnet versionmark --capture --job-id "build-docs"
           --output "artifacts/versionmark-build-docs.json" --
           dotnet git node npm pandoc weasyprint buildmark versionmark
 
       - name: Create documents output directory
+        shell: bash
         run: mkdir -p docs/generated
 
       # === COMPILE BUILD NOTES ===
 
       - name: Create build notes output directory
+        shell: bash
         run: mkdir -p docs/build_notes/generated
 
       - name: Run BuildMark self-validation
@@ -109,6 +113,7 @@ jobs:
           -- "artifacts/**/versionmark-*.json"
 
       - name: Generate Build Notes HTML with Pandoc
+        shell: bash
         run: >
           dotnet pandoc
           --defaults docs/build_notes/definition.yaml
@@ -124,14 +129,17 @@ jobs:
           "docs/generated/DEMA Agents Build Notes.pdf"
 
       - name: Copy Build Notes report to docs/generated
+        shell: bash
         run: cp docs/build_notes/generated/build_notes.md docs/generated/build_notes.md
 
       # === COMPILE USER GUIDE ===
 
       - name: Create user guide output directory
+        shell: bash
         run: mkdir -p docs/user_guide/generated
 
       - name: Generate User Guide HTML with Pandoc
+        shell: bash
         run: >
           dotnet pandoc
           --defaults docs/user_guide/definition.yaml

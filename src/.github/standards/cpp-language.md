@@ -17,13 +17,13 @@ Internal headers stay alongside their source files in `src/`:
 
 ```text
 include/
-└── {project}/
-    └── component.hpp       # public API — installed with the package
+└── {system_name}/
+    └── {unit_name}.hpp       # public API — installed with the package
 
 src/
-└── {project}/
-    ├── component.cpp       # implementation
-    └── component_impl.hpp  # internal header — not part of the public API
+└── {subsystem_name}/
+    ├── {unit_name}.cpp       # implementation
+    └── {unit_name}_impl.hpp  # internal header — not part of the public API
 ```
 
 Protect every header with `#pragma once`.
@@ -44,10 +44,10 @@ API documentation combined with literate coding comments.
 ```cpp
 /// @brief Converts a raw sensor reading into a validated measurement.
 ///
-/// @details Clamping is preferred over throwing on out-of-range values because
-///     sensor drift at range boundaries is expected; clamping produces a usable
-///     result where rejection would discard valid near-boundary readings.
-///     Stateless and thread-safe; the calibration profile is read but never modified.
+/// Clamping is preferred over throwing on out-of-range values because
+/// sensor drift at range boundaries is expected; clamping produces a usable
+/// result where rejection would discard valid near-boundary readings.
+/// Stateless and thread-safe; the calibration profile is read but never modified.
 ///
 /// @param reading      Raw sensor value. Must be finite (NaN and infinities are rejected).
 /// @param calibration  Calibration profile providing offset and range.
@@ -71,7 +71,7 @@ double process_reading(double reading, const calibration_profile& calibration)
 Key qualities demonstrated above:
 
 - **`@brief`** is a concise one-liner explaining *what* the function does
-- **`@details`** carries the extended intent — *why* it exists, design decisions,
+- **Extended description** carries the extended intent — *why* it exists, design decisions,
   thread-safety, and side-effect disclosures
 - **`@param` tags** state constraints so callers know what is valid without reading the body
 - **`@returns`** documents the boundary guarantee so consumers can rely on the contract

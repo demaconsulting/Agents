@@ -29,9 +29,6 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install npm dependencies
-        run: npm install
-
       - name: Run linters
         shell: pwsh
         run: ./lint.ps1
@@ -156,3 +153,9 @@ jobs:
         with:
           name: documents
           path: docs/generated/*
+
+      - name: Upload agents
+        uses: actions/upload-artifact@v4
+        with:
+          name: agents
+          path: src/**/*

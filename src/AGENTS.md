@@ -1,11 +1,17 @@
 # Project Overview
 
+> **Downstream customization required**: Replace the `TODO` values below with
+> values specific to the target repository.
+
 - **name**: TODO
 - **description**: TODO
 - **languages**: TODO
 - **technologies**: TODO
 
 # Project Structure
+
+> **Downstream customization required**: Replace `{project}` and
+> `{test-project}` with the actual source and test project folder names.
 
 ```text
 ├── docs/

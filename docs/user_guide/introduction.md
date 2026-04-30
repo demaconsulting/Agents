@@ -59,6 +59,16 @@ AGENTS.md
 Commit the extracted files. GitHub Copilot will automatically discover
 `AGENTS.md` at the repository root and the agent prompts in `.github/agents/`.
 
+## Post-Installation Customization
+
+After extracting the files, open `AGENTS.md` and update the following
+template placeholders with values specific to the target repository:
+
+- **Project Overview** — replace the `TODO` values for `name`, `description`,
+  `languages`, and `technologies`
+- **Project Structure** — replace `{project}` and `{test-project}` with the
+  actual source and test project folder names
+
 # Available Agents
 
 ## software-architect

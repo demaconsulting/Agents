@@ -21,6 +21,11 @@ Download the latest release zip from the
 [Releases](https://github.com/demaconsulting/Agents/releases) page and extract
 its contents into the root of the target repository. Commit the extracted files.
 
+After extraction, open `AGENTS.md` and replace the `TODO` placeholders in the
+**Project Overview** section and the `{project}`/`{test-project}` folder names
+in the **Project Structure** section with values specific to the target
+repository.
+
 ## Commonly Used Agents
 
 ### `software-architect`

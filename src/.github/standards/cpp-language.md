@@ -18,12 +18,14 @@ Internal headers stay alongside their source files in `src/`:
 ```text
 include/
 └── {system_name}/
-    └── {unit_name}.hpp       # public API — installed with the package
+    └── {subsystem_name}/
+        └── {unit_name}.hpp       # public API — installed with the package
 
 src/
-└── {subsystem_name}/
-    ├── {unit_name}.cpp       # implementation
-    └── {unit_name}_impl.hpp  # internal header — not part of the public API
+└── {system_name}/
+    └── {subsystem_name}/
+        ├── {unit_name}.cpp       # implementation
+        └── {unit_name}_impl.hpp  # internal header — not part of the public API
 ```
 
 Protect every header with `#pragma once`.

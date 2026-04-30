@@ -13,7 +13,18 @@ Read these standards first before applying this standard:
 
 # Package Reference
 
-Use the `xunit.v3` monolithic package and `NSubstitute` for mocking.
+Every xUnit v3 test project requires the following package references for
+`dotnet test` to discover and execute tests:
+
+| Package | Purpose |
+| ------- | ------- |
+| `xunit.v3` | xUnit v3 framework (monolithic — includes assertions and fixtures) |
+| `Microsoft.NET.Test.Sdk` | Required by the VSTest/`dotnet test` host for test discovery |
+| `xunit.runner.visualstudio` | VSTest adapter that bridges xUnit v3 to `dotnet test` |
+| `NSubstitute` | Mocking library |
+
+Omitting `Microsoft.NET.Test.Sdk` or `xunit.runner.visualstudio` causes tests
+to be silently undiscoverable by `dotnet test`.
 
 # Test Style
 

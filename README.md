@@ -1,33 +1,38 @@
 # Agents
 
-This repository contains the shared agent definitions and coding standards used
-across DEMA Consulting repositories.
+This repository manages the shared agent definitions and coding standards
+distributed to DEMA Consulting repositories via release zip.
 
 ## Overview
 
-Agents are AI assistant configurations that guide GitHub Copilot and other AI tools
-when working in a repository. This repository provides:
+The distributable files live in `src/` and are packaged into a release zip
+on each release:
 
-- **`AGENTS.md`** — top-level instructions loaded by every agent, covering standards
-  application, delegation, reporting, and scope discipline
-- **`.github/agents/`** — specialized agent prompts for specific workflows
-- **`.github/standards/`** — detailed coding and documentation standards referenced
-  by agents
+- **`src/AGENTS.md`** — top-level instructions loaded by every agent
+- **`src/.github/agents/`** — specialized agent prompts for specific workflows
+- **`src/.github/standards/`** — detailed coding and documentation standards
+
+See the [User Guide](docs/user_guide/introduction.md) for full documentation
+on available agents, standards, and installation instructions.
+
+## Installation
+
+Download the latest release zip from the
+[Releases](https://github.com/demaconsulting/Agents/releases) page and extract
+its contents into the root of the target repository. Commit the extracted files.
+
+After extraction, open `AGENTS.md` and replace the `TODO` placeholders in the
+**Project Overview** section and the `{project}`/`{test-project}` folder names
+in the **Project Structure** section with values specific to the target
+repository.
 
 ## Commonly Used Agents
 
 ### `software-architect`
 
 An interactive interviewing agent that helps you design software architecture
-collaboratively. Invoke it when starting a new project or adding a major component.
-
-The agent asks one question at a time, covering scope, technology, functionality,
-quality attributes, and future plans. After the interview it produces a standalone
-`architecture.md` document in the current working directory, ready to attach to a
-work item or issue ticket.
-
-**When to use:** Beginning a new project, designing a new system or subsystem,
-capturing architectural decisions before implementation begins.
+collaboratively. After the interview it produces a standalone `architecture.md`
+document in the current working directory.
 
 **Invoke with:** `@software-architect` — then answer its questions.
 
@@ -38,27 +43,14 @@ state machine: **PLANNING → DEVELOPMENT → QUALITY → REPORT**. It automatic
 calls the `developer` and `quality` sub-agents and retries up to three times if
 quality gates fail.
 
-**When to use:** Complex or multi-step features, bug fixes that require systematic
-investigation, any work where you want automatic quality validation built in.
-
 **Invoke with:** `@implementation <description of work to do>`
-
-**Output:** A saved report at `.agent-logs/implementation-<subject>-<id>.md`
-summarizing the planning, development, and quality results.
 
 ### `formal-review`
 
-An agent for running structured formal reviews against a defined review-set. It
-downloads the standard review checklist, elaborates the files in the review-set,
-and produces a populated review report saved to `.agent-logs/reviews/`.
-
-**When to use:** Performing a formal compliance review, auditing a set of files
-against the review checklist, verifying a release candidate.
+An agent for running structured formal reviews against a defined review-set,
+producing a populated review report saved to `.agent-logs/reviews/`.
 
 **Invoke with:** `@formal-review <review-set-name>`
-
-**Output:** A populated review report at
-`.agent-logs/reviews/review-report-<review-set>.md`.
 
 ## Other Available Agents
 
@@ -91,14 +83,10 @@ pwsh ./lint.ps1
 pwsh ./fix.ps1
 ```
 
-Run `fix.ps1` after making changes and before raising a pull request. Then run
-`lint.ps1` to confirm everything is clean (or use the `lint-fix` agent to do both
-automatically).
-
 ## Standards
 
-All standards documents live in `.github/standards/`. They are loaded selectively
-by agents based on the type of work being performed:
+All standards documents live in `src/.github/standards/`. They are loaded
+selectively by agents based on the type of work being performed:
 
 | Standards file | When to load |
 | -------------- | ------------ |

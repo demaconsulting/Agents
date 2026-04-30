@@ -1,0 +1,21 @@
+---
+name: Build on Push
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  build:
+    name: Build
+    permissions:
+      contents: read
+    uses: ./.github/workflows/build.yaml
+    with:
+      version: 0.0.0

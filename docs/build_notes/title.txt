@@ -1,0 +1,14 @@
+---
+title: DEMA Agents
+subtitle: Build Notes
+author: DEMA Consulting
+description: Build notes for the DEMA Agents release
+lang: en-US
+keywords:
+  - DEMA Agents
+  - Build Notes
+  - Release Notes
+  - GitHub Copilot
+  - AI Agents
+  - Coding Standards
+---

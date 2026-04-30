@@ -167,3 +167,4 @@ jobs:
         with:
           name: agents
           path: src/**/*
+          include-hidden-files: true

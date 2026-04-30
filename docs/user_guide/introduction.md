@@ -57,7 +57,8 @@ AGENTS.md
 ```
 
 Commit the extracted files. GitHub Copilot will automatically discover
-`AGENTS.md` at the repository root and the agent prompts in `.github/agents/`.
+`AGENTS.md` at the repository root, the agent prompts in `.github/agents/`,
+and the coding standards in `.github/standards/`.
 
 ## Post-Installation Customization
 

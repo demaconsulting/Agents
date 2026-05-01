@@ -56,6 +56,7 @@ AGENTS.md
         software-items.md
         technical-documentation.md
         testing-principles.md
+        verification-documentation.md
 ```
 
 Commit the extracted files. GitHub Copilot will automatically discover
@@ -140,6 +141,7 @@ based on the type of work being performed:
 | `software-items.md` | Categorizing software components |
 | `reqstream-usage.md` | Requirements management with ReqStream |
 | `design-documentation.md` | Design documentation |
+| `verification-documentation.md` | Verification design documentation |
 | `reviewmark-usage.md` | Review configuration with ReviewMark |
 | `technical-documentation.md` | Any documentation |
 

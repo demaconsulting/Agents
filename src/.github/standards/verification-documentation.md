@@ -54,6 +54,7 @@ In-house items have parallel artifacts in:
 OTS items have parallel artifacts in:
 - Requirements: `docs/reqstream/ots/{ots-name}.yaml` (kebab-case)
 - Verification: `docs/verification/ots/{ots-name}.md` (kebab-case)
+- Tests: `test/{OtsName}.Tests/...` (cased per language, if required)
 
 Review-sets: defined in `.reviewmark.yaml`
 ```

@@ -37,9 +37,8 @@ docs/verification/
 
 ## introduction.md (MANDATORY)
 
-Follow the standard `introduction.md` format from `technical-documentation.md`. The Scope
-section MUST state that verification documentation covers all software items, including OTS
-items (via self-validation if appropriate).
+Follow the standard `introduction.md` format from `technical-documentation.md`. Scope
+covers all software items including OTS items (via self-validation if appropriate).
 
 Include a Companion Artifact Structure note so agents and reviewers can navigate from any
 artifact to all related files:
@@ -95,7 +94,7 @@ For each unit, create `{unit-name}.md` covering:
 For each OTS item, create `docs/verification/ots/{ots-name}.md` covering:
 
 - The OTS item's required functionality (reference `docs/reqstream/ots/{ots-name}.yaml`)
-- Verification of each requirement (via self-validation if appropriate)
+- Verification of each requirement (using self-validation evidence if appropriate)
 - Coverage mapping of OTS requirements to test scenarios
 
 # Writing Guidelines

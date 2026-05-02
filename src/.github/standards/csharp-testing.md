@@ -72,6 +72,6 @@ Before submitting C# tests, verify:
 - [ ] Test names follow hierarchical naming pattern above
 - [ ] Each test verifies single, specific behavior (no shared state between tests)
 - [ ] Both success and failure scenarios covered including edge cases
-- [ ] External dependencies mocked with NSubstitute
+- [ ] External dependencies mocked with NSubstitute (when mocking is needed)
 - [ ] Tests linked to requirements with source filters where needed
 - [ ] Test results generated in TRX format for ReqStream compatibility (`dotnet test --logger trx`)

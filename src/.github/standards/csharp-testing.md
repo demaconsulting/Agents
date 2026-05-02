@@ -21,10 +21,13 @@ Every xUnit v3 test project requires the following package references for
 | `xunit.v3` | xUnit v3 framework (monolithic — includes assertions and fixtures) |
 | `Microsoft.NET.Test.Sdk` | Required by the VSTest/`dotnet test` host for test discovery |
 | `xunit.runner.visualstudio` | VSTest adapter that bridges xUnit v3 to `dotnet test` |
-| `NSubstitute` | Mocking library |
 
 Omitting `Microsoft.NET.Test.Sdk` or `xunit.runner.visualstudio` causes tests
 to be silently undiscoverable by `dotnet test`.
+
+If tests require mocking of dependencies, add `NSubstitute` as a package
+reference — it is recommended when mocking is needed but is not required for
+every test project.
 
 # Test Style
 

@@ -36,8 +36,9 @@ docs/verification/
 ## introduction.md (MANDATORY)
 
 Follow the standard `introduction.md` format from `technical-documentation.md`. The Scope
-section MUST state that verification documentation covers the same software items as the
-design documentation — it MUST NOT include test infrastructure or third-party OTS items.
+section MUST state that verification documentation covers all software items requiring
+verification — including in-house items and any OTS items that require verification beyond
+self-validation (whether through integration tests or other means).
 
 Include a Companion Artifact Structure note so agents and reviewers can navigate from any
 artifact to all related files:

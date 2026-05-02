@@ -38,10 +38,8 @@ docs/verification/
 ## introduction.md (MANDATORY)
 
 Follow the standard `introduction.md` format from `technical-documentation.md`. The Scope
-section MUST state that verification documentation covers all software items — both in-house
-items and OTS items. OTS items that self-validate via their own test suite identify which
-self-validation tests satisfy each requirement; OTS items requiring additional project-level
-verification provide integration or acceptance test scenarios.
+section MUST state that verification documentation covers all software items, including OTS
+items (via self-validation if appropriate).
 
 Include a Companion Artifact Structure note so agents and reviewers can navigate from any
 artifact to all related files:
@@ -94,16 +92,11 @@ For each unit, create `{unit-name}.md` covering:
 
 ## OTS Verification Evidence (MANDATORY)
 
-Every OTS item must have `docs/verification/ots/{ots-name}.md` covering:
+For each OTS item, create `docs/verification/ots/{ots-name}.md` covering:
 
 - The OTS item's required functionality (reference `docs/reqstream/ots/{ots-name}.yaml`)
-- The verification method used:
-  - **Self-validating items**: identify which tests in the OTS item's own published test suite
-    satisfy each requirement and confirm those tests pass in this project's build environment
-  - **Items requiring additional verification**: describe the integration tests, acceptance
-    tests, or other means used and provide named test scenarios proving the functionality
-    works in this project's context
-- Coverage mapping of every OTS requirement to at least one named test or self-validation reference
+- Verification of each requirement (via self-validation if appropriate)
+- Coverage mapping of OTS requirements to test scenarios
 
 # Writing Guidelines
 
@@ -130,6 +123,5 @@ Before submitting verification documentation, verify:
 - [ ] Subsystem documentation folders use kebab-case names mirroring the source subsystem structure
 - [ ] All documents follow technical documentation formatting standards
 - [ ] Content is current with requirements and test implementation
-- [ ] Every OTS item has `docs/verification/ots/{ots-name}.md` mapping requirements to
-  self-validation tests or project-level test scenarios
+- [ ] Every OTS item has `docs/verification/ots/{ots-name}.md` with requirement coverage
 - [ ] Documents are integrated into ReviewMark review-sets for formal review

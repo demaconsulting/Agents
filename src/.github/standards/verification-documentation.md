@@ -44,17 +44,18 @@ Include a Companion Artifact Structure note so agents and reviewers can navigate
 artifact to all related files:
 
 ```text
-Each software item in the structure above has corresponding artifacts in
-parallel directory trees:
-
+In-house items have parallel artifacts in:
 - Requirements: `docs/reqstream/{system}/.../{item}.yaml` (kebab-case)
-- OTS requirements: `docs/reqstream/ots/{ots-name}.yaml` (kebab-case)
-- Design docs: `docs/design/{system}/.../{item}.md` (kebab-case)
-- Verification design: `docs/verification/{system}/.../{item}.md` (kebab-case)
-- OTS verification: `docs/verification/ots/{ots-name}.md` (one per OTS item)
-- Source code: `src/{System}/.../{Item}.{ext}` (cased per language - see `software-items.md`)
-- Tests: `test/{System}.Tests/.../{Item}Tests.{ext}` (cased per language - see `software-items.md`)
-- Review-sets: defined in `.reviewmark.yaml`
+- Design: `docs/design/{system}/.../{item}.md` (kebab-case)
+- Verification: `docs/verification/{system}/.../{item}.md` (kebab-case)
+- Source: `src/{System}/.../{Item}.{ext}` (cased per language)
+- Tests: `test/{System}.Tests/.../{Item}Tests.{ext}` (cased per language)
+
+OTS items have parallel artifacts in:
+- Requirements: `docs/reqstream/ots/{ots-name}.yaml` (kebab-case)
+- Verification: `docs/verification/ots/{ots-name}.md` (kebab-case)
+
+Review-sets: defined in `.reviewmark.yaml`
 ```
 
 If the verification design references external documents (standards, specifications), include
@@ -89,7 +90,7 @@ For each unit, create `{unit-name}.md` covering:
 - Which dependencies are mocked and how they are configured
 - Coverage mapping of every unit requirement to at least one named test scenario
 
-## OTS Verification Evidence (MANDATORY)
+## OTS Verification Evidence (when OTS items are used)
 
 For each OTS item, create `docs/verification/ots/{ots-name}.md` covering:
 

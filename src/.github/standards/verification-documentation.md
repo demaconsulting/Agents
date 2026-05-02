@@ -31,16 +31,17 @@ docs/verification/
 │   │   ├── {child-subsystem}/   # Child subsystem (same structure as parent)
 │   │   └── {unit-name}.md       # Unit-level verification design documents
 │   └── {unit-name}.md           # Top-level unit verification documents (if not in subsystem)
-└── ots/                         # OTS items requiring project-level verification evidence
+└── ots/                         # OTS items (one verification file per OTS item)
     └── {ots-name}.md            # Verification evidence for each OTS item
 ```
 
 ## introduction.md (MANDATORY)
 
 Follow the standard `introduction.md` format from `technical-documentation.md`. The Scope
-section MUST state that verification documentation covers all software items requiring
-verification — including in-house items and any OTS items that require verification beyond
-self-validation (whether through integration tests or other means).
+section MUST state that verification documentation covers all software items — both in-house
+items and OTS items. OTS items that self-validate via their own test suite identify which
+self-validation tests satisfy each requirement; OTS items requiring additional project-level
+verification provide integration or acceptance test scenarios.
 
 Include a Companion Artifact Structure note so agents and reviewers can navigate from any
 artifact to all related files:
@@ -53,7 +54,7 @@ parallel directory trees:
 - OTS requirements: `docs/reqstream/ots/{ots-name}.yaml` (kebab-case)
 - Design docs: `docs/design/{system}/.../{item}.md` (kebab-case)
 - Verification design: `docs/verification/{system}/.../{item}.md` (kebab-case)
-- OTS verification: `docs/verification/ots/{ots-name}.md` (when self-validation is insufficient)
+- OTS verification: `docs/verification/ots/{ots-name}.md` (one per OTS item)
 - Source code: `src/{System}/.../{Item}.{ext}` (cased per language - see `software-items.md`)
 - Tests: `test/{System}.Tests/.../{Item}Tests.{ext}` (cased per language - see `software-items.md`)
 - Review-sets: defined in `.reviewmark.yaml`
@@ -91,17 +92,18 @@ For each unit, create `{unit-name}.md` covering:
 - Which dependencies are mocked and how they are configured
 - Coverage mapping of every unit requirement to at least one named test scenario
 
-## OTS Verification Evidence (when required)
+## OTS Verification Evidence (MANDATORY)
 
-OTS items that self-validate (e.g., via their own published test suite) do not require a
-separate verification file — record the self-validation rationale in the system or subsystem
-verification design that depends on them. When self-validation is insufficient, create
-`docs/verification/ots/{ots-name}.md` covering:
+Every OTS item must have `docs/verification/ots/{ots-name}.md` covering:
 
-- The OTS item's required functionality (link to `docs/reqstream/ots/{ots-name}.yaml`)
-- The verification method chosen (integration tests, acceptance tests, or other means)
-- Named test scenarios proving the required functionality works in this project's context
-- Coverage mapping of OTS requirements to test scenarios
+- The OTS item's required functionality (reference `docs/reqstream/ots/{ots-name}.yaml`)
+- The verification method used:
+  - **Self-validating items**: identify which tests in the OTS item's own published test suite
+    satisfy each requirement and confirm those tests pass in this project's build environment
+  - **Items requiring additional verification**: describe the integration tests, acceptance
+    tests, or other means used and provide named test scenarios proving the functionality
+    works in this project's context
+- Coverage mapping of every OTS requirement to at least one named test or self-validation reference
 
 # Writing Guidelines
 
@@ -128,5 +130,6 @@ Before submitting verification documentation, verify:
 - [ ] Subsystem documentation folders use kebab-case names mirroring the source subsystem structure
 - [ ] All documents follow technical documentation formatting standards
 - [ ] Content is current with requirements and test implementation
-- [ ] OTS items with insufficient self-validation have `docs/verification/ots/{ots-name}.md` with named test scenarios
+- [ ] Every OTS item has `docs/verification/ots/{ots-name}.md` mapping requirements to
+  self-validation tests or project-level test scenarios
 - [ ] Documents are integrated into ReviewMark review-sets for formal review

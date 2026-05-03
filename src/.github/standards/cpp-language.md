@@ -86,7 +86,7 @@ Key qualities demonstrated above:
 
 Apply clang-format using the repository `.clang-format` configuration:
 
-- **Format file**: `clang-format -i MyFile.cpp`
+- **Format file**: `clang-format -i my_file.cpp`
 - Run `pwsh ./fix.ps1` to apply across the project
 
 # Quality Checks

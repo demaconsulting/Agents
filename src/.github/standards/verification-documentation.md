@@ -56,7 +56,7 @@ OTS items have parallel artifacts in:
 - Verification: `docs/verification/ots/{ots-name}.md` (kebab-case)
 - Tests: `test/{OtsName}.Tests/...` (cased per language, if required)
 
-Review-sets: defined in `.reviewmark.yaml`
+- Review-sets: defined in `.reviewmark.yaml`
 ```
 
 If the verification design references external documents (standards, specifications), include

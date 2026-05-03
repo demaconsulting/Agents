@@ -29,7 +29,7 @@ Use `GTest` and `GMock` from the CMake `GTest` package. Link test targets with
 
 # Test Style
 
-Test names appear in requirements traceability matrices — use the hierarchical
+Test names appear in requirements traceability matrices - use the hierarchical
 naming pattern with snake_case, split across the gtest suite and test name:
 
 - **System tests**: `TEST({system_name}_test, {functionality}_{scenario}_{expected_behavior})`
@@ -56,9 +56,9 @@ These are non-obvious behaviors that differ from common assumptions:
 - **`EXPECT_*` vs `ASSERT_*`**: `ASSERT_*` aborts the test immediately; prefer
   `EXPECT_*` for independent checks to surface all failures in one run
 - **`EXPECT_CALL` placement**: all mock expectations must be set up in Arrange,
-  before the Act step — expectations placed after the call under test are never triggered
+  before the Act step - expectations placed after the call under test are never triggered
 - **`NiceMock` vs `StrictMock`**: bare mocks warn on unexpected calls; `NiceMock`
-  silences them; `StrictMock` makes them failures — choose deliberately
+  silences them; `StrictMock` makes them failures - choose deliberately
 
 # Quality Checks
 

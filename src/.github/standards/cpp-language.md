@@ -19,22 +19,22 @@ Internal headers stay alongside their source files in `src/`:
 include/
 └── {system_name}/
     └── {subsystem_name}/
-        └── {unit_name}.hpp       # public API — installed with the package
+        └── {unit_name}.hpp       # public API - installed with the package
 
 src/
 └── {system_name}/
     └── {subsystem_name}/
         ├── {unit_name}.cpp       # implementation
-        └── {unit_name}_impl.hpp  # internal header — not part of the public API
+        └── {unit_name}_impl.hpp  # internal header - not part of the public API
 ```
 
 Protect every header with `#pragma once`.
 
 # Naming and Style Conventions
 
-- **Symbols**: `snake_case` for all identifiers — variables, functions, types, and
-  namespaces — to align with STL naming
-- **Bracing**: 4-space Allman style — opening brace on its own line
+- **Symbols**: `snake_case` for all identifiers - variables, functions, types, and
+  namespaces - to align with STL naming
+- **Bracing**: 4-space Allman style - opening brace on its own line
 - **Data objects**: use `struct` for passive data; may include simple constructors
   or helper methods but must not encapsulate invariants (use `class` for those)
 
@@ -73,7 +73,7 @@ double process_reading(double reading, const calibration_profile& calibration)
 Key qualities demonstrated above:
 
 - **`@brief`** is a concise one-liner explaining *what* the function does
-- **Extended description** carries the extended intent — *why* it exists, design decisions,
+- **Extended description** carries the extended intent - *why* it exists, design decisions,
   thread-safety, and side-effect disclosures
 - **`@param` tags** state constraints so callers know what is valid without reading the body
 - **`@returns`** documents the boundary guarantee so consumers can rely on the contract
@@ -95,4 +95,4 @@ Apply clang-format using the repository `.clang-format` configuration:
 - [ ] Doxygen documentation complete on all symbols
 - [ ] clang-format applied (run `pwsh ./fix.ps1`)
 - [ ] All headers protected with `#pragma once`
-- [ ] No raw owning pointers — use `std::unique_ptr` or `std::shared_ptr`
+- [ ] No raw owning pointers - use `std::unique_ptr` or `std::shared_ptr`

@@ -108,7 +108,7 @@ Result semantics for orchestrator decision-making:
 # Formatting (After Making Changes)
 
 After making changes, run the auto-fix pass. This applies all available fixers
-silently and **always exits 0** — agents do not need to respond to its output.
+silently and **always exits 0** - agents do not need to respond to its output.
 
 ```pwsh
 pwsh ./fix.ps1

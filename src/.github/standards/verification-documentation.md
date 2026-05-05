@@ -60,7 +60,7 @@ In-house items have parallel artifacts in:
 OTS items (no design documentation) have artifacts parallel to system folders:
 - Requirements: `docs/reqstream/ots/{ots-name}.yaml`
 - Verification: `docs/verification/ots/{ots-name}.md`
-- Tests (if required): `test/...` (exact path per language-specific testing standard)
+- Tests (if required): `test/{OtsSoftwareTests}/...` (cased per language - see `software-items.md`)
 
 Review-sets: defined in `.reviewmark.yaml`
 ```

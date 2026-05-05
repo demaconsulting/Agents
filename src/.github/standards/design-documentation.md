@@ -129,15 +129,20 @@ artifact to all related files:
 Example format:
 
 ```text
-Each software item in the structure above has corresponding artifacts in
-parallel directory trees:
+Each in-house software item has corresponding artifacts in parallel directory trees:
 
 - Requirements: `docs/reqstream/{system-name}.yaml`, `docs/reqstream/{system-name}/.../{item}.yaml`
 - Design docs:  `docs/design/{system-name}.md`, `docs/design/{system-name}/.../{item}.md`
 - Verification: `docs/verification/{system-name}.md`, `docs/verification/{system-name}/.../{item}.md`
 - Source code:  `src/{SystemName}/.../{Item}.{ext}` (cased per language - see `software-items.md`)
 - Tests:        `test/{SystemName}.Tests/.../{Item}Tests.{ext}` (cased per language)
-- Review-sets:  defined in `.reviewmark.yaml`
+
+OTS items have no design documentation; their artifacts sit parallel to system folders:
+
+- Requirements: `docs/reqstream/ots/{ots-name}.yaml`
+- Verification: `docs/verification/ots/{ots-name}.md`
+
+Review-sets: defined in `.reviewmark.yaml`
 ```
 
 ## System Design Documentation (MANDATORY)

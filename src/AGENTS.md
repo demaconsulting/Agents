@@ -116,7 +116,7 @@ pwsh ./fix.ps1
 
 This automatically handles: `dotnet format`, markdown formatting, and YAML
 formatting. Full lint compliance is a **pre-PR responsibility**, not an agent
-responsibility — invoke the lint-fix agent once before submitting a pull request.
+responsibility - invoke the lint-fix agent once before submitting a pull request.
 
 ## CI Quality Tools
 
@@ -126,7 +126,7 @@ reqstream, versionmark, and reviewmark.
 # Scope Discipline (ALL Agents Must Follow)
 
 - **No generated file access**: Files inside any `generated/` folder are build
-  outputs — do not read, lint, or modify them
+  outputs - do not read, lint, or modify them
 - **Minimum necessary changes**: Only modify files directly required by the task
 - **No speculative refactoring**: Do not refactor code adjacent to the change
   unless the task explicitly requests it

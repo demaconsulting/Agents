@@ -25,15 +25,15 @@ Organize under `docs/verification/` mirroring the software item hierarchy:
 docs/verification/
 ├── introduction.md              # Document overview — heading depth #
 ├── {system-name}.md             # System-level verification — heading depth #
-└── {system-name}/               # System folder (one per system)
-    ├── {subsystem-name}.md      # Subsystem verification — heading depth ##
-    ├── {subsystem-name}/        # Subsystem folder (kebab-case); may nest recursively
-    │   ├── {child-subsystem}.md # Child subsystem verification — heading depth ###
-    │   ├── {child-subsystem}/   # Child subsystem folder (same structure as parent)
-    │   └── {unit-name}.md       # Unit verification — heading depth ###
-    ├── {unit-name}.md           # System-level unit verification — heading depth ##
-    └── ots/                     # OTS items (one verification file per OTS item)
-        └── {ots-name}.md        # OTS item verification evidence
+├── {system-name}/               # System folder (one per system)
+│   ├── {subsystem-name}.md      # Subsystem verification — heading depth ##
+│   ├── {subsystem-name}/        # Subsystem folder (kebab-case); may nest recursively
+│   │   ├── {child-subsystem}.md # Child subsystem verification — heading depth ###
+│   │   ├── {child-subsystem}/   # Child subsystem folder (same structure as parent)
+│   │   └── {unit-name}.md       # Unit verification — heading depth ###
+│   └── {unit-name}.md           # System-level unit verification — heading depth ##
+└── ots/                         # OTS items — parallel to system folders (not inside them)
+    └── {ots-name}.md            # OTS item verification evidence
 ```
 
 Each scope's overview file lives in its **parent** folder, not inside the scope's own
@@ -57,7 +57,7 @@ In-house items have parallel artifacts in:
 - Source:        `src/{SystemName}/.../{Item}.{ext}` (cased per language)
 - Tests:         `test/{SystemName}.Tests/.../{Item}Tests.{ext}` (cased per language)
 
-OTS items have parallel artifacts in:
+OTS items (no design documentation) have artifacts parallel to system folders:
 - Requirements: `docs/reqstream/ots/{ots-name}.yaml`
 - Verification: `docs/verification/ots/{ots-name}.md`
 - Tests: `test/{OtsName}.Tests/...` (cased per language, if required)

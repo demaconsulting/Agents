@@ -33,7 +33,7 @@ docs/verification/
 │   │   └── {unit-name}.md       # Unit verification - heading depth ###
 │   └── {unit-name}.md           # System-level unit verification - heading depth ##
 └── ots/                         # OTS items - parallel to system folders (not inside them)
-    └── {ots-name}.md            # OTS item verification evidence
+    └── {ots-name}.md            # OTS item verification evidence - heading depth ##
 ```
 
 Each scope's overview file lives in its **parent** folder, not inside the scope's own

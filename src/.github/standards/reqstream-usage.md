@@ -33,9 +33,9 @@ docs/reqstream/
     └── {ots-name}.yaml              # Requirements for OTS components
 ```
 
-This mirrors the `docs/design/` and `docs/verification/` folder structures exactly —
-each item's requirements, design, and verification files share the same relative path
-under their respective roots, making artifact locations deterministic.
+In-house items have matching relative paths across `docs/reqstream/`, `docs/design/`, and
+`docs/verification/`. OTS items appear only in `docs/reqstream/ots/` and
+`docs/verification/ots/` - they have no design documentation.
 
 # Requirements File Format
 
@@ -67,7 +67,7 @@ sections:
     sections:
       - title: System.Text.Json
         requirements:
-          - id: TemplateTool-SystemTextJson-ReadJson
+          - id: SystemTextJson-Core-ReadJson
             title: System.Text.Json shall be able to read JSON files.
             tests:
               - JsonReaderTests.TestReadValidJson

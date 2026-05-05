@@ -141,7 +141,7 @@ OTS items have no design documentation; their artifacts sit parallel to system f
 
 - Requirements: `docs/reqstream/ots/{ots-name}.yaml`
 - Verification: `docs/verification/ots/{ots-name}.md`
-- Tests (optional): `test/{OtsSoftwareTests}/{OtsName}Tests.{ext}` (cased per language, if integration tests are required)
+- Tests (optional): `test/...` using the language-specific test path and file naming convention for the integration test software item (see `software-items.md`)
 
 Review-sets: defined in `.reviewmark.yaml`
 ```

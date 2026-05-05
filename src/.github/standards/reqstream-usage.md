@@ -35,7 +35,7 @@ docs/reqstream/
 
 In-house items have matching relative paths across `docs/reqstream/`, `docs/design/`, and
 `docs/verification/`. OTS items appear only in `docs/reqstream/ots/` and
-`docs/verification/ots/` — they have no design documentation.
+`docs/verification/ots/` - they have no design documentation.
 
 # Requirements File Format
 

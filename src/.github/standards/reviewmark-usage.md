@@ -69,9 +69,9 @@ reviews:
     paths:
       - "README.md"
       - "docs/user_guide/**/*.md"
-      - "docs/reqstream/{system-name}/{system-name}.yaml"
+      - "docs/reqstream/{system-name}.yaml"
       - "docs/design/introduction.md"
-      - "docs/design/{system-name}/{system-name}.md"
+      - "docs/design/{system-name}.md"
 ```
 
 # Review-Set Design Principles
@@ -151,7 +151,6 @@ Reviews requirements quality and traceability:
   - Root requirements: `requirements.yaml`
   - System requirements: `docs/reqstream/{system-name}.yaml`
   - Subsystem/unit requirements: `docs/reqstream/{system-name}/**/*.yaml`
-  - OTS requirements: `docs/reqstream/ots/**/*.yaml` (if applicable)
 
 ## `{System}-{Subsystem[-Child...]}` Review (one per subsystem at any depth)
 

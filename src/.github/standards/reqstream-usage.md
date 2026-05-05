@@ -33,7 +33,7 @@ docs/reqstream/
     └── {ots-name}.yaml              # Requirements for OTS components
 ```
 
-This mirrors the `docs/design/` and `docs/verification/` folder structures exactly —
+This mirrors the `docs/design/` and `docs/verification/` folder structures exactly -
 each item's requirements, design, and verification files share the same relative path
 under their respective roots, making artifact locations deterministic.
 

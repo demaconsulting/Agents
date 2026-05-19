@@ -11,7 +11,7 @@ requirements management approach, testing strategy, and review scope.
 
 # Software Item Categories
 
-Categorize all software into five primary groups:
+Categorize all software into six primary groups:
 
 - **Software Package**: Distributable unit delivered to end users or dependent
   systems, containing one software system with all its components. All software

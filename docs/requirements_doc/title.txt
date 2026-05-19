@@ -1,0 +1,9 @@
+---
+title: "{ProjectName} Requirements Document"
+subtitle: "TODO: Add subtitle"
+author: "TODO: Add organization name"
+description: "Requirements Document for {ProjectName}"
+lang: en-US
+keywords:
+  - Requirements
+---

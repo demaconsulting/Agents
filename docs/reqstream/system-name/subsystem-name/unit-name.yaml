@@ -1,0 +1,12 @@
+---
+# {UnitName} unit requirements
+# TODO: Replace {SystemName} / {SubsystemName} / {UnitName} with your names.
+sections:
+  - title: '{UnitName} Requirements'
+    requirements:
+      - id: SystemName-SubsystemName-UnitName-Feature
+        title: 'TODO: {UnitName} shall {observable behavior}.'
+        justification: |
+          TODO: Explain how this decomposes the parent subsystem requirement.
+        tests:
+          - UnitName_MethodUnderTest_Scenario_ExpectedBehavior

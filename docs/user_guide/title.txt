@@ -1,0 +1,9 @@
+---
+title: "{ProjectName} User Guide"
+subtitle: "TODO: Add subtitle"
+author: "TODO: Add organization name"
+description: "User Guide for {ProjectName}"
+lang: en-US
+keywords:
+  - User Guide
+---

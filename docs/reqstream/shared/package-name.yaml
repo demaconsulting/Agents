@@ -1,0 +1,14 @@
+---
+# {PackageName} Shared Package requirements
+# TODO: Replace {PackageName} / {package-name} with the shared package name.
+sections:
+  - title: Shared Package Requirements
+    sections:
+      - title: '{PackageName}'
+        requirements:
+          - id: PackageName-Core-Feature
+            title: 'TODO: {PackageName} shall {advertised feature}.'
+            justification: |
+              TODO: Explain which local system capability depends on this advertised feature.
+            tests:
+              - PackageName_Functionality_Scenario_ExpectedBehavior

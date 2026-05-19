@@ -1,0 +1,32 @@
+---
+# {SystemName} platform requirements
+# TODO: Replace {SystemName} with your system name.
+sections:
+  - title: Platform Support
+    requirements:
+      - id: SystemName-Platform-Windows
+        title: The {SystemName} shall run on Windows operating systems.
+        justification: |
+          TODO: Explain the Windows platform dependency.
+        # Test source pattern "windows@" ensures these tests ran on Windows.
+        # This filtering is necessary to prove Windows OS functionality.
+        tests:
+          - windows@SystemName_Functionality_Scenario_ExpectedBehavior
+
+      - id: SystemName-Platform-Ubuntu
+        title: The {SystemName} shall run on Ubuntu operating systems.
+        justification: |
+          TODO: Explain the Ubuntu/Linux platform dependency.
+        # Test source pattern "ubuntu@" ensures these tests ran on Linux.
+        # This filtering is necessary to prove Linux OS functionality.
+        tests:
+          - ubuntu@SystemName_Functionality_Scenario_ExpectedBehavior
+
+      - id: SystemName-Platform-DotNet10
+        title: The {SystemName} shall support the .NET 10.0 runtime.
+        justification: |
+          TODO: Explain the .NET 10.0 runtime dependency.
+        # Test source pattern "dotnet10.x@" ensures these tests ran on .NET 10.0.
+        # This filtering is necessary to prove .NET 10.0 runtime support.
+        tests:
+          - dotnet10.x@SystemName_Functionality_Scenario_ExpectedBehavior

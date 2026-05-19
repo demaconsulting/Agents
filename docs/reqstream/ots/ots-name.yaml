@@ -1,0 +1,14 @@
+---
+# {OtsName} OTS requirements
+# TODO: Replace {OtsName} with the OTS item name.
+sections:
+  - title: OTS Software Requirements
+    sections:
+      - title: '{OtsName}'
+        requirements:
+          - id: OtsName-Core-Feature
+            title: 'TODO: {OtsName} shall {required functionality}.'
+            justification: |
+              TODO: Explain why this OTS functionality is required by the local system.
+            tests:
+              - OtsName_Functionality_Scenario_ExpectedBehavior

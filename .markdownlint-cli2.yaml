@@ -1,0 +1,31 @@
+---
+# Markdown Linting Configuration
+#
+# DO NOT MODIFY: These rules represent coding standards.
+ignores:
+  - '**/node_modules/**'
+  - '**/.git/**'
+  - '**/.agent-logs/**'
+  - '**/generated/**'
+  - '**/.venv/**'
+config:
+  # Require ATX-style headers
+  MD003:
+    style: atx
+
+  # Consistent unordered list markers
+  MD004:
+    style: dash
+
+  # Line length - disabled (no limit enforced)
+  MD013: false
+
+  # Allow inline HTML (XML comments used in templates)
+  MD033: false
+
+  # Disable first-line-heading: this project uses the "fragment markdown" method where
+  # subsystem, unit, OTS, and shared-package files intentionally start with ## or  ###
+  # (not  #) because they are assembled by Pandoc into a single document via definition.yaml.
+  # In the assembled document the heading hierarchy is correct; markdownlint sees fragments
+  # in isolation and would otherwise raise false positives on every sub-document file.
+  MD041: false

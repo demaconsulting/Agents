@@ -1,0 +1,9 @@
+---
+title: "{ProjectName} Code Review Plan"
+subtitle: "TODO: Add subtitle"
+author: "TODO: Add organization name"
+description: "Code Review Plan for {ProjectName}"
+lang: en-US
+keywords:
+  - Code Review
+---

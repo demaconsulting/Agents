@@ -1,0 +1,10 @@
+---
+title: "{ProjectName} Requirements Traceability Report"
+subtitle: "TODO: Add subtitle"
+author: "TODO: Add organization name"
+description: "Requirements Traceability Report for {ProjectName}"
+lang: en-US
+keywords:
+  - Requirements
+  - Traceability
+---

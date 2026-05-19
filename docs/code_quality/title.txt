@@ -1,0 +1,10 @@
+---
+title: "{ProjectName} Code Quality Report"
+subtitle: "TODO: Add subtitle"
+author: "TODO: Add organization name"
+description: "Code Quality Report for {ProjectName}"
+lang: en-US
+keywords:
+  - Code Quality
+  - Static Analysis
+---

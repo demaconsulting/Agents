@@ -1,0 +1,10 @@
+---
+title: "{ProjectName} Verification Design Document"
+subtitle: "TODO: Add subtitle"
+author: "TODO: Add organization name"
+description: "Verification Design Document for {ProjectName}"
+lang: en-US
+keywords:
+  - Verification
+  - Testing
+---

@@ -1,0 +1,9 @@
+---
+title: "{ProjectName} Build Notes"
+subtitle: "TODO: Add subtitle"
+author: "TODO: Add organization name"
+description: "Build Notes for {ProjectName}"
+lang: en-US
+keywords:
+  - Build Notes
+---

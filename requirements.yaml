@@ -1,0 +1,11 @@
+---
+# Root requirements file
+# TODO: Replace {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {package-name}
+# with your actual names (kebab-case). Add or remove lines to match your structure.
+includes:
+  - docs/reqstream/system-name.yaml
+  - docs/reqstream/system-name/platform-requirements.yaml
+  - docs/reqstream/system-name/subsystem-name.yaml
+  - docs/reqstream/system-name/subsystem-name/unit-name.yaml
+  - docs/reqstream/ots/ots-name.yaml
+  - docs/reqstream/shared/package-name.yaml

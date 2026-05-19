@@ -1,0 +1,10 @@
+---
+title: "{ProjectName} Software Design Document"
+subtitle: "TODO: Add subtitle"
+author: "TODO: Add organization name"
+description: "Software Design Document for {ProjectName}"
+lang: en-US
+keywords:
+  - Design
+  - Software Design Document
+---

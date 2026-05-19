@@ -96,7 +96,7 @@ Priority-ordered list of issues that MUST be resolved for the next retry:
 
 ## Software Item Completeness: (PASS|FAIL|N/A)
 
-Load `software-items.md` before evaluating this section.
+- Load `software-items.md` before evaluating this section.
 
 - Does every identified software unit have its own requirements file?
 - Does every identified software unit have its own design document?
@@ -105,7 +105,7 @@ Load `software-items.md` before evaluating this section.
 
 ## Repository Structure Compliance: (PASS|FAIL|N/A)
 
-Load `repository-structure.md` before evaluating this section.
+- Load `repository-structure.md` before evaluating this section.
 
 - Are parallel artifact trees in sync (reqstream/design/verification/src/test)?
 - Does the repository conform to `repository-structure.md`?

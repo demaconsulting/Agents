@@ -5,7 +5,7 @@
      (## = one folder deep, ### = two folders deep, etc.). -->
 
 <!-- All sections below are MANDATORY. If a section does not apply, write
-     "N/A — {justification}" rather than removing it. -->
+     "N/A - {justification}" rather than removing it. -->
 
 #### Verification Approach
 
@@ -15,7 +15,7 @@ State which dependencies are injected vs. real. -->
 #### Test Environment
 
 <!-- TODO: Describe any environment setup specific to this unit's tests.
-If standard project test runner is sufficient, write "N/A — standard dotnet test environment". -->
+If standard project test runner is sufficient, write "N/A - standard dotnet test environment". -->
 
 #### Acceptance Criteria
 

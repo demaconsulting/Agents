@@ -1,6 +1,6 @@
 ## {OtsName}
 
-<!-- TODO: Replace {OtsName} with the OTS item name. Heading depth ## — one folder deep. -->
+<!-- TODO: Replace {OtsName} with the OTS item name. Heading depth ## - one folder deep. -->
 
 ### Verification Approach
 

@@ -5,7 +5,7 @@
      (## = one folder deep, ### = two folders deep, etc.). -->
 
 <!-- All sections below are MANDATORY. If a section does not apply, write
-     "N/A — {justification}" rather than removing it. -->
+     "N/A - {justification}" rather than removing it. -->
 
 ### Overview
 
@@ -19,5 +19,5 @@ and what it consumes from other subsystems or OTS items. -->
 
 ### Design
 
-<!-- TODO: Describe the subsystem's internal design — how its units collaborate to fulfill
+<!-- TODO: Describe the subsystem's internal design - how its units collaborate to fulfill
 the subsystem's responsibilities. -->

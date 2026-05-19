@@ -5,7 +5,7 @@
      (## = one folder deep, ### = two folders deep, etc.). -->
 
 <!-- All sections below are MANDATORY. If a section does not apply, write
-     "N/A — {justification}" rather than removing it. -->
+     "N/A - {justification}" rather than removing it. -->
 
 #### Purpose
 
@@ -14,7 +14,7 @@
 #### Data Model
 
 <!-- TODO: Describe the unit's state: fields, properties, their types and invariants.
-(IEC 62304 §5.4.2 — data structures are explicitly required.) -->
+(IEC 62304 §5.4.2 - data structures are explicitly required.) -->
 
 #### Key Methods
 

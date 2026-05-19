@@ -1,6 +1,6 @@
 ## {PackageName}
 
-<!-- TODO: Replace {PackageName} with the shared package name. Heading depth ## — one folder deep. -->
+<!-- TODO: Replace {PackageName} with the shared package name. Heading depth ## - one folder deep. -->
 
 ### Verification Approach
 

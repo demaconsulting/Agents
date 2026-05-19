@@ -1,9 +1,9 @@
 # {SystemName}
 
-<!-- TODO: Replace {SystemName} with your system name. Top-level heading (#) — collection root. -->
+<!-- TODO: Replace {SystemName} with your system name. Top-level heading (#) - collection root. -->
 
 <!-- All sections below are MANDATORY. If a section does not apply, write
-     "N/A — {justification}" rather than removing it. -->
+     "N/A - {justification}" rather than removing it. -->
 
 ## Verification Strategy
 
@@ -25,7 +25,7 @@ no unresolved anomalies of severity X or above. -->
 
 <!-- TODO: For each system-level requirement, name the test scenario(s) that cover it.
 Example:
-- **{SystemName}-Core-{Feature}**: *{ScenarioName}* — verifies that {observable outcome}. -->
+- **{SystemName}-Core-{Feature}**: *{ScenarioName}* - verifies that {observable outcome}. -->
 
 ## Requirements Coverage
 

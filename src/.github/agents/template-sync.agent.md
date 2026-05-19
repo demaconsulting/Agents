@@ -25,12 +25,14 @@ Do not perform any file comparison yourself - delegate each group to a sub-agent
 Divide the requested scope into these natural groups:
 
 - **Root config files** - all non-collection files at the repository root
-- **Each flat `docs/` collection** - one group per folder (`docs/build_notes/`,
-  `docs/user_guide/`, `docs/code_quality/`, etc.)
-- **Each system subtree in `docs/design/`** - one group per system
-  (e.g. `docs/design/system-name/` and its descendants)
-- **Each system subtree in `docs/verification/`** - one group per system
-- **Each system subtree in `docs/reqstream/`** - one group per system
+- **One group per flat `docs/` collection folder** - e.g. `docs/build_notes/`,
+  `docs/user_guide/`, `docs/code_quality/` are each a separate group
+- **One group per system subtree in `docs/design/`** - e.g. `docs/design/system-name/`
+  and its descendants is one group
+- **One group per system subtree in `docs/verification/`** - e.g. `docs/verification/system-name/`
+  and its descendants is one group
+- **One group per system subtree in `docs/reqstream/`** - e.g. `docs/reqstream/system-name/`
+  and its descendants is one group
 
 # Orchestration
 

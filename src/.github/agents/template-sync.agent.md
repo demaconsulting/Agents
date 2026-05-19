@@ -7,45 +7,60 @@ user-invocable: true
 
 # Template Sync Agent
 
-Read `repository-structure.md` first - it defines the complete file inventory and
-placeholder naming conventions. Fetch template counterparts from:
-`https://github.com/demaconsulting/Agents/raw/refs/heads/template/{path}`
+This agent is an orchestrator. It supports three modes:
 
-Map each project file to its template by substituting project-specific names with
-placeholder names at matching path depth (e.g. `{SystemName}` → `SystemName`,
-`{system-name}` → `system-name`).
+- **Audit** - compares local files against their canonical template counterparts
+  and reports missing sections or heading-depth mismatches without modifying anything
+- **Sync** - performs an audit, then inserts any missing sections with TODO
+  placeholders in place, and runs `fix.ps1`
+- **Create** - fetches the template counterpart for each file in scope and writes
+  it to the target path with placeholder names substituted
 
-**NEVER overwrite or remove existing content** - project-specific content cannot be
-recovered if lost.
+Read `.github/standards/repository-structure.md` to understand the full repository
+structure, then map the user's requested file or glob onto the work groups below.
+Do not perform any file comparison yourself - delegate each group to a sub-agent.
 
-# Heading Depth
+# Work Groups
 
-Adjust all headings to match the target file's folder depth under the collection root:
+Divide the requested scope into these natural groups:
 
-| Depth | Top heading | Subsections |
-| --- | --- | --- |
-| 0 | `#` | `##`, `###`, ... |
-| 1 | `##` | `###`, `####`, ... |
-| 2 | `###` | `####`, `#####`, ... |
+- **Root config files** - all non-collection files at the repository root
+- **Each flat `docs/` collection** - one group per folder (`docs/build_notes/`,
+  `docs/user_guide/`, `docs/code_quality/`, etc.)
+- **Each system subtree in `docs/design/`** - one group per system
+  (e.g. `docs/design/system-name/` and its descendants)
+- **Each system subtree in `docs/verification/`** - one group per system
+- **Each system subtree in `docs/reqstream/`** - one group per system
 
-# Modes
+# Orchestration
 
-## Audit
+For each group that intersects the requested scope, call a sub-agent with:
 
-1. Identify template counterpart; fetch it - if fetch fails, report and skip
-2. Compare headings: report missing sections and heading-depth mismatches
+- **context**:
+  - The assigned group scope (e.g. `docs/build_notes/` or `docs/design/system-name/`)
+  - Template counterparts are fetched from
+    `https://github.com/demaconsulting/Agents/raw/refs/heads/template/{path}`
+    where `{path}` is the file's path relative to the repository root
+  - Project-specific names map to placeholder names at matching path depth
+    (e.g. `SystemName` → `{SystemName}`, `system-name` → `{system-name}`)
+  - **NEVER overwrite or remove existing content** - project-specific content
+    cannot be recovered if lost
+- **goal** — select based on the requested mode:
+  - **Audit**: read `.github/standards/repository-structure.md` for full
+    structural context, then identify the files within the assigned scope,
+    fetch each template counterpart (skip and report if fetch fails); compare
+    headings and report any missing sections or heading-depth mismatches; return
+    a per-file result
+  - **Sync**: as Audit, then insert any missing sections with their TODO
+    placeholders at the correct position following any special instructions in
+    the template, run `pwsh ./fix.ps1`, and return a per-file result
+  - **Create**: read `.github/standards/repository-structure.md` for full
+    structural context, then identify the files that should exist within the
+    assigned scope, fetch each template counterpart, follow any special
+    instructions in the template, substitute placeholder names, write to the
+    target path, and return a per-file result
 
-## Sync
-
-1. Audit as above
-2. Insert missing sections with their TODO placeholders at the correct position,
-   adjusted for heading depth
-3. Run `pwsh ./fix.ps1`
-
-## Create
-
-1. Fetch template; substitute placeholder names; adjust heading depth
-2. Write to target path
+Collect the results from all sub-agents and assemble the final report.
 
 # Report Template
 

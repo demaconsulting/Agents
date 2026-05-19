@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document is the user guide for DEMA Agents — the shared agent definitions
+This document is the user guide for DEMA Agents - the shared agent definitions
 and coding standards used across DEMA Consulting repositories.
 
 ## Scope
@@ -22,9 +22,9 @@ what standards to apply, and how to delegate work to specialized sub-agents.
 
 DEMA Agents provides:
 
-- **`AGENTS.md`** — top-level instructions loaded by every agent
-- **`.github/agents/`** — specialized agent prompts for specific workflows
-- **`.github/standards/`** — detailed coding and documentation standards
+- **`AGENTS.md`** - top-level instructions loaded by every agent
+- **`.github/agents/`** - specialized agent prompts for specific workflows
+- **`.github/standards/`** - detailed coding and documentation standards
 
 # Installation
 
@@ -43,6 +43,7 @@ AGENTS.md
         lint-fix.agent.md
         quality.agent.md
         software-architect.agent.md
+        template-sync.agent.md
     standards/
         coding-principles.md
         cpp-language.md
@@ -68,9 +69,9 @@ and the coding standards in `.github/standards/`.
 After extracting the files, open `AGENTS.md` and update the following
 template placeholders with values specific to the target repository:
 
-- **Project Overview** — replace the `TODO` values for `name`, `description`,
+- **Project Overview** - replace the `TODO` values for `name`, `description`,
   `languages`, and `technologies`
-- **Project Structure** — replace `{project}` and `{test-project}` with the
+- **Project Structure** - replace `{project}` and `{test-project}` with the
   actual source and test project folder names
 
 # Available Agents
@@ -86,7 +87,7 @@ to a work item or issue ticket.
 **When to use:** Beginning a new project, designing a new system or subsystem,
 or capturing architectural decisions before implementation begins.
 
-**Invoke with:** `@software-architect` — then answer its questions.
+**Invoke with:** `@software-architect` - then answer its questions.
 
 ## implementation
 
@@ -116,13 +117,38 @@ the review checklist, or verifying a release candidate.
 **Output:** A populated review report at
 `.agent-logs/reviews/review-report-<review-set>.md`.
 
+## template-sync
+
+An agent that audits or synchronizes repository files against the canonical
+template maintained at
+[DEMA Agents `template` branch](https://github.com/demaconsulting/Agents/tree/template).
+It compares headings and structure, reports missing sections, and can insert
+them with TODO placeholders or create new files from scratch.
+
+**When to use:** Checking whether existing documentation files conform to the
+standard template structure, remediating drift after a template update, or
+creating new documentation files from the canonical starting point.
+
+**Modes:**
+
+- **Audit** - reports missing sections and heading-depth mismatches without
+  modifying files
+- **Sync** - inserts missing sections (with TODO placeholders) at the correct
+  position, then runs `fix.ps1`
+- **Create** - fetches the template counterpart, substitutes placeholder names,
+  and writes the file to the target path
+
+**Invoke with:** `@template-sync audit|sync|create <file-or-glob>`
+
+**Output:** A saved report at `.agent-logs/template-sync-<subject>-<id>.md`.
+
 ## Other Agents
 
 | Agent | Purpose |
 | ----- | ------- |
-| `developer` | General-purpose development — applies the right standards for the detected languages and file types |
+| `developer` | General-purpose development - applies the right standards for the detected languages and file types |
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
-| `lint-fix` | Pre-PR sweep — loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
+| `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
 
 # Coding Standards
 
@@ -144,6 +170,7 @@ based on the type of work being performed:
 | `verification-documentation.md` | Verification design documentation |
 | `reviewmark-usage.md` | Review configuration with ReviewMark |
 | `technical-documentation.md` | Any documentation |
+| `repository-structure.md` | Structural audit or creating new items across artifact trees |
 
 # Continuous Compliance
 

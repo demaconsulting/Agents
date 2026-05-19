@@ -8,9 +8,9 @@ distributed to DEMA Consulting repositories via release zip.
 The distributable files live in `src/` and are packaged into a release zip
 on each release:
 
-- **`src/AGENTS.md`** — top-level instructions loaded by every agent
-- **`src/.github/agents/`** — specialized agent prompts for specific workflows
-- **`src/.github/standards/`** — detailed coding and documentation standards
+- **`src/AGENTS.md`** - top-level instructions loaded by every agent
+- **`src/.github/agents/`** - specialized agent prompts for specific workflows
+- **`src/.github/standards/`** - detailed coding and documentation standards
 
 See the [User Guide](docs/user_guide/introduction.md) for full documentation
 on available agents, standards, and installation instructions.
@@ -34,7 +34,7 @@ An interactive interviewing agent that helps you design software architecture
 collaboratively. After the interview it produces a standalone `architecture.md`
 document in the current working directory.
 
-**Invoke with:** `@software-architect` — then answer its questions.
+**Invoke with:** `@software-architect` - then answer its questions.
 
 ### `implementation`
 
@@ -56,9 +56,9 @@ producing a populated review report saved to `.agent-logs/reviews/`.
 
 | Agent | Purpose |
 | ----- | ------- |
-| `developer` | General-purpose development — applies the right standards for the detected languages and file types |
+| `developer` | General-purpose development - applies the right standards for the detected languages and file types |
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
-| `lint-fix` | Pre-PR sweep — loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
+| `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
 
 ## License
 

@@ -4,9 +4,7 @@ description: Follow these standards when creating design documentation.
 globs: ["docs/design/**/*.md"]
 ---
 
-# Design Documentation Standards
-
-## Required Standards
+# Required Standards
 
 - **`technical-documentation.md`** - General technical documentation standards
 - **`software-items.md`** - Software categorization (System/Subsystem/Unit/OTS/Shared Package)

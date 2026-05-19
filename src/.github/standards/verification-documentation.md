@@ -4,9 +4,7 @@ description: Follow these standards when creating software verification design d
 globs: ["docs/verification/**/*.md"]
 ---
 
-# Verification Documentation Standards
-
-## Required Standards
+# Required Standards
 
 - **`technical-documentation.md`** - General technical documentation standards
 - **`software-items.md`** - Software categorization (System/Subsystem/Unit/OTS/Shared Package)

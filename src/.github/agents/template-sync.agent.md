@@ -12,7 +12,7 @@ This agent is an orchestrator. It supports three modes:
 - **Audit** - compares local files against their canonical template counterparts
   and reports missing sections or heading-depth mismatches without modifying anything
 - **Sync** - performs an audit, then inserts any missing sections with TODO
-  placeholders in place, and runs `fix.ps1`
+  placeholders in place, and runs `pwsh ./fix.ps1`
 - **Create** - fetches the template counterpart for each file in scope and writes
   it to the target path with placeholder names substituted
 

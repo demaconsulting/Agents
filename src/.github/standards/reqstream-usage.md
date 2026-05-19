@@ -29,8 +29,8 @@ docs/reqstream/
 │   │   ├── {child-subsystem}/       # Child subsystem folder
 │   │   └── {unit-name}.yaml         # Unit requirements
 │   └── {unit-name}.yaml             # System-level unit requirements
-└── ots/                             # OTS items appear as a distinct section in reports
-    └── {ots-name}.yaml              # Requirements for OTS components
+├── ots/                             # OTS items appear as a distinct section in reports
+│   └── {ots-name}.yaml              # Requirements for OTS components
 └── shared/                          # Shared Packages appear as a distinct section in reports
     └── {package-name}.yaml          # Requirements for Shared Package dependencies
 ```

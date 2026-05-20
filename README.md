@@ -40,8 +40,9 @@ pwsh ./build.ps1
 ## User Guide
 
 <!-- TODO: Replace {org}/{repo} with your GitHub organization and repository name.
-     Do not link to source files in docs/ — the User Guide is a compiled PDF published
-     with each release. -->
+     The link to the releases page below is the only link needed — do not add any additional
+     links. In particular, do not link to individual source files in docs/ as these are source
+     chapters for a compiled PDF and are not useful as standalone documents. -->
 
 See the [{ProjectName} User Guide](https://github.com/{org}/{repo}/releases) for full documentation.
 

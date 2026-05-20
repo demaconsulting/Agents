@@ -19,5 +19,6 @@ and what it consumes from other subsystems or OTS items. -->
 
 ### Design
 
-<!-- TODO: Describe the subsystem's internal design - how its units collaborate to fulfill
-the subsystem's responsibilities. -->
+<!-- TODO: Describe how the units (and any child subsystems) assemble to fulfill this subsystem's
+responsibilities. There is no subsystem-level code — describe the flow of data and control
+between units and how their collaboration delivers the subsystem's behaviour. -->

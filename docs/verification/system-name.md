@@ -7,8 +7,10 @@
 
 ## Verification Strategy
 
-<!-- TODO: Describe the overall approach: what types of tests are used (unit, integration,
-end-to-end), what test framework is used, and how the test project is structured. -->
+<!-- TODO: Describe the overall approach: system tests verify the emergent behaviour of the
+assembled subsystems and units — there is no system-level code. Describe what types of tests
+are used (integration, end-to-end), what test framework is used, and how the test project
+is structured. -->
 
 ## Test Environment
 

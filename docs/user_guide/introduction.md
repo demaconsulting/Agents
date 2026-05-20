@@ -15,10 +15,8 @@ This guide describes how to install, configure, and use {ProjectName}.
 
 ## References
 
-<!-- TODO: List references to related documents and external standards.
+<!-- TODO: Replace this comment with references to related documents and external standards.
      - External links must be absolute URLs.
      - References to other project documents (compiled PDFs) should link to
        https://github.com/{org}/{repo}/releases — do not link to source files in docs/.
-     If there are no references, leave this section as N/A. -->
-
-N/A
+     If there are no references, replace this comment with: N/A -->

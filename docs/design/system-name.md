@@ -7,8 +7,9 @@
 
 ## Architecture
 
-<!-- TODO: Describe the overall system architecture. What are the major software items
-(subsystems and units) and how do they relate? Include a Mermaid diagram if it aids clarity. -->
+<!-- TODO: Describe the system's architecture: the subsystems and units it contains and how they
+are organised. There is no system-level code — a system is purely a collection of subsystems
+and units. Include a Mermaid diagram if it aids clarity. -->
 
 ## External Interfaces
 

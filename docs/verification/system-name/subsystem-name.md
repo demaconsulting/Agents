@@ -9,8 +9,10 @@
 
 ### Verification Strategy
 
-<!-- TODO: Describe the subsystem verification approach: integration tests, what is mocked
-at the subsystem boundary, and what external dependencies are stubbed. -->
+<!-- TODO: Describe the subsystem verification approach: subsystem tests verify the emergent
+behaviour of the assembled units (and any child subsystems) — there is no subsystem-level
+code. Describe what is mocked at the subsystem boundary and what external dependencies
+are stubbed. -->
 
 ### Test Environment
 

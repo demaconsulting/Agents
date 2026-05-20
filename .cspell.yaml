@@ -8,8 +8,11 @@
 # - Misspelled words should be fixed in the source
 # - NEVER add a misspelled word to the 'words' list
 # - PROPOSE only genuine technical terms/names as needed
+
 version: '0.2'
+
 language: en
+
 # TODO: Add project-specific technical terms and tool names
 words:
   - buildmark
@@ -27,6 +30,7 @@ words:
   - xunit
   - Xunit
   - yamlfix
+
 ignorePaths:
   - '**/.git/**'
   - '**/node_modules/**'

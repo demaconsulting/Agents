@@ -17,7 +17,7 @@ any external services, files, or configuration needed. -->
 
 ## Acceptance Criteria
 
-<!-- TODO: State what constitutes a passing system test (IEC 62304 §5.7.2).
+<!-- TODO: State what constitutes a passing system test.
 Example: all automated tests pass with zero failures; code coverage meets minimum threshold;
 no unresolved anomalies of severity X or above. -->
 

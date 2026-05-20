@@ -3,19 +3,22 @@
 <!-- TODO: Replace {ProjectName} with your project/repo name, and {SystemName} with each
 individual system name. A project may contain multiple systems. -->
 
-This document describes how each requirement for {ProjectName} is verified.
+This document describes how each software item in {ProjectName} is verified.
 
 ## Purpose
 
-<!-- TODO: State the purpose: this document bridges requirements and tests, naming test scenarios
-and mapping each requirement to at least one named test so reviewers can confirm completeness
-without reading test code. -->
+<!-- TODO: State the purpose: this document defines the verification approach for each software
+     item — local items (systems, subsystems, and units), OTS software items, and shared packages.
+     For each item, name the test scenarios that verify its requirements. For OTS items, state
+     whether verification uses authored integration tests or external evidence (e.g. vendor test
+     results, published compliance reports). A reviewer should be able to confirm coverage
+     completeness without reading test code. -->
 
 ## Scope
 
-<!-- TODO: List all software items whose verification is covered here (systems, subsystems, units).
-Also list OTS items and Shared Packages covered.
-State what is out of scope (test infrastructure, build pipeline). -->
+<!-- TODO: List all software items covered: local items (systems, subsystems, and units), OTS
+     software items, and shared packages. State what is out of scope (e.g. test infrastructure,
+     build pipeline). -->
 
 ## Companion Artifact Structure
 
@@ -43,4 +46,11 @@ Review-sets: defined in `.reviewmark.yaml`
 
 ## References
 
-<!-- TODO: Add external references if applicable. Remove section if none. -->
+<!-- TODO: List references to related documents and external standards.
+     - External links must be absolute URLs.
+     - References to other project documents should be by document name only
+       (e.g., "{ProjectName} Design Document"), not relative file links, as this
+       document is compiled to PDF.
+     If there are no references, leave this section as N/A. -->
+
+N/A

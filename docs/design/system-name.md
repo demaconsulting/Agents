@@ -25,8 +25,8 @@ Example:
 
 ## Risk Control Measures
 
-<!-- TODO: Identify any software items that must be segregated from each other for risk control
-(IEC 62304 §5.3.3). Describe isolation mechanisms (e.g., separate processes, memory boundaries,
+<!-- TODO: Identify any software items that must be segregated from each other for risk control.
+Describe isolation mechanisms (e.g., separate processes, memory boundaries,
 access restrictions). If no risk control segregation is required, write "N/A - {justification}". -->
 
 ## Data Flow

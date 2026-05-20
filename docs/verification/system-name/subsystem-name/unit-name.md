@@ -15,11 +15,11 @@ State which dependencies are injected vs. real. -->
 #### Test Environment
 
 <!-- TODO: Describe any environment setup specific to this unit's tests.
-If standard project test runner is sufficient, write "N/A - standard dotnet test environment". -->
+If the standard project test runner is sufficient, write "N/A - standard test environment". -->
 
 #### Acceptance Criteria
 
-<!-- TODO: State what constitutes a passing unit test (IEC 62304 §5.5.2).
+<!-- TODO: State what constitutes a passing unit test.
 Example: all unit tests pass; all requirements have at least one passing test scenario. -->
 
 #### Test Scenarios

@@ -15,5 +15,11 @@ This guide describes how to install, configure, and use {ProjectName}.
 
 ## References
 
-<!-- TODO: Add references to external standards, related documents, or specifications. -->
-<!-- Remove this section if there are no external references. -->
+<!-- TODO: List references to related documents and external standards.
+     - External links must be absolute URLs.
+     - References to other project documents should be by document name only
+       (e.g., "{ProjectName} Design Document"), not relative file links, as this
+       document is compiled to PDF.
+     If there are no references, leave this section as N/A. -->
+
+N/A

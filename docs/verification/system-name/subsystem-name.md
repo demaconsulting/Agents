@@ -15,11 +15,11 @@ at the subsystem boundary, and what external dependencies are stubbed. -->
 ### Test Environment
 
 <!-- TODO: Describe any environment setup specific to this subsystem's tests.
-If standard project test runner is sufficient, write "N/A - standard dotnet test environment". -->
+If the standard project test runner is sufficient, write "N/A - standard test environment". -->
 
 ### Acceptance Criteria
 
-<!-- TODO: State what constitutes a passing subsystem test (IEC 62304 §5.5.2).
+<!-- TODO: State what constitutes a passing subsystem test.
 Example: all integration tests pass; all mocked boundaries behave as documented. -->
 
 ### Test Scenarios

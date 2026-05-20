@@ -3,17 +3,21 @@
 <!-- TODO: Replace {ProjectName} with your project/repo name, and {SystemName} with each
 individual system name. A project may contain multiple systems. -->
 
-<!-- TODO: Write a brief paragraph describing what this software does. -->
+<!-- TODO: Write a brief paragraph describing what this software does and how it is structured —
+     local items (systems, subsystems, and units), OTS software items, and shared packages. -->
 
 ## Purpose
 
-<!-- TODO: State the purpose of this design document: who reads it, what decisions it supports,
-and any regulatory or compliance drivers. -->
+<!-- TODO: State the purpose: this document defines the design for each software item — full
+     architectural and detailed design for local items (systems, subsystems, and units), and
+     integration/usage design for OTS software items and shared packages. A reviewer should be
+     able to understand how each item satisfies its requirements without reading source code. -->
 
 ## Scope
 
-<!-- TODO: List all software items covered (systems, subsystems, units).
-List what is explicitly excluded (test projects, build pipeline, OTS internals). -->
+<!-- TODO: List all software items covered: local items (systems, subsystems, and units), OTS
+     software items, and shared packages. State what is out of scope (e.g. test projects,
+     build pipeline, the internal design of OTS items). -->
 
 ## Software Structure
 
@@ -76,5 +80,11 @@ Review-sets: defined in `.reviewmark.yaml`
 
 ## References
 
-<!-- TODO: Add references to external specifications, standards, or program documents.
-Remove this section if there are no external references. -->
+<!-- TODO: List references to related documents and external standards.
+     - External links must be absolute URLs.
+     - References to other project documents should be by document name only
+       (e.g., "{ProjectName} Requirements Document"), not relative file links, as this
+       document is compiled to PDF.
+     If there are no references, leave this section as N/A. -->
+
+N/A

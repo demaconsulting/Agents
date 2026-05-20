@@ -13,8 +13,7 @@
 
 #### Data Model
 
-<!-- TODO: Describe the unit's state: fields, properties, their types and invariants.
-(IEC 62304 §5.4.2 - data structures are explicitly required.) -->
+<!-- TODO: Describe the unit's state: fields, properties, their types and invariants. -->
 
 #### Key Methods
 

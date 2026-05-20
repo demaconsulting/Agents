@@ -17,8 +17,3 @@ Do not document features that are not consumed by the local system. -->
 
 <!-- TODO: How is this OTS item integrated? (direct API calls, wrapper class, configuration, etc.)
 Note any initialization, configuration, or disposal requirements. -->
-
-### Version Constraints
-
-<!-- TODO: State any version requirements or constraints.
-Note any known limitations or behavior quirks relevant to local usage. -->

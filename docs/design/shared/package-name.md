@@ -16,5 +16,6 @@ Describe how local systems interact with the package's public API. -->
 
 ### Assumptions
 
-<!-- TODO: What assumptions does the local system make about this package's behavior?
-Note any version constraints or compatibility requirements. -->
+<!-- TODO: What assumptions does the local system make about this package's behaviour?
+Note any behavioural assumptions relevant to the integration design. Do not record version
+numbers — version information is managed in SBOMs outside of design documentation. -->

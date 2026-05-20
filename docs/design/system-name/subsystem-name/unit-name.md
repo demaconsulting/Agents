@@ -25,7 +25,12 @@ postconditions, and parameter types. -->
 <!-- TODO: Describe how this unit detects and handles error conditions: invalid inputs,
 failed dependencies, exceptional states. Document what errors are propagated vs. handled locally. -->
 
-#### Interactions
+#### Dependencies
 
-<!-- TODO: Which other units, subsystems, or OTS items does this unit depend on?
-Which units call this unit? -->
+<!-- TODO: List what this unit depends on: other units, subsystems, OTS items, and shared packages.
+Do not include version numbers — version information is managed in SBOMs outside of design
+documentation. -->
+
+#### Callers
+
+<!-- TODO: List which units or subsystems call or consume this unit. -->

@@ -11,9 +11,10 @@ maturity, availability of self-validation/qualification evidence. -->
 
 ## Version Management Policy
 
-<!-- TODO: How are OTS versions managed?
-Examples: pinned versions, minimum version constraints, policy on major version upgrades,
-how breaking changes are handled. -->
+<!-- TODO: Describe how OTS version upgrades are managed in this project. Do not record specific
+version numbers here — version information is managed in SBOMs outside of design documentation.
+Examples: managed by Dependabot; major version upgrades require a design review; lock files
+used to ensure reproducible builds; vendor release notes reviewed before upgrading. -->
 
 ## General Integration Approach
 

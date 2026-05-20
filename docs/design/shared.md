@@ -5,15 +5,17 @@ The per-item files in shared/ cover the specifics of each individual shared pack
 
 ## Consumption Policy
 
-<!-- TODO: How does this project consume shared packages?
-Examples: NuGet references, version pinning strategy, policy on consuming pre-release versions,
+<!-- TODO: How does this project consume shared packages? Do not record specific version numbers
+here — version information is managed in SBOMs outside of design documentation.
+Examples: NuGet references managed by Dependabot; policy on consuming pre-release versions;
 how advertised features are selected versus ignored. -->
 
 ## Version Management Policy
 
-<!-- TODO: How are shared package versions managed?
-Examples: minimum version constraints, policy on major version upgrades,
-coordination with the shared package team when breaking changes occur. -->
+<!-- TODO: Describe how shared package version upgrades are managed in this project. Do not record
+specific version numbers here — version information is managed in SBOMs outside of design
+documentation. Examples: managed by Dependabot; major version upgrades coordinated with the
+shared package team; breaking changes trigger a design review. -->
 
 ## General Integration Approach
 

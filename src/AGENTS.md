@@ -31,6 +31,14 @@
     └── {test-project}/
 ```
 
+# Reference Template
+
+This repository follows a reference template for structure and file conventions.
+
+- **Template URL**: `https://github.com/demaconsulting/Agents/raw/refs/heads/template`
+- **Repository map**: `{template-url}/repository-map.md`
+- **Template files**: `{template-url}/{file-path}` for files described in the map
+
 # Codebase Navigation (ALL Agents)
 
 When working with source code, design, or requirements artifacts, read
@@ -70,7 +78,7 @@ from `.github/standards/`. Use this matrix to determine which to load:
 - **Verification docs**: `software-items.md`, `verification-documentation.md`, `technical-documentation.md`
 - **Review configuration**: `software-items.md`, `reviewmark-usage.md`
 - **Any documentation**: `technical-documentation.md`
-- **Structural audit or new items**: `repository-structure.md`
+- **Structural audit**: `template-sync` agent
 
 Load only the standards relevant to your specific task scope.
 

@@ -105,10 +105,11 @@ Priority-ordered list of issues that MUST be resolved for the next retry:
 
 ## Repository Structure Compliance: (PASS|FAIL|N/A)
 
-- Load `repository-structure.md` before evaluating this section.
+- Load `repository-map.md` from the template URL in the `# Reference Template`
+  section of `AGENTS.md` before evaluating this section.
 
 - Are parallel artifact trees in sync (reqstream/design/verification/src/test)?
-- Does the repository conform to `repository-structure.md`?
+- Does the repository conform to the template `repository-map.md`?
 
 ## Process Compliance: (PASS|FAIL|N/A)
 

@@ -17,8 +17,9 @@ This document covers all review-sets defined in `.reviewmark.yaml` for {ProjectN
 
 <!-- TODO: Replace this comment with references to related documents and external standards.
      - External links must be absolute URLs.
-     - References to other project documents (compiled PDFs) should link to
-       https://github.com/{org}/{repo}/releases — do not add any additional links,
-       and never link to individual source files in docs/ as these are source chapters
-       for compiled PDFs and are not useful as standalone documents.
+     - References to other project documents (compiled PDFs) should link to the releases
+       page https://github.com/{org}/{repo}/releases — use link text that names the releases
+       page, not the document (e.g. "[{ProjectName} releases](url)"), since the link goes to
+       a page where the PDF is found, not directly to the PDF. Do not add any additional
+       links, and never link to individual source files in docs/.
      If there are no references, replace this comment with: N/A -->

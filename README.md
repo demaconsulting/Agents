@@ -39,9 +39,11 @@ pwsh ./build.ps1
 
 ## User Guide
 
-<!-- TODO: Insert the name of the User Guide document here.
-     Do not use relative links — this file is distributed in packages.
-     Example: See the {ProjectName} User Guide for full documentation. -->
+<!-- TODO: Replace {org}/{repo} with your GitHub organization and repository name.
+     Do not link to source files in docs/ — the User Guide is a compiled PDF published
+     with each release. -->
+
+See the [{ProjectName} User Guide](https://github.com/{org}/{repo}/releases) for full documentation.
 
 ## Contributing
 

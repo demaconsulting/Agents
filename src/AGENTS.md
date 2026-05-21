@@ -78,7 +78,6 @@ from `.github/standards/`. Use this matrix to determine which to load:
 - **Verification docs**: `software-items.md`, `verification-documentation.md`, `technical-documentation.md`
 - **Review configuration**: `software-items.md`, `reviewmark-usage.md`
 - **Any documentation**: `technical-documentation.md`
-- **Structural audit**: `template-sync` agent
 
 Load only the standards relevant to your specific task scope.
 
@@ -93,6 +92,7 @@ Delegate to specialized agents only for specific scenarios:
 - **Formal feature implementation** (complex, multi-step) → Call the implementation agent
 - **Formal bug resolution** (complex debugging, systematic fixes) → Call the implementation agent
 - **Formal reviews** (compliance verification, detailed analysis) → Call the formal-review agent
+- **Structural audit**: (repository layout vs. template) → Call the template-sync agent
 
 # Agent Reporting (Specialized Agents Must Follow)
 

@@ -31,6 +31,11 @@
     └── {test-project}/
 ```
 
+# Language and Spelling (ALL Agents)
+
+Always use **US English** spelling in all output (code, comments, documentation,
+commit messages, and reports).
+
 # Reference Template
 
 This repository follows a reference template for structure and file conventions.

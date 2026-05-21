@@ -120,25 +120,26 @@ the review checklist, or verifying a release candidate.
 ## template-sync
 
 An agent that audits or synchronizes repository files against the canonical
-template maintained at
-[DEMA Agents `template` branch](https://github.com/demaconsulting/Agents/tree/template).
-It compares headings and structure, reports missing sections, and can insert
-them with TODO placeholders or create new files from scratch.
+template. It compares structure, infers missing content from the repository,
+and asks the user when it cannot determine content with confidence.
 
-**When to use:** Checking whether existing documentation files conform to the
-standard template structure, remediating drift after a template update, or
-creating new documentation files from the canonical starting point.
+**When to use:** Checking whether documentation files conform to the template,
+remediating drift after a template update, or scaffolding new documentation
+files.
 
 **Modes:**
 
-- **Audit** - reports missing sections and heading-depth mismatches without
-  modifying files
-- **Sync** - inserts missing sections (with TODO placeholders) at the correct
-  position, then runs `fix.ps1`
-- **Create** - fetches the template counterpart, substitutes placeholder names,
-  and writes the file to the target path
+- **Audit** - reports missing sections and heading-depth mismatches; no changes
+- **Sync** - inserts missing sections into existing files, populating content
+  from repository context; asks when ambiguous; never leaves a TODO without
+  user permission
+- **Scaffold** - creates files that do not yet exist from the template, populating
+  content the same way as Sync; skips files that already exist
+- **Recreate** - rebuilds existing files from the template using semantic
+  understanding to migrate old content into the new structure; creates extra
+  sections for any content that has no template home
 
-**Invoke with:** `@template-sync audit|sync|create <file-or-glob>`
+**Invoke with:** `@template-sync audit|sync|scaffold|recreate <file-or-glob>`
 
 **Output:** A saved report at `.agent-logs/template-sync-<subject>-<id>.md`.
 
@@ -170,7 +171,6 @@ based on the type of work being performed:
 | `verification-documentation.md` | Verification design documentation |
 | `reviewmark-usage.md` | Review configuration with ReviewMark |
 | `technical-documentation.md` | Any documentation |
-| `repository-structure.md` | Structural audit or creating new items across artifact trees |
 
 # Continuous Compliance
 

@@ -9,32 +9,27 @@
 
 #### Verification Approach
 
-<!-- TODO: Describe what is mocked/stubbed for unit testing and why.
-State which dependencies are injected vs. real. -->
+<!-- TODO: Write a prose description covering:
+     - Which dependencies are mocked or stubbed and why.
+     - Which dependencies are injected vs. real. -->
 
 #### Test Environment
 
 <!-- TODO: Describe any environment setup specific to this unit's tests.
-If the standard project test runner is sufficient, write "N/A - standard test environment". -->
+     If the standard project test runner is sufficient, write "N/A - standard test environment". -->
 
 #### Acceptance Criteria
 
-<!-- TODO: State what constitutes a passing unit test.
-Example: all unit tests pass; all requirements have at least one passing test scenario. -->
+<!-- TODO: List each acceptance criterion as a bullet point. For example:
+     - All unit tests pass with zero failures.
+     - All requirements have at least one passing test scenario. -->
 
 #### Test Scenarios
 
-<!-- TODO: Name each scenario clearly. Include normal operation, boundary values, and error paths.
-Example:
-- *ValidInputReturnsParsedResult*: calls {UnitName} with valid input; expects {outcome}.
-- *NullInputThrowsArgumentException*: calls {UnitName} with null; expects ArgumentException. -->
+<!-- TODO: Write one paragraph block per scenario. Each block has two parts:
 
-#### Requirements Coverage
+     **ScenarioName**: One or two sentences describing what condition or behaviour is being
+     verified and why it matters, and what the expected outcome is.
+     This scenario is tested by `TestMethodName`.
 
-<!-- TODO: For each requirement, list its scenarios and the test(s) under each.
-Example:
-- **{SystemName}-{SubsystemName}-{UnitName}-{Feature}**: {what it requires}
-  - *{ScenarioName}*: verifies {observable outcome}
-    - `{UnitName}_{MethodUnderTest}_{Scenario}_{ExpectedBehavior}`
-  - *{AnotherScenario}*: verifies {another outcome}
-    - `{UnitName}_{MethodUnderTest}_{Scenario}_{ExpectedBehavior}` -->
+     Use a blank line between scenarios. Do not use sub-headings. -->

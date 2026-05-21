@@ -3,21 +3,32 @@
 <!-- TODO: Replace {ProjectName} with your project/repo name, and {SystemName} with each
 individual system name. A project may contain multiple systems. -->
 
-<!-- TODO: Write a brief paragraph describing what this software does and how it is structured —
+<!-- TODO: Write a brief introductory paragraph here, directly under the # Introduction heading
+     and before ## Purpose, describing what this software does and how it is structured —
      local items (systems, subsystems, and units), OTS software items, and shared packages. -->
 
 ## Purpose
 
-<!-- TODO: State the purpose: this document defines the design for each software item — full
-     architectural and detailed design for local items (systems, subsystems, and units), and
-     integration/usage design for OTS software items and shared packages. A reviewer should be
-     able to understand how each item satisfies its requirements without reading source code. -->
+<!-- TODO: Write a prose paragraph stating the purpose of this document. For example:
+     This document defines the design for each software item in {ProjectName} — full
+     architectural and detailed design for local items (systems, subsystems, and units),
+     and integration/usage design for OTS software items and shared packages. A reviewer
+     should be able to understand how each item satisfies its requirements without reading
+     source code. -->
 
 ## Scope
 
-<!-- TODO: List all software items covered: local items (systems, subsystems, and units), OTS
-     software items, and shared packages. State what is out of scope (e.g. test projects,
-     build pipeline, the internal design of OTS items). -->
+<!-- TODO: List all software items covered, grouped by type. For example:
+     Local items:
+     - **{SystemName}**: system, subsystem, and unit design.
+
+     OTS items:
+     - **{OtsName}**: integration and usage design.
+
+     Shared packages:
+     - **{PackageName}**: integration and usage design.
+
+     State what is out of scope (e.g. test projects, build pipeline, the internal design of OTS items). -->
 
 ## Software Structure
 
@@ -42,16 +53,18 @@ Shared Packages:
 <!-- TODO: Replace the tree below with your actual source folder layout.
 For C++, use snake_case and .cpp/.hpp extensions. -->
 
+<!-- TODO: In the tree below, replace each "TODO: ..." with a one-line description of that file. -->
+
 ```text
 src/{SystemName}/
 └── {SubsystemName}/
-    └── {UnitName}.cs               - TODO: one-line description
+    └── {UnitName}.cs               - one-line description
 
 test/{SystemName}.Tests/
-├── {SystemName}Tests.cs            - TODO: system-level integration tests
+├── {SystemName}Tests.cs            - system-level integration tests
 └── {SubsystemName}/
-    ├── {SubsystemName}Tests.cs     - TODO: subsystem-level integration tests
-    └── {UnitName}Tests.cs          - TODO: one-line description
+    ├── {SubsystemName}Tests.cs     - subsystem-level integration tests
+    └── {UnitName}Tests.cs          - one-line description
 ```
 
 ## Companion Artifact Structure
@@ -80,11 +93,13 @@ Review-sets: defined in `.reviewmark.yaml`
 
 ## References
 
-<!-- TODO: Replace this comment with references to related documents and external standards.
+<!-- TODO: Replace this comment with a bullet list of references with the following rules:
      - External links must be absolute URLs.
      - References to other project documents (compiled PDFs) should link to the releases
-       page https://github.com/{org}/{repo}/releases — use link text that names the releases
-       page, not the document (e.g. "[{ProjectName} releases](url)"), since the link goes to
-       a page where the PDF is found, not directly to the PDF. Do not add any additional
-       links, and never link to individual source files in docs/.
-     If there are no references, replace this comment with: N/A -->
+       page, not directly to any file in docs/.
+     - If there are no references, replace this comment with: N/A
+
+     For example:
+     - [External Standard Name](https://example.com/standard)
+     - [{ProjectName} releases](https://github.com/{org}/{repo}/releases)
+       (or the equivalent releases/tags page if not hosted on GitHub) -->

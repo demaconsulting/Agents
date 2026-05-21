@@ -2,24 +2,23 @@
 
 <!-- TODO: Replace {PackageName} with the shared package name. Heading depth ## - one folder deep. -->
 
+<!-- All sections below are MANDATORY. If a section does not apply, write
+     "N/A - {justification}" rather than removing it. -->
+
 ### Verification Approach
 
-<!-- TODO: Describe how the advertised features are verified in this repository.
-Typically: downstream integration tests that transitively prove the advertised features work.
-The consuming repository does not test the package's internals. -->
+<!-- TODO: Write a prose description of how the advertised features are verified in this repository.
+     "Advertised features" are the capabilities the shared package itself documents as supported
+     in its own repository — this repo only verifies features it actually consumes. Cover:
+     - How downstream integration tests transitively prove the advertised features work.
+     - Note that the consuming repository does not test the package's internals. -->
 
 ### Test Scenarios
 
-<!-- TODO: For each Shared Package requirement, name the downstream test that covers it.
-Example:
-- *{FeatureName}WorksEndToEnd*: exercises the local system using {PackageName}; confirms {outcome}. -->
+<!-- TODO: Write one paragraph block per scenario. Each block has two parts:
 
-### Requirements Coverage
+     **ScenarioName**: One or two sentences describing what condition or behaviour is being
+     verified and why it matters, and what the expected outcome is.
+     This scenario is tested by `TestMethodName`.
 
-<!-- TODO: For each requirement, list its scenarios and the test(s) under each.
-Example:
-- **{PackageName}-Core-{Feature}**: {what it requires}
-  - *{ScenarioName}*: verifies {observable outcome}
-    - `{PackageName}_{Functionality}_{Scenario}_{ExpectedBehavior}`
-  - *{AnotherScenario}*: verifies {another outcome}
-    - `{PackageName}_{Functionality}_{Scenario}_{ExpectedBehavior}` -->
+     Use a blank line between scenarios. Do not use sub-headings. -->

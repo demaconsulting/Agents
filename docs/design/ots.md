@@ -1,30 +1,33 @@
 # OTS Dependencies
 
 <!-- TODO: Describe the project's overall strategy for OTS dependency selection and integration.
-The per-item files in ots/ cover the specifics of each individual OTS item. -->
+     The per-item files in ots/ cover the specifics of each individual OTS item. -->
 
 ## Selection Criteria
 
-<!-- TODO: What criteria does this project use when selecting OTS items?
-Examples: license compatibility, community support, security track record, performance,
-maturity, availability of self-validation/qualification evidence. -->
+<!-- TODO: Write a prose description of the criteria used when selecting OTS items. Cover:
+     - License compatibility requirements.
+     - Community support and maturity expectations.
+     - Security track record considerations.
+     - Availability of vendor self-validation or qualification evidence. -->
 
 ## Version Management Policy
 
-<!-- TODO: Describe how OTS version upgrades are managed in this project. Do not record specific
-version numbers here — version information is managed in SBOMs outside of design documentation.
-Examples: managed by Dependabot; major version upgrades require a design review; lock files
-used to ensure reproducible builds; vendor release notes reviewed before upgrading. -->
+<!-- TODO: Write a prose description of how OTS version upgrades are managed. Do not record
+     specific version numbers here — version information is managed in SBOMs outside of design
+     documentation. Cover:
+     - How upgrades are initiated (e.g. Dependabot, manual review).
+     - What triggers a design review (e.g. major version changes).
+     - How reproducible builds are ensured (e.g. lock files). -->
 
 ## General Integration Approach
 
-<!-- TODO: Describe the general patterns used to integrate OTS items.
-Examples: direct API usage, wrapper/adapter classes, dependency injection,
-configuration-driven selection. Note any cross-cutting concerns such as
-error handling or logging conventions applied consistently across all OTS items. -->
+<!-- TODO: Write a prose description of the general patterns used to integrate OTS items. Cover:
+     - How OTS items are consumed (e.g. direct API, wrapper class, dependency injection).
+     - Any cross-cutting conventions applied consistently (e.g. error handling, logging). -->
 
 ## Qualification Strategy
 
-<!-- TODO: How are OTS items qualified for use in this project?
-Examples: reliance on OTS vendor self-validation, local wrapper tests, integration tests,
-review of OTS documentation and release notes before version upgrades. -->
+<!-- TODO: Write a prose description of how OTS items are qualified for use. Cover:
+     - What evidence is relied upon (e.g. vendor self-validation, local integration tests).
+     - What is reviewed before accepting a version upgrade. -->

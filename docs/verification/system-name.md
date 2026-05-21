@@ -5,36 +5,31 @@
 <!-- All sections below are MANDATORY. If a section does not apply, write
      "N/A - {justification}" rather than removing it. -->
 
-## Verification Strategy
+## Verification Approach
 
-<!-- TODO: Describe the overall approach: system tests verify the emergent behaviour of the
-assembled subsystems and units — there is no system-level code. Describe what types of tests
-are used (integration, end-to-end), what test framework is used, and how the test project
-is structured. -->
+<!-- TODO: Write a prose description covering:
+     - What types of tests are used (e.g. integration, end-to-end).
+     - What test framework and project structure is used.
+     - What is mocked or stubbed at the system boundary. -->
 
 ## Test Environment
 
 <!-- TODO: Describe the environment required to run tests: OS, runtime version,
-any external services, files, or configuration needed. -->
+     any external services, files, or configuration needed.
+     If the standard project test runner is sufficient, write "N/A - standard test environment". -->
 
 ## Acceptance Criteria
 
-<!-- TODO: State what constitutes a passing system test.
-Example: all automated tests pass with zero failures; code coverage meets minimum threshold;
-no unresolved anomalies of severity X or above. -->
+<!-- TODO: List each acceptance criterion as a bullet point. For example:
+     - All automated tests pass with zero failures.
+     - All requirements have at least one passing test scenario. -->
 
-## System-Level Test Scenarios
+## Test Scenarios
 
-<!-- TODO: For each system-level requirement, name the test scenario(s) that cover it.
-Example:
-- **{SystemName}-Core-{Feature}**: *{ScenarioName}* - verifies that {observable outcome}. -->
+<!-- TODO: Write one paragraph block per scenario. Each block has two parts:
 
-## Requirements Coverage
+     **ScenarioName**: One or two sentences describing what condition or behaviour is being
+     verified and why it matters, and what the expected outcome is.
+     This scenario is tested by `TestMethodName`.
 
-<!-- TODO: For each requirement, list its scenarios and the test(s) under each.
-Example:
-- **{SystemName}-Core-{Feature}**: {what it requires}
-  - *{ScenarioName}*: verifies {observable outcome}
-    - `{SystemName}_{Functionality}_{Scenario}_{ExpectedBehavior}`
-  - *{AnotherScenario}*: verifies {another outcome}
-    - `{SystemName}_{Functionality}_{Scenario}_{ExpectedBehavior}` -->
+     Use a blank line between scenarios. Do not use sub-headings. -->

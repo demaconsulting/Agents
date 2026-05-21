@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document is the user guide for DEMA Agents — the shared agent definitions
+This document is the user guide for DEMA Agents - the shared agent definitions
 and coding standards used across DEMA Consulting repositories.
 
 ## Scope
@@ -22,9 +22,9 @@ what standards to apply, and how to delegate work to specialized sub-agents.
 
 DEMA Agents provides:
 
-- **`AGENTS.md`** — top-level instructions loaded by every agent
-- **`.github/agents/`** — specialized agent prompts for specific workflows
-- **`.github/standards/`** — detailed coding and documentation standards
+- **`AGENTS.md`** - top-level instructions loaded by every agent
+- **`.github/agents/`** - specialized agent prompts for specific workflows
+- **`.github/standards/`** - detailed coding and documentation standards
 
 # Installation
 
@@ -43,6 +43,7 @@ AGENTS.md
         lint-fix.agent.md
         quality.agent.md
         software-architect.agent.md
+        template-sync.agent.md
     standards/
         coding-principles.md
         cpp-language.md
@@ -68,9 +69,9 @@ and the coding standards in `.github/standards/`.
 After extracting the files, open `AGENTS.md` and update the following
 template placeholders with values specific to the target repository:
 
-- **Project Overview** — replace the `TODO` values for `name`, `description`,
+- **Project Overview** - replace the `TODO` values for `name`, `description`,
   `languages`, and `technologies`
-- **Project Structure** — replace `{project}` and `{test-project}` with the
+- **Project Structure** - replace `{project}` and `{test-project}` with the
   actual source and test project folder names
 
 # Available Agents
@@ -86,7 +87,7 @@ to a work item or issue ticket.
 **When to use:** Beginning a new project, designing a new system or subsystem,
 or capturing architectural decisions before implementation begins.
 
-**Invoke with:** `@software-architect` — then answer its questions.
+**Invoke with:** `@software-architect` - then answer its questions.
 
 ## implementation
 
@@ -116,13 +117,39 @@ the review checklist, or verifying a release candidate.
 **Output:** A populated review report at
 `.agent-logs/reviews/review-report-<review-set>.md`.
 
+## template-sync
+
+An agent that audits or synchronizes repository files against the canonical
+template. It compares structure, infers missing content from the repository,
+and asks the user when it cannot determine content with confidence.
+
+**When to use:** Checking whether documentation files conform to the template,
+remediating drift after a template update, or scaffolding new documentation
+files.
+
+**Modes:**
+
+- **Audit** - reports missing sections and heading-depth mismatches; no changes
+- **Sync** - inserts missing sections into existing files, populating content
+  from repository context; asks when ambiguous; never leaves a TODO without
+  user permission
+- **Scaffold** - creates files that do not yet exist from the template, populating
+  content the same way as Sync; skips files that already exist
+- **Recreate** - rebuilds existing files from the template using semantic
+  understanding to migrate old content into the new structure; creates extra
+  sections for any content that has no template home
+
+**Invoke with:** `@template-sync audit|sync|scaffold|recreate <file-or-glob>`
+
+**Output:** A saved report at `.agent-logs/template-sync-<subject>-<id>.md`.
+
 ## Other Agents
 
 | Agent | Purpose |
 | ----- | ------- |
-| `developer` | General-purpose development — applies the right standards for the detected languages and file types |
+| `developer` | General-purpose development - applies the right standards for the detected languages and file types |
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
-| `lint-fix` | Pre-PR sweep — loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
+| `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
 
 # Coding Standards
 

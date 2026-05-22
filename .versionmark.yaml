@@ -1,7 +1,8 @@
 ---
 # VersionMark Configuration File
 # This file defines which tools to capture and how to extract their version information.
-# TODO: Remove any tools not used by this project; add entries for any additional tools.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Remove any tools not used by this project; add entries for any additional tools. -->
 tools:
   # .NET SDK
   dotnet:
@@ -59,13 +60,15 @@ tools:
     regex: (?i)demaconsulting\.fileassert\s+(?<version>\d+\.\d+\.\d+(?:-[a-zA-Z0-9.]+)?)
 
   # SarifMark (DemaConsulting.SarifMark from dotnet tool list)
-  # TODO: Remove if not using SARIF-based static analysis (e.g., CodeQL)
+  # <!-- TEMPLATE-DIRECTIVE:
+  #      Remove if not using SARIF-based static analysis (e.g., CodeQL) -->
   sarifmark:
     command: dotnet tool list
     regex: (?i)demaconsulting\.sarifmark\s+(?<version>\d+\.\d+\.\d+(?:-[a-zA-Z0-9.]+)?)
 
   # SonarMark (DemaConsulting.SonarMark from dotnet tool list)
-  # TODO: Remove if not using SonarQube analysis
+  # <!-- TEMPLATE-DIRECTIVE:
+  #      Remove if not using SonarQube analysis -->
   sonarmark:
     command: dotnet tool list
     regex: (?i)demaconsulting\.sonarmark\s+(?<version>\d+\.\d+\.\d+(?:-[a-zA-Z0-9.]+)?)

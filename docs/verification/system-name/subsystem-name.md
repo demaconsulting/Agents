@@ -1,6 +1,7 @@
 ## {SubsystemName}
 
-<!-- TODO: Replace {SubsystemName} with your subsystem name.
+<!-- TEMPLATE-DIRECTIVE:
+     Replace {SubsystemName} with your subsystem name.
      Adjust the heading depth to match this file's folder depth under docs/verification/
      (## = one folder deep, ### = two folders deep, etc.). -->
 
@@ -9,25 +10,29 @@
 
 ### Verification Approach
 
-<!-- TODO: Write a prose description covering:
+<!-- TEMPLATE-DIRECTIVE:
+     Write a prose description covering:
      - What types of tests are used at this subsystem boundary.
      - What is mocked at the subsystem boundary and why.
      - What external dependencies are stubbed. -->
 
 ### Test Environment
 
-<!-- TODO: Describe any environment setup specific to this subsystem's tests.
+<!-- TEMPLATE-DIRECTIVE:
+     Describe any environment setup specific to this subsystem's tests.
      If the standard project test runner is sufficient, write "N/A - standard test environment". -->
 
 ### Acceptance Criteria
 
-<!-- TODO: List each acceptance criterion as a bullet point. For example:
+<!-- TEMPLATE-DIRECTIVE:
+     List each acceptance criterion as a bullet point. For example:
      - All integration tests pass with zero failures.
      - All mocked boundaries behave as documented. -->
 
 ### Test Scenarios
 
-<!-- TODO: Write one paragraph block per scenario. Each block has two parts:
+<!-- TEMPLATE-DIRECTIVE:
+     Write one paragraph block per scenario. Each block has two parts:
 
      **ScenarioName**: One or two sentences describing what condition or behaviour is being
      verified and why it matters, and what the expected outcome is.

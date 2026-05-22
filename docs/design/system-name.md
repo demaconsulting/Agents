@@ -1,13 +1,15 @@
 # {SystemName}
 
-<!-- TODO: Replace {SystemName} with your system name. Top-level heading (#) - collection root. -->
+<!-- TEMPLATE-DIRECTIVE:
+     Replace {SystemName} with your system name. Top-level heading (#) - collection root. -->
 
 <!-- All sections below are MANDATORY. If a section does not apply, write
      "N/A - {justification}" rather than removing it. -->
 
 ## Architecture
 
-<!-- TODO: Describe the system's architecture using a Mermaid diagram. Use subgraphs for
+<!-- TEMPLATE-DIRECTIVE:
+     Describe the system's architecture using a Mermaid diagram. Use subgraphs for
      containment and arrows for dependencies. Show only architecturally significant
      dependencies — omit low-level or incidental unit references that would clutter the diagram.
 
@@ -28,7 +30,8 @@
 
 ## External Interfaces
 
-<!-- TODO: Write one block per external interface, separated by blank lines.
+<!-- TEMPLATE-DIRECTIVE:
+     Write one block per external interface, separated by blank lines.
 
      **InterfaceName**: Brief description of what this interface is.
 
@@ -39,7 +42,8 @@
 
 ## Dependencies
 
-<!-- TODO: List OTS items and Shared Packages this system depends on. Do not include version
+<!-- TEMPLATE-DIRECTIVE:
+     List OTS items and Shared Packages this system depends on. Do not include version
      numbers — version information is managed in SBOMs outside of design documentation.
      Reference their integration design in docs/design/ots/ and docs/design/shared/.
      Example:
@@ -48,7 +52,8 @@
 
 ## Risk Control Measures
 
-<!-- TODO: Identify any software items that must be segregated from each other for risk control.
+<!-- TEMPLATE-DIRECTIVE:
+     Identify any software items that must be segregated from each other for risk control.
      Risk control applies to safety-classified software (e.g. IEC 62304). If this project has
      no safety classification, write "N/A - not a safety-classified software item".
      Otherwise, list each segregation requirement as a bullet, then describe the isolation mechanism.
@@ -57,7 +62,8 @@
 
 ## Data Flow
 
-<!-- TODO: Describe how data moves through the system from its external inputs to its outputs.
+<!-- TEMPLATE-DIRECTIVE:
+     Describe how data moves through the system from its external inputs to its outputs.
 
      For simple linear flows, use numbered steps:
      1. Step one.
@@ -71,7 +77,8 @@
 
 ## Design Constraints
 
-<!-- TODO: List each constraint as a bullet point. For example:
+<!-- TEMPLATE-DIRECTIVE:
+     List each constraint as a bullet point. For example:
      - Platform: targets .NET 8 on Linux and Windows.
      - Performance: must process requests within 200ms at p99.
      - Security: all data at rest must be encrypted. -->

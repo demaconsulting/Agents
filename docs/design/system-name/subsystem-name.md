@@ -1,6 +1,7 @@
 ## {SubsystemName}
 
-<!-- TODO: Replace {SubsystemName} with your subsystem name.
+<!-- TEMPLATE-DIRECTIVE:
+     Replace {SubsystemName} with your subsystem name.
      Adjust the heading depth to match this file's folder depth under docs/design/
      (## = one folder deep, ### = two folders deep, etc.). -->
 
@@ -9,14 +10,16 @@
 
 ### Overview
 
-<!-- TODO: Write a prose paragraph covering:
+<!-- TEMPLATE-DIRECTIVE:
+     Write a prose paragraph covering:
      - What problem this subsystem solves.
      - What its boundaries are (what is inside vs. outside).
      - Which units it contains. -->
 
 ### Interfaces
 
-<!-- TODO: Write one block per interface, separated by blank lines.
+<!-- TEMPLATE-DIRECTIVE:
+     Write one block per interface, separated by blank lines.
 
      **InterfaceName**: Brief description of what this interface is.
 
@@ -27,7 +30,8 @@
 
 ### Design
 
-<!-- TODO: Describe how the units assemble to fulfil this subsystem's responsibilities.
+<!-- TEMPLATE-DIRECTIVE:
+     Describe how the units assemble to fulfil this subsystem's responsibilities.
      There is no subsystem-level code — describe the flow of data and control between units.
 
      For simple linear flows, use numbered steps:

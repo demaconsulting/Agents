@@ -1,10 +1,11 @@
 ---
 # ReviewMark Configuration File
 #
-# TODO: Replace all {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {package-name}
-# placeholders with your actual system's names (kebab-case).
-# TODO: Update the evidence-source URL to point to your repository's reviews branch.
-# TODO: Add or remove review-sets to match your software structure.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Replace all {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {package-name}
+#      placeholders with your actual system's names (kebab-case).
+#      Update the evidence-source URL to point to your repository's reviews branch.
+#      Add or remove review-sets to match your software structure. -->
 needs-review:
   - README.md
   - docs/user_guide/**/*.md
@@ -18,9 +19,12 @@ needs-review:
   - '!**/obj/**'
   - '!**/bin/**'
   - '!**/generated/**'
+
 evidence-source:
-  # TODO: Update to type 'url' or 'fileshare' once formal reviews begin.
+  # <!-- TEMPLATE-DIRECTIVE:
+  #      Update to type 'url' or 'fileshare' once formal reviews begin. -->
   type: none
+
 reviews:
   # Purpose Review (only one per repository)
   - id: SystemName-Purpose
@@ -99,8 +103,9 @@ reviews:
       - docs/reqstream/ots/ots-name.yaml
       - docs/design/ots/ots-name.md
       - docs/verification/ots/ots-name.md
-      # TODO: Add OTS test file if applicable:
-      # - "test/OtsSoftwareTests/{OtsName}Tests.cs"
+      # <!-- TEMPLATE-DIRECTIVE:
+      #      Add OTS test file if applicable:
+      #      - "test/OtsSoftwareTests/{OtsName}Tests.cs" -->
 
   # Shared-{PackageName} Review (one per Shared Package)
   - id: Shared-PackageName

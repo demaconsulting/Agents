@@ -1,13 +1,15 @@
 # Introduction
 
-<!-- TODO: Replace {ProjectName} with your project/repo name, and {SystemName} with each
-individual system name. A project may contain multiple systems. -->
+<!-- TEMPLATE-DIRECTIVE:
+     Replace {ProjectName} with your project/repo name, and {SystemName} with each
+     individual system name. A project may contain multiple systems. -->
 
 This document describes how each software item in {ProjectName} is verified.
 
 ## Purpose
 
-<!-- TODO: Write a prose paragraph stating the purpose of this document. For example:
+<!-- TEMPLATE-DIRECTIVE:
+     Write a prose paragraph stating the purpose of this document. For example:
      This document describes how each software item in {ProjectName} is verified — local items
      (systems, subsystems, and units), OTS software items, and shared packages. For each item,
      it names the test scenarios that verify its requirements. A reviewer should be able to
@@ -15,7 +17,8 @@ This document describes how each software item in {ProjectName} is verified.
 
 ## Scope
 
-<!-- TODO: List all software items covered, grouped by type. For example:
+<!-- TEMPLATE-DIRECTIVE:
+     List all software items covered, grouped by type. For example:
      Local items:
      - **{SystemName}**: system, subsystem, and unit verification.
 
@@ -53,7 +56,8 @@ Review-sets: defined in `.reviewmark.yaml`
 
 ## References
 
-<!-- TODO: Replace this comment with a bullet list of references with the following rules:
+<!-- TEMPLATE-DIRECTIVE:
+     Replace this comment with a bullet list of references with the following rules:
      - External links must be absolute URLs.
      - References to other project documents (compiled PDFs) should link to the releases
        page, not directly to any file in docs/.

@@ -1,11 +1,13 @@
 # Shared Package Dependencies
 
-<!-- TODO: Describe the project's overall strategy for consuming shared packages.
+<!-- TEMPLATE-DIRECTIVE:
+     Describe the project's overall strategy for consuming shared packages.
      The per-item files in shared/ cover the specifics of each individual shared package. -->
 
 ## Consumption Policy
 
-<!-- TODO: Write a prose description of how this project consumes shared packages. Do not record
+<!-- TEMPLATE-DIRECTIVE:
+     Write a prose description of how this project consumes shared packages. Do not record
      specific version numbers here — version information is managed in SBOMs outside of design
      documentation. Cover:
      - How shared packages are referenced (e.g. NuGet).
@@ -17,7 +19,8 @@
 
 ## Version Management Policy
 
-<!-- TODO: Write a prose description of how shared package version upgrades are managed. Do not
+<!-- TEMPLATE-DIRECTIVE:
+     Write a prose description of how shared package version upgrades are managed. Do not
      record specific version numbers here — version information is managed in SBOMs outside of
      design documentation. Cover:
      - How upgrades are initiated (e.g. Dependabot, coordination with the shared package team).
@@ -25,6 +28,7 @@
 
 ## General Integration Approach
 
-<!-- TODO: Write a prose description of the general patterns used to integrate shared packages. Cover:
+<!-- TEMPLATE-DIRECTIVE:
+     Write a prose description of the general patterns used to integrate shared packages. Cover:
      - How shared packages are consumed (e.g. direct API, configuration-driven initialization, dependency injection).
      - Any cross-cutting conventions applied consistently across all shared packages. -->

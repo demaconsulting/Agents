@@ -8,12 +8,9 @@
 # - NEVER add a misspelled word - fix the typo in the source instead
 # - NEVER add a British-English spelling - correct to US-English in the source
 # - PROPOSE only genuine technical terms/names as needed
-
 version: '0.2'
-
 language: en
 
-# TODO: Add project-specific technical terms and tool names
 words:
   - buildmark
   - Dema
@@ -30,7 +27,6 @@ words:
   - xunit
   - Xunit
   - yamlfix
-
 ignorePaths:
   - '**/.git/**'
   - '**/node_modules/**'

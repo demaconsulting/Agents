@@ -1,6 +1,7 @@
 ---
 # FileAssert document validation tests for {ProjectName}.
-# TODO: Replace {ProjectName} with your project name throughout this file.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Replace {ProjectName} with your project name throughout this file. -->
 # Tests are tagged by document group to allow per-group execution during the build pipeline.
 # Tags: build-notes, code-quality, code-review, design, verification, user-guide, requirements.
 #

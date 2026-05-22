@@ -1,5 +1,6 @@
 ---
-# TODO: Add all verification files in reading order, mirroring the design definition.yaml.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Add all verification files in reading order, mirroring the design definition.yaml. -->
 resource-path: [docs/verification, docs/template]
 input-files:
   - docs/verification/title.txt

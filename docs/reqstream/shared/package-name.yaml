@@ -1,6 +1,8 @@
 ---
 # {PackageName} Shared Package requirements
-# TODO: Replace {PackageName} / {package-name} with the shared package name.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Read standards: requirements-principles.md, software-items.md, reqstream-usage.md
+#      Replace {PackageName} / {package-name} with the shared package name. -->
 sections:
   - title: Shared Package Requirements
     sections:

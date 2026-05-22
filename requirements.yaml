@@ -1,7 +1,8 @@
 ---
 # Root requirements file
-# TODO: Replace {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {package-name}
-# with your actual names (kebab-case). Add or remove lines to match your structure.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Replace {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {package-name}
+#      with your actual names (kebab-case). Add or remove lines to match your structure. -->
 includes:
   - docs/reqstream/system-name.yaml
   - docs/reqstream/system-name/platform-requirements.yaml

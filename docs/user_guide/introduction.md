@@ -1,21 +1,25 @@
 # Introduction
 
-<!-- TODO: Replace {ProjectName} with your project name. -->
+<!-- TEMPLATE-DIRECTIVE:
+     Replace {ProjectName} with your project name. -->
 
 This guide describes how to install, configure, and use {ProjectName}.
 
 ## Purpose
 
-<!-- TODO: Describe what {ProjectName} does and why users would want it. -->
+<!-- TEMPLATE-DIRECTIVE:
+     Describe what {ProjectName} does and why users would want it. -->
 
 ## Scope
 
-<!-- TODO: Describe what this guide covers (installation, configuration, usage scenarios). -->
-<!-- State any prerequisites (OS, runtime, dependencies). -->
+<!-- TEMPLATE-DIRECTIVE:
+     Describe what this guide covers (installation, configuration, usage scenarios).
+     State any prerequisites (OS, runtime, dependencies). -->
 
 ## References
 
-<!-- TODO: Replace this comment with references to related documents and external standards.
+<!-- TEMPLATE-DIRECTIVE:
+     Replace this comment with references to related documents and external standards.
      - External links must be absolute URLs.
      - References to other project documents (compiled PDFs) should link to the releases
        page https://github.com/{org}/{repo}/releases — use link text that names the releases

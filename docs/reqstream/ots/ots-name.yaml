@@ -1,6 +1,8 @@
 ---
 # {OtsName} OTS requirements
-# TODO: Replace {OtsName} with the OTS item name.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Read standards: requirements-principles.md, software-items.md, reqstream-usage.md
+#      Replace {OtsName} with the OTS item name. -->
 sections:
   - title: OTS Software Requirements
     sections:

@@ -1,15 +1,19 @@
 ---
 # {SystemName} system-level requirements
-# TODO: Replace {SystemName} / {system-name} with your system name.
-# TODO: Add children links to subsystem requirements as they are decomposed.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Read standards: requirements-principles.md, software-items.md, reqstream-usage.md
+#      Replace {SystemName} / {system-name} with your system name.
+#      Add children links to subsystem requirements as they are decomposed. -->
 sections:
-  - title: Functional Requirements
-    requirements:
-      - id: SystemName-Core-Feature
-        title: 'TODO: The system shall {observable behavior}.'
-        justification: |
-          TODO: Explain the business or regulatory reason for this requirement.
-        children:
-          - SystemName-SubsystemName-Feature
-        tests:
-          - SystemName_Functionality_Scenario_ExpectedBehavior
+  - title: '{SystemName} Requirements'
+    sections:
+      - title: Functional Requirements
+        requirements:
+          - id: SystemName-Core-Feature
+            title: 'TODO: The system shall {observable behavior}.'
+            justification: |
+              TODO: Explain the business or regulatory reason for this requirement.
+            children:
+              - SystemName-SubsystemName-Feature
+            tests:
+              - SystemName_Functionality_Scenario_ExpectedBehavior

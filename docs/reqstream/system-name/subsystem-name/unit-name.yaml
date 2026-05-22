@@ -1,12 +1,28 @@
 ---
 # {UnitName} unit requirements
-# TODO: Replace {SystemName} / {SubsystemName} / {UnitName} with your names.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Read standards: requirements-principles.md, software-items.md, reqstream-usage.md
+#      Replace {SystemName} / {SubsystemName} / {UnitName} with your names.
+#      For units nested under deeper subsystem hierarchies, extend the sections
+#      nesting to match the full ancestry path, e.g.:
+#        - title: '{SystemName} Requirements'
+#          sections:
+#            - title: '{ParentSubsystemName} Requirements'
+#              sections:
+#                - title: '{SubsystemName} Requirements'
+#                  sections:
+#                    - title: '{UnitName} Requirements'
+#                      requirements: [...] -->
 sections:
-  - title: '{UnitName} Requirements'
-    requirements:
-      - id: SystemName-SubsystemName-UnitName-Feature
-        title: 'TODO: {UnitName} shall {observable behavior}.'
-        justification: |
-          TODO: Explain how this decomposes the parent subsystem requirement.
-        tests:
-          - UnitName_MethodUnderTest_Scenario_ExpectedBehavior
+  - title: '{SystemName} Requirements'
+    sections:
+      - title: '{SubsystemName} Requirements'
+        sections:
+          - title: '{UnitName} Requirements'
+            requirements:
+              - id: SystemName-SubsystemName-UnitName-Feature
+                title: 'TODO: {UnitName} shall {observable behavior}.'
+                justification: |
+                  TODO: Explain how this decomposes the parent subsystem requirement.
+                tests:
+                  - UnitName_MethodUnderTest_Scenario_ExpectedBehavior

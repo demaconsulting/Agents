@@ -1,14 +1,27 @@
 ---
 # {SubsystemName} subsystem requirements
-# TODO: Replace {SystemName} / {SubsystemName} with your names.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Read standards: requirements-principles.md, software-items.md, reqstream-usage.md
+#      Replace {SystemName} / {SubsystemName} with your names.
+#      For deeper subsystem nesting, add another 'sections:' level here before
+#      '{SubsystemName} Requirements', matching the parent subsystem's section title.
+#      e.g. for a child subsystem:
+#        - title: '{SystemName} Requirements'
+#          sections:
+#            - title: '{ParentSubsystemName} Requirements'
+#              sections:
+#                - title: '{ChildSubsystemName} Requirements'
+#                  requirements: [...] -->
 sections:
-  - title: '{SubsystemName} Requirements'
-    requirements:
-      - id: SystemName-SubsystemName-Feature
-        title: 'TODO: The {SubsystemName} shall {observable behavior}.'
-        justification: |
-          TODO: Explain how this decomposes the parent system requirement.
-        children:
-          - SystemName-SubsystemName-UnitName-Feature
-        tests:
-          - SubsystemName_Functionality_Scenario_ExpectedBehavior
+  - title: '{SystemName} Requirements'
+    sections:
+      - title: '{SubsystemName} Requirements'
+        requirements:
+          - id: SystemName-SubsystemName-Feature
+            title: 'TODO: The {SubsystemName} shall {observable behavior}.'
+            justification: |
+              TODO: Explain how this decomposes the parent system requirement.
+            children:
+              - SystemName-SubsystemName-UnitName-Feature
+            tests:
+              - SubsystemName_Functionality_Scenario_ExpectedBehavior

@@ -1,7 +1,8 @@
 ---
-# TODO: Add all design files in reading order.
-# Follow the heading-depth rule: files at collection root use #, one folder deep use  ##, etc.
-# Add ots.md / shared.md sections if OTS items or Shared Packages are used.
+# <!-- TEMPLATE-DIRECTIVE:
+#      Add all design files in reading order.
+#      Follow the heading-depth rule: files at collection root use #, one folder deep use ##, etc.
+#      Add ots.md / shared.md sections if OTS items or Shared Packages are used. -->
 resource-path: [docs/design, docs/template]
 input-files:
   - docs/design/title.txt

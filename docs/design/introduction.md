@@ -1,15 +1,18 @@
 # Introduction
 
-<!-- TODO: Replace {ProjectName} with your project/repo name, and {SystemName} with each
-individual system name. A project may contain multiple systems. -->
+<!-- TEMPLATE-DIRECTIVE:
+     Replace {ProjectName} with your project/repo name, and {SystemName} with each
+     individual system name. A project may contain multiple systems. -->
 
-<!-- TODO: Write a brief introductory paragraph here, directly under the # Introduction heading
+<!-- TEMPLATE-DIRECTIVE:
+     Write a brief introductory paragraph here, directly under the # Introduction heading
      and before ## Purpose, describing what this software does and how it is structured —
      local items (systems, subsystems, and units), OTS software items, and shared packages. -->
 
 ## Purpose
 
-<!-- TODO: Write a prose paragraph stating the purpose of this document. For example:
+<!-- TEMPLATE-DIRECTIVE:
+     Write a prose paragraph stating the purpose of this document. For example:
      This document defines the design for each software item in {ProjectName} — full
      architectural and detailed design for local items (systems, subsystems, and units),
      and integration/usage design for OTS software items and shared packages. A reviewer
@@ -18,7 +21,8 @@ individual system name. A project may contain multiple systems. -->
 
 ## Scope
 
-<!-- TODO: List all software items covered, grouped by type. For example:
+<!-- TEMPLATE-DIRECTIVE:
+     List all software items covered, grouped by type. For example:
      Local items:
      - **{SystemName}**: system, subsystem, and unit design.
 
@@ -32,9 +36,10 @@ individual system name. A project may contain multiple systems. -->
 
 ## Software Structure
 
-<!-- TODO: Replace the tree below with your actual software structure.
-Use the exact labels: (System), (Subsystem), (Unit), (OTS), (Shared Package).
-Add additional systems if the project contains more than one. -->
+<!-- TEMPLATE-DIRECTIVE:
+     Replace the tree below with your actual software structure.
+     Use the exact labels: (System), (Subsystem), (Unit), (OTS), (Shared Package).
+     Add additional systems if the project contains more than one. -->
 
 ```text
 {SystemName} (System)
@@ -50,10 +55,10 @@ Shared Packages:
 
 ## Folder Layout
 
-<!-- TODO: Replace the tree below with your actual source folder layout.
-For C++, use snake_case and .cpp/.hpp extensions. -->
-
-<!-- TODO: In the tree below, replace each "TODO: ..." with a one-line description of that file. -->
+<!-- TEMPLATE-DIRECTIVE:
+     Replace the tree below with your actual source folder layout.
+     For C++, use snake_case and .cpp/.hpp extensions.
+     In the tree below, replace each "TODO: ..." with a one-line description of that file. -->
 
 ```text
 src/{SystemName}/
@@ -93,7 +98,8 @@ Review-sets: defined in `.reviewmark.yaml`
 
 ## References
 
-<!-- TODO: Replace this comment with a bullet list of references with the following rules:
+<!-- TEMPLATE-DIRECTIVE:
+     Replace this comment with a bullet list of references with the following rules:
      - External links must be absolute URLs.
      - References to other project documents (compiled PDFs) should link to the releases
        page, not directly to any file in docs/.

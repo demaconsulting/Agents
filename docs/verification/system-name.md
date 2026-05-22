@@ -1,32 +1,37 @@
 # {SystemName}
 
-<!-- TODO: Replace {SystemName} with your system name. Top-level heading (#) - collection root. -->
+<!-- TEMPLATE-DIRECTIVE:
+     Replace {SystemName} with your system name. Top-level heading (#) - collection root. -->
 
 <!-- All sections below are MANDATORY. If a section does not apply, write
      "N/A - {justification}" rather than removing it. -->
 
 ## Verification Approach
 
-<!-- TODO: Write a prose description covering:
+<!-- TEMPLATE-DIRECTIVE:
+     Write a prose description covering:
      - What types of tests are used (e.g. integration, end-to-end).
      - What test framework and project structure is used.
      - What is mocked or stubbed at the system boundary. -->
 
 ## Test Environment
 
-<!-- TODO: Describe the environment required to run tests: OS, runtime version,
+<!-- TEMPLATE-DIRECTIVE:
+     Describe the environment required to run tests: OS, runtime version,
      any external services, files, or configuration needed.
      If the standard project test runner is sufficient, write "N/A - standard test environment". -->
 
 ## Acceptance Criteria
 
-<!-- TODO: List each acceptance criterion as a bullet point. For example:
+<!-- TEMPLATE-DIRECTIVE:
+     List each acceptance criterion as a bullet point. For example:
      - All automated tests pass with zero failures.
      - All requirements have at least one passing test scenario. -->
 
 ## Test Scenarios
 
-<!-- TODO: Write one paragraph block per scenario. Each block has two parts:
+<!-- TEMPLATE-DIRECTIVE:
+     Write one paragraph block per scenario. Each block has two parts:
 
      **ScenarioName**: One or two sentences describing what condition or behaviour is being
      verified and why it matters, and what the expected outcome is.

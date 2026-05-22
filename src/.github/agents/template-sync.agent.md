@@ -31,6 +31,8 @@ For each group intersecting the requested scope, call a sub-agent with:
 
 - **context**:
   - Group scope and template URL from the `# Reference Template` section in `AGENTS.md`
+  - Applicable standards from the `# Standards Application` matrix in `AGENTS.md`
+    for the file types in the group scope
   - Project-specific names substitute for placeholders at matching path depth
     (e.g. `SystemName` → `{SystemName}`, `system-name` → `{system-name}`)
   - If a template counterpart cannot be fetched, skip the file and report it
@@ -42,32 +44,38 @@ For each group intersecting the requested scope, call a sub-agent with:
     - **Scaffold** - fetch `repository-map.md` from the template URL in `AGENTS.md`
       to identify files that should exist but don't; for each, fetch the template,
       populate all sections, write the file; run `pwsh ./fix.ps1`
-    - **Recreate** - read the existing file in full, then fetch the template;
-      the template is the **sole authority** for both structure and format —
-      old content must be reformatted to match, not merely relocated:
-      - Map each piece of old content to the best-fit template section using
-        full semantic understanding, splitting or consolidating as needed
-      - Reformat content within each section to match the template's prescribed
-        style; HTML comments inside sections describe **how** content must be
-        formatted (e.g. paragraph blocks, bullet lists, no sub-headings)
-      - Old sub-headings, tables, or other structures that conflict with the
-        template format must be converted, preserving the factual content
-        (e.g. per-scenario sub-headings → bold-name paragraph blocks)
-      - Only if content has no reasonable template home, append it in an
-        extra section at the end
+    - **Recreate** - fetch the template and use it as the blueprint for a
+      freshly authored document:
+      - Work through the template section by section; for each section, find
+        any `TEMPLATE-DIRECTIVE` blocks (both `<!-- TEMPLATE-DIRECTIVE: ... -->`
+        in markdown and `# <!-- TEMPLATE-DIRECTIVE: ... -->` in YAML) — execute
+        each directive (read specified standards, apply structural guidance,
+        substitute content), then **remove the directive block entirely** from
+        the output; gather the relevant technical details from all available
+        sources — the old file, README, related docs, sibling files, and any
+        other repo context — to populate that section correctly; the old file's
+        structure and headings are irrelevant; only its factual content is mined
+        as a source
+      - **Gap-check**: after all template sections are filled, scan the old
+        file once more for any technical information not yet captured; if
+        found, preserve it by appending new relevant sections at the end
       - **Before writing**: do a mandatory self-check — for every section that
-        has an HTML comment in the template, explicitly state what format the
-        comment requires, then verify the drafted content matches that format
-        exactly (e.g. if the comment says "no sub-headings", confirm there are
-        no `###` headings inside that section; if it says "bold-name paragraph
-        blocks", confirm each entry is `**Name**: prose` with no sub-heading);
-        fix any mismatches before writing the file
+        has a `TEMPLATE-DIRECTIVE` block in the template, explicitly state what
+        format the directive requires, then verify the drafted content matches
+        that format exactly (e.g. if the directive says "no sub-headings",
+        confirm there are no `###` headings inside that section; if it says
+        "bold-name paragraph blocks", confirm each entry is `**Name**: prose`
+        with no sub-heading); fix any mismatches before writing the file
       - Write the rebuilt file; run `pwsh ./fix.ps1`
-  - When writing any section: HTML comments and TODO placeholders in the template
-    are instructions - always resolve them to real content; infer from README,
-    related files, sibling docs, and path; if confident write directly; if
-    ambiguous offer 2–3 concrete options and ask the user; keep asking until they
-    answer - never leave a TODO unless the user explicitly requests it
+  - When writing any section: `TEMPLATE-DIRECTIVE` blocks are directives —
+    execute them (read specified standards, apply structural guidance, substitute
+    content) and **remove the block entirely** from the written file; inline
+    `TODO:` placeholders in YAML string values (e.g. `title:`, `justification:`)
+    are content placeholders — always resolve them to real content; infer from
+    README, related files, sibling docs, and path; if confident write directly;
+    if ambiguous offer 2–3 concrete options and ask the user; keep asking until
+    they answer - never leave a TODO or TEMPLATE-DIRECTIVE in the output unless
+    the user explicitly requests it
 
 Collect sub-agent results and assemble the final report.
 

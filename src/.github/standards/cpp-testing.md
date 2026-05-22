@@ -17,7 +17,7 @@ Test files mirror the source tree under a `test/` root:
 
 ```text
 test/
-└── {system_name}/
+└── {system_name}_tests/
     └── {subsystem_name}/
         └── {unit_name}_tests.cpp   # unit tests for src/{system_name}/{subsystem_name}/{unit_name}.cpp
 ```

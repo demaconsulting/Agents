@@ -208,7 +208,8 @@ Reviews OTS item integration design, requirements, and verification evidence:
   - OTS requirements: `docs/reqstream/ots/{ots-name}.yaml`
   - OTS integration design: `docs/design/ots/{ots-name}.md`
   - OTS verification: `docs/verification/ots/{ots-name}.md`
-  - Tests (if applicable): `test/{OtsSoftwareTests}/...` (cased per language)
+  - Tests (if applicable): `test/OtsSoftwareTests/...` (C#) or `test/ots_software_tests/...`
+    (Python/other) — fixed repo-level name, no system prefix
 
 ## `Shared-{PackageName}` Review (one per Shared Package)
 

@@ -32,7 +32,8 @@ the target path. Use the template-sync agent to audit or remediate drift in exis
 ## Repository Root
 
 Kebab-case placeholders (`{system-name}`) appear in `docs/` and `docs/reqstream/` paths.
-Cased placeholders (`{SystemName}`) follow the language convention in `src/` and `test/`.
+Cased placeholders follow the language convention in `src/`, `include/`, and `test/`:
+PascalCase (`{SystemName}`) for C#, snake_case (`{system_name}`) for C++.
 Items marked *(optional)* appear only when applicable to the project.
 
 ```text
@@ -48,7 +49,8 @@ Items marked *(optional)* appear only when applicable to the project.
 ├── .versionmark.yaml              # Tool version tracking
 ├── .yamlfix.toml                  # YAML auto-formatter configuration
 ├── .yamllint.yaml                 # YAML lint rules
-├── {ProjectName}.slnx             # Solution file
+├── {ProjectName}.slnx  (optional) # C# solution file
+├── CMakeLists.txt      (optional) # C++ root build file
 ├── build.ps1                      # Build solution and run tests
 ├── fix.ps1                        # Auto-fix all linting; always exits 0
 ├── lint.ps1                       # Full lint check for CI
@@ -58,11 +60,12 @@ Items marked *(optional)* appear only when applicable to the project.
 ├── requirements.yaml              # ReqStream root includes file
 ├── nuget.config      (optional)   # NuGet package sources
 ├── docs/
+├── include/  (optional)           # C++ public headers
 ├── src/
 └── test/
 ```
 
-## docs/ Tree
+## Documentation Tree
 
 Every folder under `docs/` except `docs/reqstream/` and `docs/template/` is a
 **Pandoc document collection** (see the *Technical Documentation* standard for
@@ -156,30 +159,54 @@ docs/
     └── introduction.md
 ```
 
-## src/ and test/ Trees
+## Source and Test Trees
+
+**C# projects** use `src/` and `test/` with PascalCase names:
 
 ```text
 src/
 └── {SystemName}/
     ├── {SystemName}.csproj
-    ├── {UnitName}.cs (optional)   # System-level unit (when no subsystem exists)
-    └── {SubsystemName}/           # Subsystems may nest to any depth
-        └── {UnitName}.cs          # One class file per unit
+    ├── {UnitName}.cs (optional)     # System-level unit (when no subsystem exists)
+    └── {SubsystemName}/             # Subsystems may nest to any depth
+        └── {UnitName}.cs            # One class file per unit
 
 test/
-└── {SystemName}.Tests/
-    ├── {SystemName}.Tests.csproj
-    ├── {SystemName}Tests.cs       # System-level integration tests
-    └── {SubsystemName}/           # Mirrors src/ subsystem hierarchy
-        ├── {SubsystemName}Tests.cs  # Subsystem-level integration tests
-        └── {UnitName}Tests.cs     # Unit tests
+├── {SystemName}.Tests/
+│   ├── {SystemName}.Tests.csproj
+│   ├── {SystemName}Tests.cs         # System-level integration tests
+│   └── {SubsystemName}/             # Mirrors src/ subsystem hierarchy
+│       ├── {SubsystemName}Tests.cs  # Subsystem-level integration tests
+│       └── {UnitName}Tests.cs       # Unit tests
+└── OtsSoftwareTests/  (optional)    # Repo-level OTS integration tests (one file per OTS item)
+```
+
+**C++ projects** use `include/`, `src/`, and `test/` with snake_case names:
+
+```text
+include/
+└── {system_name}/
+    └── {subsystem_name}/
+        └── {unit_name}.hpp          # public API header - installed with the package
+
+src/
+└── {system_name}/
+    └── {subsystem_name}/
+        ├── {unit_name}.cpp          # implementation
+        └── {unit_name}_impl.hpp     # internal header - not part of the public API
+
+test/
+├── {system_name}_tests/
+│   └── {subsystem_name}/
+│       └── {unit_name}_tests.cpp    # unit tests mirroring src/ hierarchy
+└── ots_software_tests/ (optional)   # Repo-level OTS integration tests (one file per OTS item)
 ```
 
 ## Parallel Artifact Trees
 
 The authoritative system/subsystem/unit hierarchy is defined in
 `docs/design/introduction.md`. The `docs/reqstream/`, `docs/design/`,
-`docs/verification/`, `src/`, and `test/` trees all mirror that hierarchy.
+`docs/verification/`, `src/`, `include/` (C++), and `test/` trees all mirror that hierarchy.
 Every software item has artifacts at matching relative paths. The path from
 system root to a unit passes through zero or more subsystem path segments:
 
@@ -187,16 +214,24 @@ system root to a unit passes through zero or more subsystem path segments:
 docs/reqstream/    {system-name}/[{subsystem-name}/]...{unit-name}.yaml
 docs/design/       {system-name}/[{subsystem-name}/]...{unit-name}.md
 docs/verification/ {system-name}/[{subsystem-name}/]...{unit-name}.md
-src/               {SystemName}/[{SubsystemName}/]...{UnitName}.cs
-test/              {SystemName}.Tests/[{SubsystemName}/]...{UnitName}Tests.cs
+
+src/               {SystemName}/[{SubsystemName}/]...{UnitName}.cs                 (C#)
+test/              {SystemName}.Tests/[{SubsystemName}/]...{UnitName}Tests.cs      (C#)
+
+include/           {system_name}/[{subsystem_name}/]...{unit_name}.hpp             (C++)
+src/               {system_name}/[{subsystem_name}/]...{unit_name}.cpp             (C++)
+test/              {system_name}_tests/[{subsystem_name}/]...{unit_name}_tests.cpp (C++)
 ```
 
-OTS items have integration/usage artifacts in parallel `ots/` folders:
+OTS items have integration/usage artifacts in parallel `ots/` folders, plus a single
+repo-level test project (never prefixed with a system name):
 
 ```text
 docs/reqstream/ots/{ots-name}.yaml
 docs/design/ots/{ots-name}.md
 docs/verification/ots/{ots-name}.md
+test/OtsSoftwareTests/             (C# - optional, when no other verification evidence exists)
+test/ots_software_tests/           (C++ - optional, when no other verification evidence exists)
 ```
 
 Shared packages have integration/usage artifacts in parallel `shared/` folders:

@@ -6,7 +6,7 @@
 sections:
   - title: Shared Package Requirements
     sections:
-      - title: '{PackageName}'
+      - title: '{PackageName} Requirements'
         requirements:
           - id: PackageName-Core-Feature
             title: 'TODO: {PackageName} shall {advertised feature}.'

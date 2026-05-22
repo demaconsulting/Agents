@@ -6,14 +6,12 @@
 #      Add children links to subsystem requirements as they are decomposed. -->
 sections:
   - title: '{SystemName} Requirements'
-    sections:
-      - title: Functional Requirements
-        requirements:
-          - id: SystemName-Core-Feature
-            title: 'TODO: The system shall {observable behavior}.'
-            justification: |
-              TODO: Explain the business or regulatory reason for this requirement.
-            children:
-              - SystemName-SubsystemName-Feature
-            tests:
-              - SystemName_Functionality_Scenario_ExpectedBehavior
+    requirements:
+      - id: SystemName-Core-Feature
+        title: 'TODO: The system shall {observable behavior}.'
+        justification: |
+          TODO: Explain the business or regulatory reason for this requirement.
+        children:
+          - SystemName-SubsystemName-Feature
+        tests:
+          - SystemName_Functionality_Scenario_ExpectedBehavior

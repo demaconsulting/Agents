@@ -1,6 +1,11 @@
 ## {SubsystemName}
 
 <!-- TEMPLATE-DIRECTIVE:
+     Read standards: software-items.md, design-documentation.md, technical-documentation.md
+     Consult docs/design/introduction.md to determine whether this item is a Software
+     Subsystem or a Software Unit — folder depth does not determine classification.
+     - If this is a SUBSYSTEM: populate the sections below (Overview, Interfaces, Design).
+     - If this is a UNIT: use the unit-name.md template in the same folder instead.
      Replace {SubsystemName} with your subsystem name.
      Adjust the heading depth to match this file's folder depth under docs/design/
      (## = one folder deep, ### = two folders deep, etc.). -->

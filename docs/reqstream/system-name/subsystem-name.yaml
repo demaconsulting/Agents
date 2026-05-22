@@ -2,16 +2,12 @@
 # {SubsystemName} subsystem requirements
 # <!-- TEMPLATE-DIRECTIVE:
 #      Read standards: requirements-principles.md, software-items.md, reqstream-usage.md
+#      Consult docs/design/introduction.md to determine whether this item is a subsystem
+#      or a unit — folder depth does not determine classification.
+#      If this is a UNIT: use unit-name.yaml in this folder instead.
 #      Replace {SystemName} / {SubsystemName} with your names.
-#      For deeper subsystem nesting, add another 'sections:' level here before
-#      '{SubsystemName} Requirements', matching the parent subsystem's section title.
-#      e.g. for a child subsystem:
-#        - title: '{SystemName} Requirements'
-#          sections:
-#            - title: '{ParentSubsystemName} Requirements'
-#              sections:
-#                - title: '{ChildSubsystemName} Requirements'
-#                  requirements: [...] -->
+#      Spell out the full ancestry path as nested '{ItemName} Requirements' sections -
+#      see the nesting tree in reqstream-usage.md. -->
 sections:
   - title: '{SystemName} Requirements'
     sections:

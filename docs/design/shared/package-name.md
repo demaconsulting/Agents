@@ -23,7 +23,7 @@
 
 <!-- TEMPLATE-DIRECTIVE:
      Write a prose description of how this shared package is consumed. Cover:
-     - How it is referenced (e.g. NuGet) and initialised.
+     - How it is referenced (e.g. NuGet) and initialized.
      - How local systems interact with the package's public API.
 
      If there is a specific sequence of steps required, use a numbered list:
@@ -34,5 +34,5 @@
 
 <!-- TEMPLATE-DIRECTIVE:
      Write a prose description of any assumptions the local system makes about this
-     package's behaviour that are relevant to the integration design. Do not record version
+     package's behavior that are relevant to the integration design. Do not record version
      numbers — version information is managed in SBOMs outside of design documentation. -->

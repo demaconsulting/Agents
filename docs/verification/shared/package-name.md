@@ -20,7 +20,7 @@
 <!-- TEMPLATE-DIRECTIVE:
      Write one paragraph block per scenario. Each block has two parts:
 
-     **ScenarioName**: One or two sentences describing what condition or behaviour is being
+     **ScenarioName**: One or two sentences describing what condition or behavior is being
      verified and why it matters, and what the expected outcome is.
      This scenario is tested by `TestMethodName`.
 

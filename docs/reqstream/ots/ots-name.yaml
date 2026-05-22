@@ -6,7 +6,7 @@
 sections:
   - title: OTS Software Requirements
     sections:
-      - title: '{OtsName}'
+      - title: '{OtsName} Requirements'
         requirements:
           - id: OtsName-Core-Feature
             title: 'TODO: {OtsName} shall {required functionality}.'

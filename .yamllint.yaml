@@ -3,9 +3,7 @@
 #
 # DO NOT MODIFY: These rules represent coding standards.
 # If files fail linting, fix the files to meet these standards.
-
 extends: default
-
 ignore: |
   **/.git/**
   **/node_modules/**
@@ -15,7 +13,6 @@ ignore: |
   **/3rd-party/**
   **/generated/**
   **/.agent-logs/**
-
 rules:
   # Allow 'on:' in GitHub Actions workflows (not a boolean value)
   truthy:

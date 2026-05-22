@@ -10,16 +10,17 @@
 # - PROPOSE only genuine technical terms/names as needed
 version: '0.2'
 language: en
-
 words:
   - buildmark
   - Dema
+  - fileassert
   - Pandoc
   - postconditions
   - reqstream
   - reviewmark
   - sarif
   - sarifmark
+  - slnx
   - sonar
   - sonarmark
   - versionmark

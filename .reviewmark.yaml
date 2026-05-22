@@ -19,12 +19,10 @@ needs-review:
   - '!**/obj/**'
   - '!**/bin/**'
   - '!**/generated/**'
-
 evidence-source:
   # <!-- TEMPLATE-DIRECTIVE:
   #      Update to type 'url' or 'fileshare' once formal reviews begin. -->
   type: none
-
 reviews:
   # Purpose Review (only one per repository)
   - id: SystemName-Purpose

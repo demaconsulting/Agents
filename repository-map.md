@@ -64,11 +64,29 @@ docs/design/shared/{package-name}.md
 docs/verification/shared/{package-name}.md
 ```
 
+# Template Placeholders
+
+All `{...}` tokens in this map and in template files must be replaced when setting up a
+new project. Project-level placeholder values are defined once in `AGENTS.md` under
+**Project Overview** — read that file to get the canonical values:
+
+- `{ProjectName}` — from `project-name` in AGENTS.md (e.g., `ReqStream`)
+- `{OrganizationName}` — from `organization` in AGENTS.md (e.g., `DEMA Consulting`)
+- `{ProjectTagline}` — from `project-tagline` in AGENTS.md (e.g., `A .NET CLI tool for requirements traceability`)
+- `{org}` / `{repo}` — derive from `git remote get-url origin`
+  (e.g., `https://github.com/DemaConsulting/ReqStream` → `{org}` = `DemaConsulting`, `{repo}` = `ReqStream`)
+
+Item-level placeholders appear once per software item. Each has three casing forms:
+kebab-case for `docs/`, PascalCase for C# `src/`/`test/`, snake_case for C++ `src/`/`test/`:
+
+- `{system-name}` / `{SystemName}` / `{system_name}` — system identifier
+- `{subsystem-name}` / `{SubsystemName}` / `{subsystem_name}` — subsystem identifier
+- `{unit-name}` / `{UnitName}` / `{unit_name}` — unit identifier
+- `{ots-name}` / `{OtsName}` — OTS item identifier (docs only; no C++ form)
+- `{package-name}` / `{PackageName}` — shared package identifier (docs only; no C++ form)
+
 # Repository Root
 
-Kebab-case placeholders (`{system-name}`) appear in `docs/` and `docs/reqstream/` paths.
-Cased placeholders follow the language convention in `src/`, `include/`, and `test/`:
-PascalCase (`{SystemName}`) for C#, snake_case (`{system_name}`) for C++.
 Items marked *(optional)* appear only when applicable to the project.
 
 ```text

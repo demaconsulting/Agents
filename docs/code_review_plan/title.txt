@@ -1,7 +1,11 @@
 ---
+# <!-- TEMPLATE-DIRECTIVE:
+#      Use values from AGENTS.md Project Overview: {ProjectName} from name,
+#      {OrganizationName} from organization, {ProjectTagline} from description.
+#      Add project-specific technology keywords to the keywords list. -->
 title: "{ProjectName} Code Review Plan"
-subtitle: "TODO: Add subtitle"
-author: "TODO: Add organization name"
+subtitle: "{ProjectTagline}"
+author: "{OrganizationName}"
 description: "Code Review Plan for {ProjectName}"
 lang: en-US
 keywords:

@@ -3,7 +3,7 @@
 <!-- TEMPLATE-DIRECTIVE:
      Replace {ProjectName} with your project name. -->
 
-This document provides the requirements traceability matrix for {ProjectName},
+This document provides the requirements Trace Matrix for {ProjectName},
 mapping each requirement to its corresponding test evidence.
 
 ## Purpose

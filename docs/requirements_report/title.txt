@@ -1,10 +1,14 @@
 ---
-title: "{ProjectName} Requirements Traceability Report"
-subtitle: "TODO: Add subtitle"
-author: "TODO: Add organization name"
-description: "Requirements Traceability Report for {ProjectName}"
+# <!-- TEMPLATE-DIRECTIVE:
+#      Use values from AGENTS.md Project Overview: {ProjectName} from name,
+#      {OrganizationName} from organization, {ProjectTagline} from description.
+#      Add project-specific technology keywords to the keywords list. -->
+title: "{ProjectName} Trace Matrix"
+subtitle: "{ProjectTagline}"
+author: "{OrganizationName}"
+description: "Trace Matrix for {ProjectName}"
 lang: en-US
 keywords:
   - Requirements
-  - Traceability
+  - Trace Matrix
 ---

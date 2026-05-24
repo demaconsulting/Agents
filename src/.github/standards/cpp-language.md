@@ -43,8 +43,7 @@ Protect every header with `#pragma once`.
 
 # API Documentation and Literate Coding Example
 
-Use `///` C++ Doxygen line comments. The example below demonstrates good Doxygen
-API documentation combined with literate coding comments.
+Use `///` C++ Doxygen line comments.
 
 ```cpp
 /// @brief Converts a raw sensor reading into a validated measurement.

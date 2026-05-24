@@ -1,12 +1,16 @@
 # Project Overview
 
 > **Downstream customization required**: Replace the `TODO` values below with
-> values specific to the target repository.
+> values specific to the target repository. These values are the canonical source
+> for project-wide template placeholders used throughout the repository.
 
-- **name**: TODO
-- **description**: TODO
-- **languages**: TODO
-- **technologies**: TODO
+- **project-name**: TODO — repository/project name (e.g., `ReqStream`)
+- **organization**: TODO — organization name for document authorship (e.g., `DEMA Consulting`)
+- **project-tagline**: TODO — brief one-line description of what the project does
+  (e.g., `A .NET CLI tool for requirements traceability`)
+- **description**: TODO — full project description, may be multiple sentences
+- **languages**: TODO — programming languages used (e.g., `C#`, `C++`)
+- **technologies**: TODO — key technologies and frameworks (e.g., `.NET`, `CMake`)
 
 # Project Structure
 

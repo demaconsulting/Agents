@@ -28,7 +28,10 @@ docs/verification/
     └── {package-name}.md        # heading depth ##
 ```
 
-Subsystems may nest recursively. Each file's heading depth equals its folder depth under `docs/verification/`.
+Subsystems may nest recursively:
+`docs/verification/{system-name}[/{subsystem-name}...]/{subsystem-name}.md` or
+`docs/verification/{system-name}[/{subsystem-name}...]/{unit-name}.md`.
+Each file's heading depth equals its folder depth under `docs/verification/`.
 
 # introduction.md (MANDATORY)
 
@@ -53,6 +56,9 @@ write "N/A - {justification}" rather than removing any section:
 # Subsystem Verification Design (MANDATORY)
 
 Place `{subsystem-name}.md` in the **parent** folder; create `{subsystem-name}/` for children.
+**Important**: A file at `{system-name}/**/*.md` may be either a
+subsystem or a unit. Always determine the correct classification from
+`docs/design/introduction.md` — folder depth does not determine classification.
 All sections mandatory; write "N/A - {justification}" rather than removing any section:
 
 - **Verification Strategy**: integration test approach and mocking at subsystem boundary
@@ -63,8 +69,11 @@ All sections mandatory; write "N/A - {justification}" rather than removing any s
 
 # Unit Verification Design (MANDATORY)
 
-Place `{unit-name}.md` in the **parent** folder. All sections mandatory;
-write "N/A - {justification}" rather than removing any section:
+Place `{unit-name}.md` in the **parent** folder.
+**Important**: A file at `{system-name}/**/*.md` may be either a
+subsystem or a unit. Always determine the correct classification from
+`docs/design/introduction.md` — folder depth does not determine classification.
+All sections mandatory; write "N/A - {justification}" rather than removing any section:
 
 - **Verification Approach**: what is mocked/stubbed and why; injected vs. real dependencies
 - **Test Environment**: any environment setup beyond the standard test runner

@@ -28,7 +28,10 @@ docs/design/
     └── {package-name}.md        # heading depth ##
 ```
 
-Subsystems may nest recursively. Each file's heading depth equals its folder depth under `docs/design/`.
+Subsystems may nest recursively, so nested paths may end in either a subsystem document
+(`docs/design/{system-name}[/{subsystem-name}...]/{subsystem-name}.md`) or a unit document
+(`docs/design/{system-name}[/{subsystem-name}...]/{unit-name}.md`).
+Each file's heading depth equals its folder depth under `docs/design/`.
 
 # introduction.md (MANDATORY)
 
@@ -56,6 +59,9 @@ write "N/A - {justification}" rather than removing any section:
 # Subsystem Design (MANDATORY)
 
 Place `{subsystem-name}.md` in the **parent** folder; create `{subsystem-name}/` for children.
+**Important**: A file at `{system-name}/**/*.md` may be either a subsystem or a unit. Always
+determine the correct classification from `docs/design/introduction.md` — folder depth does not
+determine classification.
 All sections mandatory; write "N/A - {justification}" rather than removing any section:
 
 - **Overview**: responsibility, boundaries, contained units
@@ -64,8 +70,11 @@ All sections mandatory; write "N/A - {justification}" rather than removing any s
 
 # Unit Design (MANDATORY)
 
-Place `{unit-name}.md` in the **parent** folder. All sections mandatory;
-write "N/A - {justification}" rather than removing any section:
+Place `{unit-name}.md` in the **parent** folder.
+**Important**: A file at `{system-name}/**/*.md` may be either a subsystem or a unit. Always
+determine the correct classification from `docs/design/introduction.md` — folder depth does not
+determine classification.
+All sections mandatory; write "N/A - {justification}" rather than removing any section:
 
 - **Purpose**: single responsibility
 - **Data Model**: fields, properties, types, invariants (IEC 62304 §5.4.2)

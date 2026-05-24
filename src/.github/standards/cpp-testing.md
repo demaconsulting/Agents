@@ -13,13 +13,14 @@ Read these standards first before applying this standard:
 
 # File Organization
 
-Test files mirror the source tree under a `test/` root:
+Test files mirror the `src/` tree under `test/`, with `_tests` appended to the
+system folder name and each test file name:
 
 ```text
 test/
-└── {system_name}/
+└── {system_name}_tests/
     └── {subsystem_name}/
-        └── {unit_name}_tests.cpp   # unit tests for src/{system_name}/{subsystem_name}/{unit_name}.cpp
+        └── {unit_name}_tests.cpp   # unit tests for src/{system_name}[/{subsystem_name}...]/{unit_name}.cpp
 ```
 
 # Package Reference

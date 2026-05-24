@@ -10,10 +10,11 @@ Read these standards first before applying this standard:
 
 - **`coding-principles.md`** - Universal coding principles and quality gates
 
-# Header Organization
+# File Organization
 
-Public headers live under `include/` mirroring the `src/` folder structure.
-Internal headers stay alongside their source files in `src/`:
+C++ projects use two parallel top-level folders — `include/` (public API) and
+`src/` (implementation) — both mirroring the same system/subsystem/unit hierarchy
+(test layout is covered in `cpp-testing.md`):
 
 ```text
 include/
@@ -27,6 +28,8 @@ src/
         ├── {unit_name}.cpp       # implementation
         └── {unit_name}_impl.hpp  # internal header - not part of the public API
 ```
+
+Subsystems may nest to any depth: `{system_name}[/{subsystem_name}...]/{unit_name}.hpp/cpp`.
 
 Protect every header with `#pragma once`.
 

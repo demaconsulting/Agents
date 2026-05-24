@@ -34,7 +34,7 @@ For each group intersecting the requested scope, call a sub-agent with:
   - Applicable standards from the `# Standards Application` matrix in `AGENTS.md`
     for the file types in the group scope
   - Project-specific names substitute for placeholders at matching path depth
-    (e.g. `SystemName` → `{SystemName}`, `system-name` → `{system-name}`)
+    (e.g. `MySystem` → `{SystemName}`, `my-system` → `{system-name}`)
   - For files within `{system-name}/` subtrees in `docs/design/`, `docs/verification/`,
     and `docs/reqstream/`: consult `docs/design/introduction.md` to determine whether
     each item is a subsystem or unit, then select the appropriate template

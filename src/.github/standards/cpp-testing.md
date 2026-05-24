@@ -13,7 +13,8 @@ Read these standards first before applying this standard:
 
 # File Organization
 
-Test files mirror the source tree under a `test/` root:
+Test files mirror the `src/` tree under `test/`, with `_tests` appended to the
+system folder name and each test file name:
 
 ```text
 test/

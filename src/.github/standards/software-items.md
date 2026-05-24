@@ -44,7 +44,7 @@ Three placeholder forms appear in path patterns across these standards:
 
 - **Kebab-case** (`{system-name}`, `{unit-name}`): always kebab-case —
   documentation and requirements file paths
-- **PascalCase IDs** (`SystemName`, `UnitName`): always PascalCase —
+- **PascalCase IDs** (`{SystemName}`, `{UnitName}`): always PascalCase —
   requirements IDs, review-mark IDs, and other documentation identifiers
 - **Language-cased** (`{SystemName}` or `{system_name}`): follow your language's
   convention — `PascalCase` for C#/Java, `snake_case` for C++/Python —

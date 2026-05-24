@@ -12,9 +12,9 @@ Read these standards first before applying this standard:
 
 # File Organization
 
-C++ projects use three parallel top-level folders — `include/` (public API),
-`src/` (implementation), and `test/` (verification) — all mirroring the same
-system/subsystem/unit hierarchy:
+C++ projects use two parallel top-level folders — `include/` (public API) and
+`src/` (implementation) — both mirroring the same system/subsystem/unit hierarchy
+(test layout is covered in `cpp-testing.md`):
 
 ```text
 include/

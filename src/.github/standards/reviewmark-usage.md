@@ -178,10 +178,10 @@ Reviews subsystem architecture and interfaces:
 - **Scope**: Excludes units under the subsystem, relying on subsystem design to describe
   what units it uses
 - **File Path Patterns**:
-  - Requirements: `docs/reqstream/{system-name}/.../{subsystem-name}.yaml`
-  - Design: `docs/design/{system-name}/.../{subsystem-name}.md`
-  - Verification design: `docs/verification/{system-name}/.../{subsystem-name}.md`
-  - Tests: `test/{SystemName}.Tests/.../{SubsystemName}/{SubsystemName}Tests.{ext}`
+  - Requirements: `docs/reqstream/{system-name}[/{subsystem-name}...]/{subsystem-name}.yaml`
+  - Design: `docs/design/{system-name}[/{subsystem-name}...]/{subsystem-name}.md`
+  - Verification design: `docs/verification/{system-name}[/{subsystem-name}...]/{subsystem-name}.md`
+  - Tests: `test/{SystemName}.Tests[/{SubsystemName}...]/{SubsystemName}Tests.{ext}`
 
 ## `{SystemName}-{SubsystemName}[-{SubsystemName}...]-{UnitName}` Review (one per unit)
 
@@ -191,11 +191,11 @@ Reviews individual software unit implementation:
 - **Title**: "Review that {SystemName} {SubsystemName} {UnitName} Implementation is Correct"
 - **Scope**: Complete unit review including all artifacts
 - **File Path Patterns**:
-  - Requirements: `docs/reqstream/{system-name}/.../{unit-name}.yaml`
-  - Design: `docs/design/{system-name}/.../{unit-name}.md`
-  - Verification design: `docs/verification/{system-name}/.../{unit-name}.md`
-  - Source: `src/{SystemName}/.../{UnitName}.{ext}`
-  - Tests: `test/{SystemName}.Tests/.../{UnitName}Tests.{ext}`
+  - Requirements: `docs/reqstream/{system-name}[/{subsystem-name}...]/{unit-name}.yaml`
+  - Design: `docs/design/{system-name}[/{subsystem-name}...]/{unit-name}.md`
+  - Verification design: `docs/verification/{system-name}[/{subsystem-name}...]/{unit-name}.md`
+  - Source: `src/{SystemName}[/{SubsystemName}...]/{UnitName}.{ext}`
+  - Tests: `test/{SystemName}.Tests[/{SubsystemName}...]/{UnitName}Tests.{ext}`
 
 ## `OTS-{OtsName}` Review (one per OTS item)
 

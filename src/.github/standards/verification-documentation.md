@@ -28,7 +28,8 @@ docs/verification/
     └── {package-name}.md        # heading depth ##
 ```
 
-Subsystems may nest recursively. Each file's heading depth equals its folder depth under `docs/verification/`.
+Subsystems may nest recursively: `docs/verification/{system-name}[/{subsystem-name}...]/{unit-name}.md`.
+Each file's heading depth equals its folder depth under `docs/verification/`.
 
 # introduction.md (MANDATORY)
 

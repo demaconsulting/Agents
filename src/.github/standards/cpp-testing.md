@@ -19,7 +19,7 @@ Test files mirror the source tree under a `test/` root:
 test/
 └── {system_name}_tests/
     └── {subsystem_name}/
-        └── {unit_name}_tests.cpp   # unit tests for src/{system_name}/{subsystem_name}/{unit_name}.cpp
+        └── {unit_name}_tests.cpp   # unit tests for src/{system_name}[/{subsystem_name}...]/{unit_name}.cpp
 ```
 
 # Package Reference

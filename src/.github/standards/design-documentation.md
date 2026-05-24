@@ -28,7 +28,8 @@ docs/design/
     └── {package-name}.md        # heading depth ##
 ```
 
-Subsystems may nest recursively. Each file's heading depth equals its folder depth under `docs/design/`.
+Subsystems may nest recursively: `docs/design/{system-name}[/{subsystem-name}...]/{unit-name}.md`.
+Each file's heading depth equals its folder depth under `docs/design/`.
 
 # introduction.md (MANDATORY)
 

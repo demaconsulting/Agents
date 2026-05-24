@@ -29,6 +29,8 @@ src/
         └── {unit_name}_impl.hpp  # internal header - not part of the public API
 ```
 
+Subsystems may nest to any depth: `{system_name}[/{subsystem_name}...]/{unit_name}.hpp/cpp`.
+
 Protect every header with `#pragma once`.
 
 # Naming and Style Conventions

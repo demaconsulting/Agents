@@ -48,6 +48,15 @@ Two placeholder styles appear in path patterns across these standards:
   `PascalCase` for C#/Java, `snake_case` for C++/Python -
   used in source and test file paths
 
+## Nesting Depth Notation
+
+Subsystems nest to any depth. Patterns use bracket-ellipsis to express this without
+enumerating levels — `[/{subsystem-name}...]` in paths, `[-{SubsystemName}...]` in
+dash-separated IDs and names. Examples:
+
+- `docs/design/{system-name}[/{subsystem-name}...]/{unit-name}.md`
+- `SystemName[-SubsystemName...]-UnitName-Feature`
+
 # Categorization Guidelines
 
 Choose the appropriate category based on scope and testability:

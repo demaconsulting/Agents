@@ -196,8 +196,10 @@ Reviews individual software unit implementation:
   - Requirements: `docs/reqstream/{system-name}[/{subsystem-name}...]/{unit-name}.yaml`
   - Design: `docs/design/{system-name}[/{subsystem-name}...]/{unit-name}.md`
   - Verification design: `docs/verification/{system-name}[/{subsystem-name}...]/{unit-name}.md`
-  - Source: `src/{SystemName}[/{SubsystemName}...]/{UnitName}.{ext}`
-  - Tests: `test/{SystemName}.Tests[/{SubsystemName}...]/{UnitName}Tests.{ext}`
+  - Source (C# example): `src/{SystemName}[/{SubsystemName}...]/{UnitName}.cs`
+  - Tests (C# example): `test/{SystemName}.Tests[/{SubsystemName}...]/{UnitName}Tests.cs`
+  - Source (snake_case C++ example): `src/{system_name}[/{subsystem_name}...]/{unit_name}.cpp`
+  - Tests (snake_case C++ example): `test/{system_name}_tests[/{subsystem_name}...]/{unit_name}_tests.cpp`
 
 ## `OTS-{OtsName}` Review (one per OTS item)
 

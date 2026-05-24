@@ -35,8 +35,10 @@ docs/reqstream/
     └── {package-name}.yaml          # Requirements for Shared Package dependencies
 ```
 
-Local items have matching paths across `docs/reqstream/`, `docs/design/`, and `docs/verification/`:
-`{system-name}[/{subsystem-name}...]/{unit-name}.yaml`
+Local items have matching relative paths across `docs/reqstream/`, `docs/design/`, and `docs/verification/`:
+- Requirements: `{system-name}[/{subsystem-name}...]/{item-name}.yaml`
+- Design: `{system-name}[/{subsystem-name}...]/{item-name}.md`
+- Verification: `{system-name}[/{subsystem-name}...]/{item-name}.md`
 
 # Requirements File Format
 

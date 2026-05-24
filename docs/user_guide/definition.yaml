@@ -4,9 +4,24 @@ input-files:
   - docs/user_guide/title.txt
   - docs/user_guide/introduction.md
   # <!-- TEMPLATE-DIRECTIVE:
-  #      Add additional topic files in reading order, e.g.:
+  #      This user guide is a multi-file Pandoc collection. introduction.md covers only
+  #      Purpose, Scope, and References. All substantive guide content belongs in
+  #      separate topic files listed here in reading order.
+  #
+  #      When Recreating: if the old file contains content beyond Purpose/Scope/References
+  #      (e.g. installation steps, CLI options, usage examples, FAQ, troubleshooting),
+  #      you MUST migrate that content to section files here — do NOT discard it.
+  #      Discarding guide content is never acceptable.
+  #
+  #      Create the topic files that match the content. Common examples:
+  #        - docs/user_guide/installation.md   (prerequisites, install, update)
+  #        - docs/user_guide/usage.md          (getting started, CLI options, examples)
+  #        - docs/user_guide/faq.md            (FAQ, troubleshooting, support)
+  #
+  #      Replace this comment with the actual list of files you create, e.g.:
   #      - docs/user_guide/installation.md
-  #      - docs/user_guide/usage.md -->
+  #      - docs/user_guide/usage.md
+  #      - docs/user_guide/faq.md -->
 template: template.html
 table-of-contents: true
 number-sections: true

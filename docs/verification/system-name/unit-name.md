@@ -31,8 +31,7 @@
 
 <!-- TEMPLATE-DIRECTIVE:
      List each acceptance criterion as a bullet point. For example:
-     - All unit tests pass with zero failures.
-     - All requirements have at least one passing test scenario. -->
+     - All unit tests pass with zero failures. -->
 
 ### Test Scenarios
 

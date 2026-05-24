@@ -56,9 +56,9 @@ write "N/A - {justification}" rather than removing any section:
 # Subsystem Verification Design (MANDATORY)
 
 Place `{subsystem-name}.md` in the **parent** folder; create `{subsystem-name}/` for children.
-**Important**: A file at `{system-name}/{name}.md` may be either a subsystem or a unit. Always
-determine the correct classification from `docs/design/introduction.md` — folder depth does not
-determine classification.
+**Important**: A file at `{system-name}[/{subsystem-name}...]/{name}.md` may be either a
+subsystem or a unit. Always determine the correct classification from
+`docs/design/introduction.md` — folder depth does not determine classification.
 All sections mandatory; write "N/A - {justification}" rather than removing any section:
 
 - **Verification Strategy**: integration test approach and mocking at subsystem boundary

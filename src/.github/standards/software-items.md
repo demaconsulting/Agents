@@ -56,7 +56,7 @@ Subsystems nest to any depth. Patterns use bracket-ellipsis to express this with
 enumerating levels — `[/{subsystem-name}...]` in paths, `[-{SubsystemName}...]` in
 dash-separated IDs. Examples covering all three forms:
 
-- `SystemName[-SubsystemName...]-UnitName-Feature` (PascalCase ID)
+- `{SystemName}[-{SubsystemName}...]-{UnitName}-Feature` (PascalCase ID)
 - `docs/design/{system-name}[/{subsystem-name}...]/{unit-name}.md` (kebab-case doc path)
 - `src/{SystemName}[/{SubsystemName}...]/{UnitName}.cs` (C# source path)
 - `src/{system_name}[/{subsystem_name}...]/{unit_name}.cpp` (C++/Python source path)

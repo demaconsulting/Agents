@@ -36,6 +36,7 @@ docs/reqstream/
 ```
 
 Local items have matching relative paths across `docs/reqstream/`, `docs/design/`, and `docs/verification/`:
+
 - Requirements: `{system-name}[/{subsystem-name}...]/{item-name}.yaml`
 - Design: `{system-name}[/{subsystem-name}...]/{item-name}.md`
 - Verification: `{system-name}[/{subsystem-name}...]/{item-name}.md`

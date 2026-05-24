@@ -91,9 +91,11 @@ When constructing review-sets, follow these principles to maintain manageable sc
 Organize review-sets using these standard patterns to ensure comprehensive coverage
 while keeping each review manageable in scope:
 
-**Naming conventions**: File path placeholders are kebab-case (e.g., `{system-name}`).
-Review-set name placeholders are always PascalCase (e.g., `{SystemName}`) regardless
-of the project's source language.
+**Naming conventions**: Placeholders in documentation, requirements, design, and
+verification file paths are kebab-case (e.g., `{system-name}`). Placeholders in
+source and test file paths may use the casing conventional for the project's
+source language or repository layout (e.g., `{SystemName}`). Review-set name
+placeholders are always PascalCase (e.g., `{SystemName}`).
 
 ## `Purpose` Review (only one per repository)
 

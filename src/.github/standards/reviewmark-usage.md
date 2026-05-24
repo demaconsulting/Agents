@@ -91,9 +91,9 @@ When constructing review-sets, follow these principles to maintain manageable sc
 Organize review-sets using these standard patterns to ensure comprehensive coverage
 while keeping each review manageable in scope:
 
-**Naming conventions**: See `software-items.md` - kebab-case placeholders
-(e.g., `{system-name}`) are always kebab-case; cased placeholders
-(e.g., `{SystemName}`) follow your language's convention.
+**Naming conventions**: File path placeholders are kebab-case (e.g., `{system-name}`).
+Review-set name placeholders are always PascalCase (e.g., `{SystemName}`) regardless
+of the project's source language.
 
 ## `Purpose` Review (only one per repository)
 
@@ -110,12 +110,12 @@ Reviews user-facing capabilities and system promises:
   - Design introduction: `docs/design/introduction.md`
   - System design: `docs/design/{system-name}.md`
 
-## `{System}-Architecture` Review (one per system)
+## `{SystemName}-Architecture` Review (one per system)
 
 Reviews system architecture and operational validation:
 
 - **Purpose**: Proves that the system is designed and tested to satisfy its requirements
-- **Title**: "Review that {System} Architecture Satisfies Requirements"
+- **Title**: "Review that {SystemName} Architecture Satisfies Requirements"
 - **Scope**: Excludes subsystem and unit files, relying on system-level design to describe
   what subsystems and units it uses
 - **File Path Patterns**:
@@ -126,12 +126,12 @@ Reviews system architecture and operational validation:
   - System verification design: `docs/verification/{system-name}.md`
   - System integration tests: `test/{SystemName}.Tests/{SystemName}Tests.{ext}`
 
-## `{System}-Design` Review (one per system)
+## `{SystemName}-Design` Review (one per system)
 
 Reviews architectural and design consistency:
 
 - **Purpose**: Proves the system design is consistent and complete
-- **Title**: "Review that {System} Design is Consistent and Complete"
+- **Title**: "Review that {SystemName} Design is Consistent and Complete"
 - **Scope**: Only brings in top-level requirements and relies on brevity of design documentation
 - **File Path Patterns**:
   - System requirements: `docs/reqstream/{system-name}.yaml`
@@ -142,12 +142,12 @@ Reviews architectural and design consistency:
   - OTS overview: `docs/design/ots.md` _(only if OTS items exist)_
   - Shared Package overview: `docs/design/shared.md` _(only if Shared Package items exist)_
 
-## `{System}-Verification` Review (one per system)
+## `{SystemName}-Verification` Review (one per system)
 
 Reviews verification completeness and consistency:
 
 - **Purpose**: Proves the system verification design is consistent and covers all requirements
-- **Title**: "Review that {System} Verification is Consistent and Complete"
+- **Title**: "Review that {SystemName} Verification is Consistent and Complete"
 - **Scope**: Only brings in top-level requirements and all verification docs for the system
 - **File Path Patterns**:
   - System requirements: `docs/reqstream/{system-name}.yaml`
@@ -157,24 +157,24 @@ Reviews verification completeness and consistency:
   - OTS overview: `docs/verification/ots.md` _(only if OTS items exist)_
   - Shared Package overview: `docs/verification/shared.md` _(only if Shared Package items exist)_
 
-## `{System}-AllRequirements` Review (one per system)
+## `{SystemName}-AllRequirements` Review (one per system)
 
 Reviews requirements quality and traceability:
 
 - **Purpose**: Proves the requirements are consistent and complete
-- **Title**: "Review that All {System} Requirements are Complete"
+- **Title**: "Review that All {SystemName} Requirements are Complete"
 - **Scope**: Only brings in requirements files to keep review manageable
 - **File Path Patterns**:
   - Root requirements: `requirements.yaml`
   - System requirements: `docs/reqstream/{system-name}.yaml`
   - Subsystem/unit requirements: `docs/reqstream/{system-name}/**/*.yaml`
 
-## `{System}-{Subsystem[-Child...]}` Review (one per subsystem at any depth)
+## `{SystemName}-{SubsystemName}[-{SubsystemName}...]` Review (one per subsystem at any depth)
 
 Reviews subsystem architecture and interfaces:
 
 - **Purpose**: Proves that the subsystem is designed and tested to satisfy its requirements
-- **Title**: "Review that {System} {Subsystem} Satisfies Subsystem Requirements"
+- **Title**: "Review that {SystemName} {SubsystemName} Satisfies Subsystem Requirements"
 - **Scope**: Excludes units under the subsystem, relying on subsystem design to describe
   what units it uses
 - **File Path Patterns**:
@@ -183,12 +183,12 @@ Reviews subsystem architecture and interfaces:
   - Verification design: `docs/verification/{system-name}/.../{subsystem-name}.md`
   - Tests: `test/{SystemName}.Tests/.../{SubsystemName}/{SubsystemName}Tests.{ext}`
 
-## `{System}-{Subsystem[-Child...]}-{Unit}` Review (one per unit)
+## `{SystemName}-{SubsystemName}[-{SubsystemName}...]-{UnitName}` Review (one per unit)
 
 Reviews individual software unit implementation:
 
 - **Purpose**: Proves the unit is designed, implemented, and tested to satisfy its requirements
-- **Title**: "Review that {System} {Subsystem} {Unit} Implementation is Correct"
+- **Title**: "Review that {SystemName} {SubsystemName} {UnitName} Implementation is Correct"
 - **Scope**: Complete unit review including all artifacts
 - **File Path Patterns**:
   - Requirements: `docs/reqstream/{system-name}/.../{unit-name}.yaml`

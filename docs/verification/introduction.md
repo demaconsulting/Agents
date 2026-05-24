@@ -34,11 +34,11 @@ This document describes how each software item in {ProjectName} is verified.
 
 Local items have parallel artifacts in:
 
-- Requirements: `docs/reqstream/{system-name}.yaml`, `docs/reqstream/{system-name}/.../{item}.yaml`
-- Design: `docs/design/{system-name}.md`, `docs/design/{system-name}/.../{item}.md`
-- Verification: `docs/verification/{system-name}.md`, `docs/verification/{system-name}/.../{item}.md`
-- Source: `src/{SystemName}/.../{Item}.cs`
-- Tests: `test/{SystemName}.Tests/.../{Item}Tests.cs`
+- Requirements: `docs/reqstream/{system-name}.yaml`, `docs/reqstream/{system-name}[/{subsystem-name}...]/{item}.yaml`
+- Design: `docs/design/{system-name}.md`, `docs/design/{system-name}[/{subsystem-name}...]/{item}.md`
+- Verification: `docs/verification/{system-name}.md`, `docs/verification/{system-name}[/{subsystem-name}...]/{item}.md`
+- Source: `src/{SystemName}[/{SubsystemName}...]/{Item}.cs`
+- Tests: `test/{SystemName}.Tests[/{SubsystemName}...]/{Item}Tests.cs`
 
 OTS items have integration/usage design documentation parallel to system folders:
 

@@ -1,23 +1,23 @@
 ---
 # {UnitName} unit requirements
 # <!-- TEMPLATE-DIRECTIVE:
+#      This template is for UNIT requirements. For subsystem requirements, use
+#      subsystem-name.yaml in this folder instead.
+#      Consult docs/design/introduction.md to confirm classification — folder depth
+#      does not determine whether an item is a unit or subsystem.
 #      Read standards: requirements-principles.md, software-items.md, reqstream-usage.md
-#      Consult docs/design/introduction.md to determine whether this item is a unit
-#      or a subsystem — folder depth does not determine classification.
-#      If this is a SUBSYSTEM: use subsystem-name.yaml in this folder instead.
-#      Replace {SystemName} / {SubsystemName} / {UnitName} with your names.
+#      Replace {SystemName} / {UnitName} with your names (add {SubsystemName} segments
+#      as needed for the full ancestry path).
 #      Spell out the full ancestry path as nested '{ItemName} Requirements' sections -
 #      see the nesting tree in reqstream-usage.md. -->
 sections:
   - title: '{SystemName} Requirements'
     sections:
-      - title: '{SubsystemName} Requirements'
-        sections:
-          - title: '{UnitName} Requirements'
-            requirements:
-              - id: SystemName-SubsystemName-UnitName-Feature
-                title: 'TODO: {UnitName} shall {observable behavior}.'
-                justification: |
-                  TODO: Explain how this decomposes the parent subsystem requirement.
-                tests:
-                  - UnitName_MethodUnderTest_Scenario_ExpectedBehavior
+      - title: '{UnitName} Requirements'
+        requirements:
+          - id: SystemName-UnitName-Feature
+            title: 'TODO: {UnitName} shall {observable behavior}.'
+            justification: |
+              TODO: Explain how this decomposes the parent system requirement.
+            tests:
+              - UnitName_MethodUnderTest_Scenario_ExpectedBehavior

@@ -1,7 +1,7 @@
-﻿---
+---
 # FileAssert document validation tests for {ProjectName}.
 # <!-- TEMPLATE-DIRECTIVE:
-#      Use values from AGENTS.md Project Overview: replace {ProjectName} with name
+#      Use values from AGENTS.md Project Overview: replace {ProjectName} with project-name
 #      and {OrganizationName} with organization throughout this file. -->
 # Tests are tagged by document group to allow per-group execution during the build pipeline.
 # Tags: build-notes, code-quality, code-review, design, verification, user-guide, requirements.

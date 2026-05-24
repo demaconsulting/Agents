@@ -17,32 +17,34 @@ Read these standards before using this map:
 
 # Software Item Hierarchy
 
+> **Pattern only** — no template starter files are provided for this structure.
+
 The system/subsystem/unit hierarchy is the backbone of all artifact trees. The
 authoritative structure is defined in `docs/design/introduction.md` - do not infer
 item classification from folder depth alone.
 
 ```text
-{system}/                              # system
-├── {subsystem}/                       # subsystem (may nest to any depth)
-│   ├── {subsystem}/                   # nested subsystem (may recurse)
-│   │   └── {unit}                     # unit under a nested subsystem
-│   └── {unit}                         # unit under a root subsystem
-└── {unit}                             # unit directly under the system
+{system-name}/                         # system
+├── {subsystem-name}/                  # subsystem (may nest to any depth)
+│   ├── {subsystem-name}/              # nested subsystem (may recurse)
+│   │   └── {unit-name}               # unit under a nested subsystem
+│   └── {unit-name}                   # unit under a root subsystem
+└── {unit-name}                        # unit directly under the system
 ```
 
 Every software item has artifacts at matching relative paths across all trees:
 
 ```text
-docs/reqstream/    {system-name}/[{subsystem-name}/]...{unit-name}.yaml
-docs/design/       {system-name}/[{subsystem-name}/]...{unit-name}.md
-docs/verification/ {system-name}/[{subsystem-name}/]...{unit-name}.md
+docs/reqstream/    {system-name}[/{subsystem-name}...]/{unit-name}.yaml
+docs/design/       {system-name}[/{subsystem-name}...]/{unit-name}.md
+docs/verification/ {system-name}[/{subsystem-name}...]/{unit-name}.md
 
-src/               {SystemName}/[{SubsystemName}/]...{UnitName}.cs                 (C#)
-test/              {SystemName}.Tests/[{SubsystemName}/]...{UnitName}Tests.cs      (C#)
+src/               {SystemName}[/{SubsystemName}...]/{UnitName}.cs                 (C#)
+test/              {SystemName}.Tests[/{SubsystemName}...]/{UnitName}Tests.cs      (C#)
 
-include/           {system_name}/[{subsystem_name}/]...{unit_name}.hpp             (C++)
-src/               {system_name}/[{subsystem_name}/]...{unit_name}.cpp             (C++)
-test/              {system_name}_tests/[{subsystem_name}/]...{unit_name}_tests.cpp (C++)
+include/           {system_name}[/{subsystem_name}...]/{unit_name}.hpp             (C++)
+src/               {system_name}[/{subsystem_name}...]/{unit_name}.cpp             (C++)
+test/              {system_name}_tests[/{subsystem_name}...]/{unit_name}_tests.cpp (C++)
 ```
 
 OTS items have artifacts in parallel `ots/` folders, plus a single repo-level test project
@@ -76,8 +78,9 @@ new project. Project-level placeholder values are defined once in `AGENTS.md` un
 - `{org}` / `{repo}` — derive from `git remote get-url origin`
   (e.g., `https://github.com/DemaConsulting/ReqStream` → `{org}` = `DemaConsulting`, `{repo}` = `ReqStream`)
 
-Item-level placeholders appear once per software item. Each has three casing forms:
-kebab-case for `docs/`, PascalCase for C# `src/`/`test/`, snake_case for C++ `src/`/`test/`:
+Item-level placeholders appear once per software item. See `software-items.md` for naming
+conventions and the bracket-ellipsis nesting notation (`[/{subsystem-name}...]`) used in
+paths and IDs throughout this map. Each placeholder has three casing forms:
 
 - `{system-name}` / `{SystemName}` / `{system_name}` — system identifier
 - `{subsystem-name}` / `{SubsystemName}` / `{subsystem_name}` — subsystem identifier
@@ -86,6 +89,8 @@ kebab-case for `docs/`, PascalCase for C# `src/`/`test/`, snake_case for C++ `sr
 - `{package-name}` / `{PackageName}` — shared package identifier (docs only; no C++ form)
 
 # Repository Root
+
+> **Template files provided** — the template repository contains starter files at these paths.
 
 Items marked *(optional)* appear only when applicable to the project.
 
@@ -119,6 +124,8 @@ Items marked *(optional)* appear only when applicable to the project.
 ```
 
 # Documentation Tree
+
+> **Template files provided** — the template repository contains starter files at these paths.
 
 Every folder under `docs/` except `docs/reqstream/` and `docs/template/` is a
 **Pandoc document collection** (see the *Technical Documentation* standard for
@@ -213,6 +220,8 @@ docs/
 ```
 
 # Source and Test Trees
+
+> **Pattern only** — no template starter files are provided for source or test trees.
 
 All trees mirror the Software Item Hierarchy — subsystems nest to any depth, units may
 appear directly under a system or under any subsystem level.

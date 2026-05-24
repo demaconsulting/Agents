@@ -7,6 +7,6 @@ includes:
   - docs/reqstream/system-name.yaml
   - docs/reqstream/system-name/platform-requirements.yaml
   - docs/reqstream/system-name/subsystem-name.yaml
-  - docs/reqstream/system-name/subsystem-name/unit-name.yaml
+  - docs/reqstream/system-name/unit-name.yaml
   - docs/reqstream/ots/ots-name.yaml
   - docs/reqstream/shared/package-name.yaml

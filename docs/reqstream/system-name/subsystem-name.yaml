@@ -1,13 +1,18 @@
 ---
 # {SubsystemName} subsystem requirements
 # <!-- TEMPLATE-DIRECTIVE:
+#      This template is for SUBSYSTEM requirements. For unit requirements, use
+#      unit-name.yaml in this folder instead.
+#      Consult docs/design/introduction.md to confirm classification — folder depth
+#      does not determine whether an item is a subsystem or unit.
 #      Read standards: requirements-principles.md, software-items.md, reqstream-usage.md
-#      Consult docs/design/introduction.md to determine whether this item is a subsystem
-#      or a unit — folder depth does not determine classification.
-#      If this is a UNIT: use unit-name.yaml in this folder instead.
 #      Replace {SystemName} / {SubsystemName} with your names.
 #      Spell out the full ancestry path as nested '{ItemName} Requirements' sections -
-#      see the nesting tree in reqstream-usage.md. -->
+#      see the nesting tree in reqstream-usage.md.
+#      For each requirement, add a children: list linking down to direct children —
+#      either a nested subsystem requirement (SystemName[-SubsystemName...]-Feature)
+#      or a unit requirement (SystemName[-SubsystemName...]-UnitName-Feature) — as the design
+#      is decomposed. -->
 sections:
   - title: '{SystemName} Requirements'
     sections:
@@ -17,7 +22,5 @@ sections:
             title: 'TODO: The {SubsystemName} shall {observable behavior}.'
             justification: |
               TODO: Explain how this decomposes the parent system requirement.
-            children:
-              - SystemName-SubsystemName-UnitName-Feature
             tests:
               - SubsystemName_Functionality_Scenario_ExpectedBehavior

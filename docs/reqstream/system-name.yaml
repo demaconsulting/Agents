@@ -3,7 +3,9 @@
 # <!-- TEMPLATE-DIRECTIVE:
 #      Read standards: requirements-principles.md, software-items.md, reqstream-usage.md
 #      Replace {SystemName} / {system-name} with your system name.
-#      Add children links to subsystem requirements as they are decomposed. -->
+#      For each requirement, add a children: list linking down to subsystem requirements
+#      (SystemName-SubsystemName-Feature) or directly to unit requirements
+#      (SystemName-UnitName-Feature) as the design is decomposed. -->
 sections:
   - title: '{SystemName} Requirements'
     requirements:
@@ -13,5 +15,6 @@ sections:
           TODO: Explain the business or regulatory reason for this requirement.
         children:
           - SystemName-SubsystemName-Feature
+          - SystemName-UnitName-Feature
         tests:
           - SystemName_Functionality_Scenario_ExpectedBehavior

@@ -59,7 +59,7 @@ write "N/A - {justification}" rather than removing any section:
 # Subsystem Design (MANDATORY)
 
 Place `{subsystem-name}.md` in the **parent** folder; create `{subsystem-name}/` for children.
-**Important**: A file at `{system-name}/{item-name}.md` may be either a subsystem or a unit. Always
+**Important**: A file at `{system-name}/**/*.md` may be either a subsystem or a unit. Always
 determine the correct classification from `docs/design/introduction.md` — folder depth does not
 determine classification.
 All sections mandatory; write "N/A - {justification}" rather than removing any section:

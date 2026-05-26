@@ -6,8 +6,8 @@
 
 - **project-name**: TODO — repository/project name (e.g., `ReqStream`)
 - **organization**: TODO — organization name for document authorship (e.g., `DEMA Consulting`)
-- **project-tagline**: TODO — brief one-line description of what the project does
-  (e.g., `A .NET CLI tool for requirements traceability`)
+- **project-tagline**: TODO — document subtitle; 4–8 words, noun phrase, no period
+  (e.g., `Requirements traceability for .NET projects`)
 - **description**: TODO — full project description, may be multiple sentences
 - **languages**: TODO — programming languages used (e.g., `C#`, `C++`)
 - **technologies**: TODO — key technologies and frameworks (e.g., `.NET`, `CMake`)

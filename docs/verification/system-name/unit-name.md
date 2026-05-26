@@ -9,7 +9,10 @@
      - If this is a SUBSYSTEM: use the subsystem-name.md template in the same folder instead.
      Replace {UnitName} with your unit name.
      Adjust the heading depth to match this file's folder depth under docs/verification/
-     (## = one folder deep, ### = two folders deep, etc.). -->
+     (## = one folder deep, ### = two folders deep, etc.).
+     Do NOT add or migrate a "Requirements Coverage" section — requirements traceability is managed
+     automatically by ReqStream from docs/reqstream/ YAML files and must not appear as a
+     section in verification documents. -->
 
 <!-- All sections below are MANDATORY. If a section does not apply, write
      "N/A - {justification}" rather than removing it. -->

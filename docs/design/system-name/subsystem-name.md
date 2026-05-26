@@ -24,7 +24,8 @@
 ### Interfaces
 
 <!-- TEMPLATE-DIRECTIVE:
-     Write one block per interface, separated by blank lines.
+     Write one block per interface, separated by blank lines. List all interfaces as a flat
+     sequence — do NOT introduce sub-headings or groupings (e.g. Provider vs. Consumer).
 
      **InterfaceName**: Brief description of what this interface is.
 

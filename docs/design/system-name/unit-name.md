@@ -23,13 +23,17 @@
 
 <!-- TEMPLATE-DIRECTIVE:
      Write one line per field or property, separated by blank lines if descriptions run long.
+     List all fields as a flat sequence — do NOT introduce sub-headings or groupings, even
+     when fields fall into natural categories (flags, arguments, derived state, etc.).
 
      **FieldName**: `Type` — Description of its role and any invariants that must hold. -->
 
 ### Key Methods
 
 <!-- TEMPLATE-DIRECTIVE:
-     Write one block per significant method, separated by blank lines.
+     Write one block per significant method, separated by blank lines. List all methods as
+     a flat sequence — do NOT introduce sub-headings or groupings, even when methods fall
+     into natural categories (lifecycle, query, mutation, etc.).
 
      **MethodName**: Brief statement of purpose.
 
@@ -51,7 +55,8 @@
 ### Dependencies
 
 <!-- TEMPLATE-DIRECTIVE:
-     List what this unit depends on: other units, subsystems, OTS items, and shared packages.
+     List what this unit depends on: other units, subsystems, OTS items, and shared packages
+     as a flat list — do NOT introduce sub-headings or groupings (e.g. internal vs. OTS).
      Do not include version numbers — version information is managed in SBOMs outside of design
      documentation.
      - **DependencyName** — reason for the dependency. -->

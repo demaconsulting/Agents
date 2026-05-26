@@ -88,6 +88,13 @@ paths and IDs throughout this map. Each placeholder has three casing forms:
 - `{ots-name}` / `{OtsName}` — OTS item identifier (docs only; no C++ form)
 - `{package-name}` / `{PackageName}` — shared package identifier (docs only; no C++ form)
 
+**Template file URL rule**: When fetching a template file, replace every `{placeholder}` in
+the full path — **including folder components** — with the literal token name. For example,
+`docs/design/{system-name}/{unit-name}.md` is fetched from
+`{template-url}/docs/design/system-name/unit-name.md`, **not**
+`{template-url}/docs/design/unit-name.md`. The `{system-name}/` folder is structural — it is
+part of the template path, not merely project-level context to be discarded.
+
 # Repository Root
 
 > **Template files provided** — the template repository contains starter files at these paths.

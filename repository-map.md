@@ -108,7 +108,7 @@ Items marked *(optional)* appear only when applicable to the project.
 ├── .cspell.yaml                   # Spell-check dictionary
 ├── .editorconfig                  # Cross-editor formatting rules
 ├── .fileassert.yaml               # CI file existence assertions
-├── .gitignore                         # Git ignore rules
+├── .gitignore                     # Git ignore rules
 ├── .markdownlint-cli2.yaml        # Markdown lint configuration
 ├── .reviewmark.yaml               # Review-set definitions (protected)
 ├── .versionmark.yaml              # Tool version tracking

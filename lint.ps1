@@ -2,10 +2,17 @@
 #
 # PURPOSE:
 #   Runs all lint checks and reports failures. Exits 1 on error.
-#   Used by CI/CD as the merge gate.
+#   Used by CI/CD as the merge gate and by the lint-fix agent
+#   during pre-PR cleanup.
+#
+#   To auto-fix formatting issues, run fix.ps1 instead.
 #
 # EXTENSION POINTS:
 #   Search for "[PROJECT-SPECIFIC]" comments to add project-specific checks.
+#
+# MODIFICATION POLICY:
+#   Only modify this file to add project-specific operations at the designated
+#   [PROJECT-SPECIFIC] extension points, or to update tool versions as needed.
 
 function Get-VenvActivateScript {
     if (Test-Path ".venv/Scripts/Activate.ps1") { return ".venv/Scripts/Activate.ps1" }
@@ -98,9 +105,11 @@ if (-not $skipDotnetFormat) {
 }
 
 # [PROJECT-SPECIFIC] C/C++ clang-format check example:
-#   Get-ChildItem -Recurse -Include "*.cpp","*.hpp","*.h" | ForEach-Object {
-#       $result = clang-format --dry-run --Werror $_.FullName 2>&1
-#       if ($LASTEXITCODE -ne 0) { Write-Output $result; $lintError = $true }
-#   }
+#   Get-ChildItem -Recurse -Include "*.cpp","*.hpp","*.h","*.c" |
+#       Where-Object { $_.FullName -notmatch '[/\\](thirdparty|third-party|3rd-party|generated)[/\\]' } |
+#       ForEach-Object {
+#           $result = clang-format --dry-run --Werror $_.FullName 2>&1
+#           if ($LASTEXITCODE -ne 0) { Write-Output $result; $lintError = $true }
+#       }
 
 exit ($lintError ? 1 : 0)

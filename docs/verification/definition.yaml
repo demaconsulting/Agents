@@ -1,17 +1,19 @@
 ---
 # <!-- TEMPLATE-DIRECTIVE:
 #      Add all verification files in reading order, mirroring the design definition.yaml. -->
-resource-path: [docs/verification, docs/template]
+resource-path:
+ - docs/verification
+ - docs/template
 input-files:
-  - docs/verification/title.txt
-  - docs/verification/introduction.md
-  - docs/verification/system-name.md
-  - docs/verification/system-name/subsystem-name.md
-  - docs/verification/system-name/subsystem-name/unit-name.md
-  - docs/verification/ots.md
-  - docs/verification/ots/ots-name.md
-  - docs/verification/shared.md
-  - docs/verification/shared/package-name.md
+ - docs/verification/title.txt
+ - docs/verification/introduction.md
+ - docs/verification/system-name.md
+ - docs/verification/system-name/subsystem-name.md
+ - docs/verification/system-name/subsystem-name/unit-name.md
+ - docs/verification/ots.md
+ - docs/verification/ots/ots-name.md
+ - docs/verification/shared.md
+ - docs/verification/shared/package-name.md
 template: template.html
 table-of-contents: true
 number-sections: true

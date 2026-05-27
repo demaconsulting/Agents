@@ -3,17 +3,19 @@
 #      Add all design files in reading order.
 #      Follow the heading-depth rule: files at collection root use #, one folder deep use ##, etc.
 #      Add ots.md / shared.md sections if OTS items or Shared Packages are used. -->
-resource-path: [docs/design, docs/template]
+resource-path:
+ - docs/design
+ - docs/template
 input-files:
-  - docs/design/title.txt
-  - docs/design/introduction.md
-  - docs/design/system-name.md
-  - docs/design/system-name/subsystem-name.md
-  - docs/design/system-name/subsystem-name/unit-name.md
-  - docs/design/ots.md
-  - docs/design/ots/ots-name.md
-  - docs/design/shared.md
-  - docs/design/shared/package-name.md
+ - docs/design/title.txt
+ - docs/design/introduction.md
+ - docs/design/system-name.md
+ - docs/design/system-name/subsystem-name.md
+ - docs/design/system-name/subsystem-name/unit-name.md
+ - docs/design/ots.md
+ - docs/design/ots/ots-name.md
+ - docs/design/shared.md
+ - docs/design/shared/package-name.md
 template: template.html
 table-of-contents: true
 number-sections: true

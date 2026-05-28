@@ -27,8 +27,8 @@ item classification from folder depth alone.
 {system-name}/                         # system
 ├── {subsystem-name}/                  # subsystem (may nest to any depth)
 │   ├── {subsystem-name}/              # nested subsystem (may recurse)
-│   │   └── {unit-name}               # unit under a nested subsystem
-│   └── {unit-name}                   # unit under a root subsystem
+│   │   └── {unit-name}                # unit under a nested subsystem
+│   └── {unit-name}                    # unit under a root subsystem
 └── {unit-name}                        # unit directly under the system
 ```
 
@@ -242,6 +242,8 @@ src/
     ├── {UnitName}.cs                # System-level unit (optional)
     └── {SubsystemName}/             # Mirrors hierarchy; may nest
         └── {UnitName}.cs            # One class file per unit
+
+test/
 ├── {SystemName}.Tests/
 │   ├── {SystemName}.Tests.csproj
 │   ├── {SystemName}Tests.cs         # System-level integration tests

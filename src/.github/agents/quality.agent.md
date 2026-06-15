@@ -93,8 +93,9 @@ Priority-ordered list of issues that MUST be resolved for the next retry:
 ## Verification Documentation Compliance: (PASS|FAIL|N/A)
 
 - Were verification documents created/updated for all new or changed components?
-- Is verification approach documented for each requirement?
-- Is verification-to-requirements traceability preserved?
+- Do verification documents include all mandatory sections (Verification Approach, Test Environment,
+  Acceptance Criteria, Test Scenarios)?
+- Is requirements-to-test coverage tracked via the ReqStream trace matrix (not embedded in verification docs)?
 
 ## Review Sets Compliance: (PASS|FAIL|N/A)
 

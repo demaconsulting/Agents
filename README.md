@@ -40,10 +40,18 @@ document in the current working directory.
 
 An orchestrator agent that manages complex feature development through a formal
 state machine: **PLANNING → DEVELOPMENT → QUALITY → REPORT**. It automatically
-calls the `developer` and `quality` sub-agents and retries up to three times if
-quality gates fail.
+calls the `planning`, `developer`, and `quality` sub-agents and retries up to
+three times if quality gates fail.
 
 **Invoke with:** `@implementation <description of work to do>`
+
+### `planning`
+
+A standalone planning agent that investigates the codebase, produces a verified
+implementation plan, and identifies all companion artifact deliverables. Useful
+for reviewing a plan before committing to full implementation.
+
+**Invoke with:** `@planning <description of work to plan>`
 
 ### `formal-review`
 
@@ -59,6 +67,7 @@ producing a populated review report saved to `.agent-logs/reviews/`.
 | `developer` | General-purpose development - applies the right standards for the detected languages and file types |
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
 | `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
+| `template-sync` | Audits or synchronizes repository files against the canonical template |
 
 ## License
 

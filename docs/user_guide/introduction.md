@@ -41,6 +41,7 @@ AGENTS.md
         formal-review.agent.md
         implementation.agent.md
         lint-fix.agent.md
+        planning.agent.md
         quality.agent.md
         software-architect.agent.md
         template-sync.agent.md
@@ -93,15 +94,30 @@ or capturing architectural decisions before implementation begins.
 
 An orchestrator agent that manages complex feature development through a formal
 state machine: **PLANNING → DEVELOPMENT → QUALITY → REPORT**. It automatically
-calls the `developer` and `quality` sub-agents and retries up to three times if
-quality gates fail.
+calls the `planning`, `developer`, and `quality` sub-agents and retries up to
+three times if quality gates fail.
 
-**When to use:** Complex or multi-step features, bug fixes requiring systematic
-investigation, or any work where automatic quality validation is desired.
+**When to use:** Any change introducing new user-visible behavior (features,
+enhancements, new commands or options), or complex bug fixes with unknown root
+cause.
 
 **Invoke with:** `@implementation <description of work to do>`
 
 **Output:** A saved report at `.agent-logs/implementation-<subject>-<id>.md`.
+
+## planning
+
+A standalone planning agent that investigates the codebase, produces a verified
+implementation plan, and identifies all companion artifact deliverables
+(requirements, design, verification docs, tests, review-sets, README, user guide).
+Runs the full critique-and-strengthen cycle and saves a detailed analysis report.
+
+**When to use:** Review a plan before committing to full implementation, or when
+you want to audit what an implementation would entail.
+
+**Invoke with:** `@planning <description of work to plan>`
+
+**Output:** A saved report at `.agent-logs/planning-<subject>-<id>.md`.
 
 ## formal-review
 
@@ -150,6 +166,7 @@ files.
 | `developer` | General-purpose development - applies the right standards for the detected languages and file types |
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
 | `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
+| `template-sync` | Audits or synchronizes repository files against the canonical template |
 
 # Coding Standards
 

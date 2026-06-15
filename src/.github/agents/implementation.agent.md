@@ -58,7 +58,8 @@ Once the developer sub-agent finishes:
 
 Call the **quality** agent as a sub-agent (custom agent from `.github/agents/`) with:
 
-- **context**: the user's request + development summary + files changed + planning companion artifact table + previous issues (if any)
+- **context**: the user's request + development summary + files changed + planning companion artifact table +
+  previous issues (if any)
 - **goal**: check the quality of the work performed for any issues
 
 Once the quality sub-agent finishes:

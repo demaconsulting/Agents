@@ -63,8 +63,6 @@ These are non-obvious behaviors that differ from common assumptions:
 
 # Quality Checks
 
-Before submitting C++ tests, verify:
-
 - [ ] All tests follow AAA pattern with descriptive section comments
 - [ ] Test suite and test names follow hierarchical naming pattern above
 - [ ] Each test verifies single, specific behavior (no shared state between tests)

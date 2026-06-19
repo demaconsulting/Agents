@@ -37,40 +37,35 @@
 ## Software Structure
 
 <!-- TEMPLATE-DIRECTIVE:
-     Replace the tree below with your actual software structure.
+     Replace the bullet list below with your actual software structure.
      Use the exact labels: (System), (Subsystem), (Unit), (OTS), (Shared Package).
+     Add a brief description after the '-' on each line.
      Add additional systems if the project contains more than one. -->
 
-```text
-{SystemName} (System)
-├── {SubsystemName} (Subsystem)
-│   └── {UnitName} (Unit)
+- **{SystemName}** (System) - brief description
+  - **{SubsystemName}** (Subsystem) - brief description
+    - {UnitName} (Unit) - brief description
 
-OTS Dependencies:
-└── {OtsName} (OTS)
+**OTS Dependencies:**
 
-Shared Packages:
-└── {PackageName} (Shared Package)
-```
+- {OtsName} (OTS)
+
+**Shared Packages:**
+
+- {PackageName} (Shared Package)
 
 ## Folder Layout
 
 <!-- TEMPLATE-DIRECTIVE:
-     Replace the tree below with your actual source folder layout.
-     For C++, use snake_case and .cpp/.hpp extensions.
-     In the tree below, replace each "TODO: ..." with a one-line description of that file. -->
+     Replace the bullet list below with your actual source folder layout.
+     List folders only - do not list individual files.
+     Add a brief description after the '-' on each line. -->
 
-```text
-src/{SystemName}/
-└── {SubsystemName}/
-    └── {UnitName}.cs               - one-line description
-
-test/{SystemName}.Tests/
-├── {SystemName}Tests.cs            - system-level integration tests
-└── {SubsystemName}/
-    ├── {SubsystemName}Tests.cs     - subsystem-level integration tests
-    └── {UnitName}Tests.cs          - one-line description
-```
+- **src/** - source files and projects
+  - **{SystemName}/** - brief description
+    - **{SubsystemName}/** - brief description
+- **test/** - test projects
+  - **{SystemName}.Tests/** - brief description
 
 ## Companion Artifact Structure
 
@@ -101,11 +96,11 @@ Review-sets: defined in `.reviewmark.yaml`
 <!-- TEMPLATE-DIRECTIVE:
      Replace this comment with a bullet list of references with the following rules:
      - External links must be absolute URLs.
-     - References to other project documents (compiled PDFs) should link to the releases
-       page, not directly to any file in docs/.
+     - References to other project documents (compiled PDFs) should use the document name
+       only — do not include URLs. Never link to individual source files in docs/.
      - If there are no references, replace this comment with: N/A
 
      For example:
-     - [External Standard Name](https://example.com/standard)
+     - External Standard Name: https://example.com/standard
      - [{ProjectName} releases](https://github.com/{org}/{repo}/releases)
        (or the equivalent releases/tags page if not hosted on GitHub) -->

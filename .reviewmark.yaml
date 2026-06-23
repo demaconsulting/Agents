@@ -6,6 +6,8 @@
 #      placeholders with your actual system's names (kebab-case).
 #      Update the evidence-source URL to point to your repository's reviews branch.
 #      Add or remove review-sets to match your software structure. -->
+
+# Files needing review
 needs-review:
   - README.md
   - docs/user_guide/**/*.md
@@ -19,25 +21,48 @@ needs-review:
   - '!**/obj/**'
   - '!**/bin/**'
   - '!**/generated/**'
+
+# Source of review evidence
 evidence-source:
   # <!-- TEMPLATE-DIRECTIVE:
   #      Update to type 'url' or 'fileshare' once formal reviews begin. -->
   type: none
+
+# Context included for all reviews.
+context:
+  - docs/design/introduction.md
+
+# Reviews
 reviews:
   # Purpose Review (only one per repository)
-  - id: SystemName-Purpose
-    title: Review that Advertised Features Match System Design
+  - id: Purpose
+    title: Review that README and User Guide are Coherent and Complete
     paths:
+      # <!-- TEMPLATE-DIRECTIVE: paths = user-facing docs evaluated for coherence and completeness -->
       - README.md
       - docs/user_guide/**/*.md
-      - docs/reqstream/system-name.yaml
+
+  # Decomposition Review (only one per repository)
+  - id: Decomposition
+    title: Review that {SystemName} Decomposition Addresses the Stated Purpose
+    context:
+      # <!-- TEMPLATE-DIRECTIVE: context = user promise that the decomposition must address -->
+      - README.md
+      - docs/user_guide/**/*.md
+    paths:
+      # <!-- TEMPLATE-DIRECTIVE: paths = structural decomposition under evaluation -->
+      - requirements.yaml
       - docs/design/introduction.md
-      - docs/design/system-name.md
 
   # {SystemName}-Architecture Review (one per system)
   - id: SystemName-Architecture
     title: Review that {SystemName} Architecture Satisfies Requirements
+    context:
+      # <!-- TEMPLATE-DIRECTIVE: context = README and user_guide drive user intent into the system architecture -->
+      - README.md
+      - docs/user_guide/**/*.md
     paths:
+      # <!-- TEMPLATE-DIRECTIVE: paths = system specification under evaluation -->
       - docs/reqstream/system-name.yaml
       - docs/design/introduction.md
       - docs/design/system-name.md
@@ -48,8 +73,11 @@ reviews:
   # {SystemName}-Design Review (one per system)
   - id: SystemName-Design
     title: Review that {SystemName} Design is Consistent and Complete
-    paths:
+    context:
+      # <!-- TEMPLATE-DIRECTIVE: context = trusted system requirements anchoring design completeness -->
       - docs/reqstream/system-name.yaml
+    paths:
+      # <!-- TEMPLATE-DIRECTIVE: paths = system design under evaluation -->
       - docs/reqstream/system-name/platform-requirements.yaml
       - docs/design/introduction.md
       - docs/design/system-name.md
@@ -60,8 +88,11 @@ reviews:
   # {SystemName}-Verification Review (one per system)
   - id: SystemName-Verification
     title: Review that {SystemName} Verification is Consistent and Complete
-    paths:
+    context:
+      # <!-- TEMPLATE-DIRECTIVE: context = trusted system requirements anchoring verification coverage -->
       - docs/reqstream/system-name.yaml
+    paths:
+      # <!-- TEMPLATE-DIRECTIVE: paths = system verification under evaluation -->
       - docs/verification/introduction.md
       - docs/verification/system-name.md
       - docs/verification/system-name/**/*.md
@@ -71,23 +102,56 @@ reviews:
   # {SystemName}-AllRequirements Review (one per system)
   - id: SystemName-AllRequirements
     title: Review that All {SystemName} Requirements are Complete
+    context:
+      # <!-- TEMPLATE-DIRECTIVE: context = trusted baseline for sub-requirement decomposition -->
+      - docs/design/system-name.md
+      - docs/reqstream/system-name.yaml
     paths:
-      - requirements.yaml
-      - docs/reqstream/**/*.yaml
+      # <!-- TEMPLATE-DIRECTIVE: paths = sub-requirements under evaluation -->
+      - docs/reqstream/system-name/**/*.yaml
+
+  # {SystemName}-{UnitName} Review (one per unit directly under a system — no subsystem level)
+  - id: SystemName-UnitName
+    title: Review that {SystemName} {UnitName} Implementation is Correct
+    context:
+      # <!-- TEMPLATE-DIRECTIVE: context = upstream obligations anchoring this unit -->
+      - docs/design/system-name.md
+      - docs/reqstream/system-name.yaml
+    paths:
+      # <!-- TEMPLATE-DIRECTIVE: paths = unit artifacts under evaluation -->
+      - docs/reqstream/system-name/unit-name.yaml
+      - docs/design/system-name/unit-name.md
+      - docs/verification/system-name/unit-name.md
+      - src/**/UnitName.cs
+      # <!-- TEMPLATE-DIRECTIVE:
+      #      Add test file if applicable:
+      #      - "test/**/UnitNameTests.cs" -->
 
   # {SystemName}-{SubsystemName} Review (one per subsystem)
   - id: SystemName-SubsystemName
     title: Review that {SystemName} {SubsystemName} Satisfies Subsystem Requirements
+    context:
+      # <!-- TEMPLATE-DIRECTIVE: context = upstream obligations anchoring this subsystem -->
+      - docs/design/system-name.md
+      - docs/reqstream/system-name.yaml
     paths:
+      # <!-- TEMPLATE-DIRECTIVE: paths = subsystem artifacts under evaluation -->
       - docs/reqstream/system-name/subsystem-name.yaml
       - docs/design/system-name/subsystem-name.md
       - docs/verification/system-name/subsystem-name.md
       - test/**/SubsystemName/SubsystemNameTests.cs
 
-  # {SystemName}-{SubsystemName}-{UnitName} Review (one per unit)
+  # {SystemName}-{SubsystemName}-{UnitName} Review (one per unit under a subsystem)
   - id: SystemName-SubsystemName-UnitName
     title: Review that {SystemName} {SubsystemName} {UnitName} Implementation is Correct
+    context:
+      # <!-- TEMPLATE-DIRECTIVE: context = upstream obligations anchoring this unit -->
+      - docs/design/system-name.md
+      - docs/reqstream/system-name.yaml
+      - docs/design/system-name/subsystem-name.md
+      - docs/reqstream/system-name/subsystem-name.yaml
     paths:
+      # <!-- TEMPLATE-DIRECTIVE: paths = unit artifacts under evaluation -->
       - docs/reqstream/system-name/subsystem-name/unit-name.yaml
       - docs/design/system-name/subsystem-name/unit-name.md
       - docs/verification/system-name/subsystem-name/unit-name.md
@@ -98,6 +162,7 @@ reviews:
   - id: OTS-OtsName
     title: Review that {OtsName} Provides Required Functionality
     paths:
+      # <!-- TEMPLATE-DIRECTIVE: paths = OTS integration artifacts under evaluation -->
       - docs/reqstream/ots/ots-name.yaml
       - docs/design/ots/ots-name.md
       - docs/verification/ots/ots-name.md
@@ -109,6 +174,7 @@ reviews:
   - id: Shared-PackageName
     title: Review that {PackageName} Provides Required Features
     paths:
+      # <!-- TEMPLATE-DIRECTIVE: paths = Shared Package artifacts under evaluation -->
       - docs/reqstream/shared/package-name.yaml
       - docs/design/shared/package-name.md
       - docs/verification/shared/package-name.md

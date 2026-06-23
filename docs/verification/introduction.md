@@ -28,7 +28,22 @@ This document describes how each software item in {ProjectName} is verified.
      Shared packages:
      - **{PackageName}**: integration and usage verification.
 
-     State what is out of scope (e.g. test infrastructure, build pipeline). -->
+     State what is out of scope. Note that verification documents are not produced for the
+     test projects themselves - they are the means of verification, not subjects of it.
+     Build pipeline CI configuration and the internal implementation of OTS items are also
+     excluded. -->
+
+## Folder Layout
+
+<!-- TEMPLATE-DIRECTIVE:
+     Replace the example below with your actual test folder layout.
+     List folders only - do not list individual files.
+     Add a brief description after the '-' on each line. -->
+
+- **test/** - test projects
+  - **{SystemName}.TestHelpers/** - brief description (if applicable)
+  - **{SystemName}.Tests/** - brief description
+  - **{SystemName}.Fixtures/** - brief description (if applicable)
 
 ## Companion Artifact Structure
 

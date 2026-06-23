@@ -32,7 +32,9 @@
      Shared packages:
      - **{PackageName}**: integration and usage design.
 
-     State what is out of scope (e.g. test projects, build pipeline, the internal design of OTS items). -->
+     State what is out of scope. Clarify that design documents are not produced for test
+     projects or build pipeline CI configuration, and that the internal design of OTS items
+     is also excluded. -->
 
 ## Software Structure
 
@@ -64,8 +66,6 @@
 - **src/** - source files and projects
   - **{SystemName}/** - brief description
     - **{SubsystemName}/** - brief description
-- **test/** - test projects
-  - **{SystemName}.Tests/** - brief description
 
 ## Companion Artifact Structure
 

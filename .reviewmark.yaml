@@ -37,6 +37,8 @@ reviews:
   # Purpose Review (only one per repository)
   - id: Purpose
     title: Review that README and User Guide are Coherent and Complete
+    context:
+      - '!docs/design/introduction.md'
     paths:
       # <!-- TEMPLATE-DIRECTIVE: paths = user-facing docs evaluated for coherence and completeness -->
       - README.md

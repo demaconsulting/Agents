@@ -100,7 +100,7 @@ For each Shared Package, create `docs/design/shared/{package-name}.md` (`##` hea
 - Do not record version numbers in design documentation — they go stale with dependency updates and
   are managed in SBOMs. Version numbers are pinned release versions (e.g., `1.2.3`, `v2.0.1`).
   The following are **not** version numbers and are permitted:
-  - .NET TFMs: `net8.0`, `net9.0`, `net10.0` (platform targets, not release versions)
+  - .NET TFMs: `netstandard2.0`, `net10.0` (platform targets, not release versions)
   - Placeholders: `0.0.0` (signals "not yet assigned")
 
 # Quality Checks

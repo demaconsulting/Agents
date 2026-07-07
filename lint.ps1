@@ -89,6 +89,12 @@ if (-not $skipDotnetTools) {
 
     dotnet reviewmark --lint
     if ($LASTEXITCODE -ne 0) { $lintError = $true }
+
+    # TEMPLATE-DIRECTIVE: Update this file list if you add, rename, or remove .sysml
+    # files under docs/sysml2/ (e.g. add one file per additional system).
+    dotnet sysml2tools lint docs/sysml2/system-name.sysml docs/sysml2/ots.sysml `
+        docs/sysml2/shared.sysml docs/sysml2/views/design-views.sysml
+    if ($LASTEXITCODE -ne 0) { $lintError = $true }
 }
 
 # [PROJECT-SPECIFIC] Add additional dotnet tool checks here.

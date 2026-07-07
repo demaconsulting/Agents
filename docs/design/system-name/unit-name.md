@@ -1,7 +1,8 @@
 ## {UnitName}
 
 <!-- TEMPLATE-DIRECTIVE:
-     Read standards: software-items.md, design-documentation.md, technical-documentation.md
+     Read standards: software-items.md, design-documentation.md, technical-documentation.md,
+     sysml2-modeling.md
      Consult docs/design/introduction.md to determine whether this item is a Software
      Unit or a Software Subsystem — folder depth does not determine classification.
      - If this is a UNIT: populate the sections below (Purpose, Data Model, Key Methods,
@@ -9,7 +10,12 @@
      - If this is a SUBSYSTEM: use the subsystem-name.md template in the same folder instead.
      Replace {UnitName} with your unit name.
      Adjust the heading depth to match this file's folder depth under docs/design/
-     (## = one folder deep, ### = two folders deep, etc.). -->
+     (## = one folder deep, ### = two folders deep, etc.).
+     Immediately below this heading, before any other content, embed the SysML2 view diagram
+     for the subsystem this unit belongs to (or the system view if this unit sits directly
+     under the system) — see sysml2-modeling.md:
+
+     ![{ContainingSubsystemOrSystemName} Structure]({ContainingSubsystemOrSystemName}View.svg) -->
 
 <!-- All sections below are MANDATORY. If a section does not apply, write
      "N/A - {justification}" rather than removing it. -->

@@ -39,11 +39,9 @@
 ## Software Structure
 
 <!-- TEMPLATE-DIRECTIVE:
-     Read the sysml2-modeling.md standard, then model the software structure in SysML2
-     under docs/sysml2/ (see that standard for file layout and view-authoring conventions).
-     Replace this directive with a short paragraph directing agents to query the model
-     (see the sysml2tools-query skill) rather than parsing this diagram, followed by the
-     full-detail diagram:
+     Replace this directive with a short paragraph directing agents to query the SysML2
+     model (see the sysml2tools-query skill) rather than parsing this diagram, followed by
+     the full-detail diagram rendered from docs/sysml2/ (see sysml2-modeling.md):
 
      ![Software Structure](SoftwareStructureView.svg) -->
 

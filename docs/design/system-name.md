@@ -13,22 +13,10 @@
 
      ![{SystemName} Structure]({SystemName}View.svg)
 
-     Then describe the system's architecture in prose. Use a Mermaid diagram only to show
-     architecturally significant cross-subsystem dependencies or data-flow relationships that
-     the SysML2 containment diagram above does not capture — omit low-level or incidental
-     unit references that would clutter the diagram.
-
-     ```mermaid
-     flowchart TD
-         subgraph SubsystemOne
-             UnitA
-             UnitB
-         end
-         subgraph SubsystemTwo
-             UnitC
-         end
-         UnitC --> UnitA
-     ```
+     Then describe the system's architecture in prose: what each subsystem and top-level
+     unit is responsible for, and how they collaborate. Architecturally significant
+     cross-subsystem dependencies not obvious from the containment diagram belong in the
+     Data Flow section below rather than a separate diagram here.
 
      There is no system-level code — a system is purely a collection of subsystems and units.
      For trivially simple systems, a prose description is sufficient. -->

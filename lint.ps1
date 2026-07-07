@@ -90,11 +90,17 @@ if (-not $skipDotnetTools) {
     dotnet reviewmark --lint
     if ($LASTEXITCODE -ne 0) { $lintError = $true }
 
-    # TEMPLATE-DIRECTIVE: Update this file list if you add, rename, or remove .sysml
-    # files under docs/sysml2/ (e.g. add one file per additional system).
-    dotnet sysml2tools lint docs/sysml2/system-name.sysml docs/sysml2/ots.sysml `
-        docs/sysml2/shared.sysml docs/sysml2/views/design-views.sysml
-    if ($LASTEXITCODE -ne 0) { $lintError = $true }
+    # TEMPLATE-DIRECTIVE: Files still containing the TEMPLATE-DIRECTIVE marker are treated
+    # as un-customized scaffold and skipped, so a fresh project isn't blocked by starter
+    # content. Once a file is customized (marker removed), it is linted automatically -
+    # no need to maintain a file list here.
+    $sysmlFiles = Get-ChildItem -Path docs/sysml2 -Recurse -Filter *.sysml -ErrorAction SilentlyContinue |
+        Where-Object { (Get-Content $_.FullName -Raw) -notmatch 'TEMPLATE-DIRECTIVE' } |
+        ForEach-Object { $_.FullName }
+    if ($sysmlFiles) {
+        dotnet sysml2tools lint @sysmlFiles
+        if ($LASTEXITCODE -ne 0) { $lintError = $true }
+    }
 }
 
 # [PROJECT-SPECIFIC] Add additional dotnet tool checks here.

@@ -14,6 +14,7 @@ description: Reference map of the standard repository layout. Load when auditing
 Read these standards before using this map:
 
 - **`software-items.md`** - Software categorization (System/Subsystem/Unit/OTS/Shared Package)
+- **`sysml2-modeling.md`** - SysML2 model conventions for `docs/sysml2/`
 
 # Software Item Hierarchy
 
@@ -143,6 +144,12 @@ committed** to the repository - do not flag its absence as a conformance issue.
 docs/
 ├── template/                      # Pandoc HTML template (not a doc collection)
 │   └── template.html              # Shared template used by all definition.yaml files (optional)
+├── sysml2/                        # SysML2 architecture model (not a Pandoc doc collection)
+│   ├── {system-name}.sysml        # One file per system - see sysml2-modeling.md
+│   ├── ots.sysml                  # OTS dependency model (optional)
+│   ├── shared.sysml               # Shared package dependency model (optional)
+│   └── views/
+│       └── design-views.sysml     # View definitions rendered to docs/design/generated/
 ├── build_notes/                   # Toolchain installation guide
 │   ├── title.txt
 │   ├── definition.yaml

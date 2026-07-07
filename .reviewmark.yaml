@@ -17,6 +17,7 @@ needs-review:
   - requirements.yaml
   - docs/reqstream/**/*.yaml
   - docs/design/**/*.md
+  - docs/sysml2/**/*.sysml
   - docs/verification/**/*.md
   - '!**/obj/**'
   - '!**/bin/**'
@@ -55,6 +56,7 @@ reviews:
       # <!-- TEMPLATE-DIRECTIVE: paths = structural decomposition under evaluation -->
       - requirements.yaml
       - docs/design/introduction.md
+      - docs/sysml2/**/*.sysml
 
   # {SystemName}-Architecture Review (one per system)
   - id: SystemName-Architecture

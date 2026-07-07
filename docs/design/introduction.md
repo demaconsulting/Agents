@@ -39,22 +39,11 @@
 ## Software Structure
 
 <!-- TEMPLATE-DIRECTIVE:
-     Replace the bullet list below with your actual software structure.
-     Use the exact labels: (System), (Subsystem), (Unit), (OTS), (Shared Package).
-     Add a brief description after the '-' on each line.
-     Add additional systems if the project contains more than one. -->
+     Replace this directive with a short paragraph directing agents to query the SysML2
+     model (see the sysml2tools-query skill) rather than parsing this diagram, followed by
+     the full-detail diagram rendered from docs/sysml2/ (see sysml2-modeling.md):
 
-- **{SystemName}** (System) - brief description
-  - **{SubsystemName}** (Subsystem) - brief description
-    - {UnitName} (Unit) - brief description
-
-**OTS Dependencies:**
-
-- {OtsName} (OTS)
-
-**Shared Packages:**
-
-- {PackageName} (Shared Package)
+     ![Software Structure](SoftwareStructureView.svg) -->
 
 ## Folder Layout
 

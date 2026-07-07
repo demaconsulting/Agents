@@ -9,21 +9,14 @@
 ## Architecture
 
 <!-- TEMPLATE-DIRECTIVE:
-     Describe the system's architecture using a Mermaid diagram. Use subgraphs for
-     containment and arrows for dependencies. Show only architecturally significant
-     dependencies — omit low-level or incidental unit references that would clutter the diagram.
+     Embed this system's SysML2 view diagram (see sysml2-modeling.md) first:
 
-     ```mermaid
-     flowchart TD
-         subgraph SubsystemOne
-             UnitA
-             UnitB
-         end
-         subgraph SubsystemTwo
-             UnitC
-         end
-         UnitC --> UnitA
-     ```
+     ![{SystemName} Structure]({SystemName}View.svg)
+
+     Then describe the system's architecture in prose: what each subsystem and top-level
+     unit is responsible for, and how they collaborate. Architecturally significant
+     cross-subsystem dependencies not obvious from the containment diagram belong in the
+     Data Flow section below rather than a separate diagram here.
 
      There is no system-level code — a system is purely a collection of subsystems and units.
      For trivially simple systems, a prose description is sufficient. -->

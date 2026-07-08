@@ -145,9 +145,14 @@ docs/
 ├── template/                      # Pandoc HTML template (not a doc collection)
 │   └── template.html              # Shared template used by all definition.yaml files (optional)
 ├── sysml2/                        # SysML2 architecture model (not a Pandoc doc collection)
-│   ├── {system-name}.sysml        # One file per system - see sysml2-modeling.md
-│   ├── ots.sysml                  # OTS dependency model (optional)
-│   ├── shared.sysml               # Shared package dependency model (optional)
+│   ├── model/
+│   │   ├── {system-name}.sysml    # System-level part def only - see sysml2-modeling.md
+│   │   ├── {system-name}/
+│   │   │   ├── {subsystem-name}.sysml   # Subsystem part def; nests for sub-subsystems
+│   │   │   └── {subsystem-name}/
+│   │   │       └── {unit-name}.sysml    # One file per unit
+│   │   ├── ots.sysml               # OTS dependency model (optional)
+│   │   └── shared.sysml            # Shared package dependency model (optional)
 │   └── views/
 │       └── design-views.sysml     # View definitions rendered to docs/design/generated/
 ├── build_notes/                   # Toolchain installation guide

@@ -139,12 +139,6 @@ package {SystemName} {
 }
 ```
 
-Omit the `render` directive to use the default package/folder-diagram style, which renders
-as roughly rectangular blocks (folder tab in the top-left corner, members listed in a
-compartment below) and fits document pages well. Specifying `render asTreeDiagram` overrides
-this with a narrow horizontal tree that typically exceeds page width and produces poor PDF
-output.
-
 **Critical distinction** (do not confuse these — this cost significant trial-and-error to
 discover): `expose <name>;` is what scopes a rendered diagram's content (the union of the
 named element's containment subtree). `render <kind>;` selects a rendering *style* (e.g.

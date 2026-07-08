@@ -16,16 +16,13 @@
 package SystemName {
     view SoftwareStructureView {
         expose SystemName;
-        render asTreeDiagram;
     }
 
     view SystemNameView {
         expose SystemNameSystem;
-        render asTreeDiagram;
     }
 
     view SubsystemNameView {
         expose SubsystemNameSubsystem;
-        render asTreeDiagram;
     }
 }

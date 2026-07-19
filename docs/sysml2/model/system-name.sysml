@@ -8,6 +8,8 @@
 //      files. If this repository contains more than one system, create one system-level
 //      file per system instead of reusing this one. -->
 package SystemName {
+    private import SoftwareItemMetadata::*;
+
     // <!-- TEMPLATE-DIRECTIVE: Uncomment if this repository has a model/ots.sysml file. -->
     // import OtsDependencies::*;
     // <!-- TEMPLATE-DIRECTIVE: Uncomment if this repository has a model/shared.sysml file. -->
@@ -22,12 +24,15 @@ package SystemName {
         doc /* The SystemName system as a whole. */
 
         // <!-- TEMPLATE-DIRECTIVE:
-        //      Systems have no sourceRef (no single source file represents a whole
-        //      system). Keep designRef/verificationRef/reqRef pointed at the
-        //      system-level companion docs. -->
-        comment designRef /* Design: docs/design/system-name.md */
-        comment verificationRef /* Verification: docs/verification/system-name.md */
-        comment reqRef /* Requirements: docs/reqstream/system-name.yaml */
+        //      Systems have no sourceFiles (no single source file represents a whole
+        //      system). Keep designFiles/verificationFiles/requirementFiles pointed at
+        //      the system-level companion docs. -->
+        metadata info : SoftwareInfo {
+            description = "The SystemName system as a whole.";
+            designFiles = ("docs/design/system-name.md");
+            verificationFiles = ("docs/verification/system-name.md");
+            requirementFiles = ("docs/reqstream/system-name.yaml");
+        }
 
         // <!-- TEMPLATE-DIRECTIVE:
         //      One `part` line per direct member (subsystem or top-level unit), typed by

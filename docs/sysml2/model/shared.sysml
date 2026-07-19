@@ -6,17 +6,22 @@
 //      is OPTIONAL - remove it (and its import in model/{system-name}.sysml) if the
 //      project has no shared package dependencies. -->
 package SharedPackages {
+    private import SoftwareItemMetadata::*;
+
     doc /* Shared package dependencies used by SystemName. */
 
     // <!-- TEMPLATE-DIRECTIVE:
-    //      One `part def` per shared package. Shared packages have no sourceRef/testRef
-    //      (no local integration code) - use designRef (when the optional design doc
-    //      exists) / verificationRef / reqRef only. -->
+    //      One `part def` per shared package. Shared packages have no sourceFiles/
+    //      testFiles (no local integration code) - set designFiles (when the optional
+    //      design doc exists) / verificationFiles / requirementFiles only. -->
     part def PackageName {
         doc /* Shared: PackageName - TODO: one sentence describing its purpose here. */
 
-        comment designRef /* Design: docs/design/shared/package-name.md */
-        comment verificationRef /* Verification: docs/verification/shared/package-name.md */
-        comment reqRef /* Requirements: docs/reqstream/shared/package-name.yaml */
+        metadata info : SoftwareInfo {
+            description = "Shared: PackageName - TODO: one sentence describing its purpose here.";
+            designFiles = ("docs/design/shared/package-name.md");
+            verificationFiles = ("docs/verification/shared/package-name.md");
+            requirementFiles = ("docs/reqstream/shared/package-name.yaml");
+        }
     }
 }

@@ -70,6 +70,11 @@ tools:
     command: dotnet tool list
     regex: '(?i)demaconsulting\.sysml2tools\.tool\s+(?<version>\d+\.\d+\.\d+(?:-[a-zA-Z0-9.]+)?)'
 
+  # CanvasNet (DemaConsulting.CanvasNet.Tool from dotnet tool list)
+  canvasnet:
+    command: dotnet tool list
+    regex: '(?i)demaconsulting\.canvasnet\.tool\s+(?<version>\d+\.\d+\.\d+(?:-[a-zA-Z0-9.]+)?)'
+
   # SarifMark (DemaConsulting.SarifMark from dotnet tool list)
   # <!-- TEMPLATE-DIRECTIVE:
   #      Remove if not using SARIF-based static analysis (e.g., CodeQL) -->

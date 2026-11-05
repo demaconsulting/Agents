@@ -3,21 +3,21 @@
   "isRoot": true,
   "tools": {
     "demaconsulting.pandoctool": {
-      "version": "3.10.0",
+      "version": "3.12.1",
       "commands": [
         "pandoc"
       ],
       "rollForward": false
     },
     "demaconsulting.weasyprinttool": {
-      "version": "69.0.0",
+      "version": "70.0.0",
       "commands": [
         "weasyprint"
       ],
       "rollForward": false
     },
     "demaconsulting.reqstream": {
-      "version": "1.10.0",
+      "version": "1.12.0",
       "commands": [
         "reqstream"
       ],
@@ -38,7 +38,7 @@
       "rollForward": false
     },
     "demaconsulting.reviewmark": {
-      "version": "1.3.0",
+      "version": "1.4.0",
       "commands": [
         "reviewmark"
       ],
@@ -59,14 +59,21 @@
       "rollForward": false
     },
     "demaconsulting.sysml2tools.tool": {
-      "version": "0.1.0-beta.13",
+      "version": "0.2.0",
       "commands": [
         "sysml2tools"
       ],
       "rollForward": false
     },
+    "demaconsulting.canvasnet.tool": {
+      "version": "0.2.0-beta.6",
+      "commands": [
+        "canvasnet"
+      ],
+      "rollForward": false
+    },
     "demaconsulting.sarifmark": {
-      "version": "1.3.2",
+      "version": "1.4.0",
       "commands": [
         "sarifmark"
       ],

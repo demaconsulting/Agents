@@ -20,6 +20,12 @@
         "buildmark"
       ]
     },
+    "demaconsulting.canvasnet.tool": {
+      "version": "0.2.0-beta.6",
+      "commands": [
+        "canvasnet"
+      ]
+    },
     "demaconsulting.versionmark": {
       "version": "1.3.0",
       "commands": [

@@ -75,18 +75,25 @@ if (-not $skipPython) {
 #       if ($LASTEXITCODE -ne 0) { $lintError = $true }
 #   }
 
+# --- TEXTLINT SECTION ---
+# Restores dotnet tools and runs TextLint (files are configured in .textlint.yaml).
+Write-Host "Linting: spelling..."
+dotnet tool restore
+if ($LASTEXITCODE -ne 0) { $lintError = $true }
+else {
+    dotnet textlint
+    if ($LASTEXITCODE -ne 0) { $lintError = $true }
+}
+
 # --- NPM SECTION ---
-# Installs npm dependencies and runs cspell and markdownlint-cli2.
-Write-Host "Linting: spelling and markdown..."
+# Installs npm dependencies and runs markdownlint-cli2.
+Write-Host "Linting: markdown..."
 $skipNpm = $false
 $env:PUPPETEER_SKIP_DOWNLOAD = "true"
 npm install --silent
 if ($LASTEXITCODE -ne 0) { $lintError = $true; $skipNpm = $true }
 
 if (-not $skipNpm) {
-    npx cspell --no-progress --no-color --quiet "**/*.{md,yaml,yml,json,cs,cpp,hpp,h,txt}"
-    if ($LASTEXITCODE -ne 0) { $lintError = $true }
-
     npx markdownlint-cli2 "**/*.md"
     if ($LASTEXITCODE -ne 0) { $lintError = $true }
 }

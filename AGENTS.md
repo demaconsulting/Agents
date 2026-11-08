@@ -24,9 +24,9 @@ they are packaged into a release zip for downstream consumption.
 
 # Key Configuration Files
 
-- **`package.json`** - Node.js dependencies (cspell, markdownlint-cli2)
+- **`package.json`** - Node.js dependencies (markdownlint-cli2)
 - **`.config/dotnet-tools.json`** - Local tool manifest (buildmark, versionmark, pandoc, weasyprint)
-- **`.cspell.yaml`** - Spell-check configuration and technical term dictionary
+- **`.textlint.yaml`** - Spell-check configuration and technical term dictionary (TextLint)
 - **`.markdownlint-cli2.yaml`** - Markdown formatting rules
 - **`fix.ps1`** - Applies all auto-fixers silently. Always exits 0.
 - **`lint.ps1`** - Runs all lint checks. Exits 1 on failure.

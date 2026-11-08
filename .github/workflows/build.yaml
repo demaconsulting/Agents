@@ -71,7 +71,7 @@ jobs:
         run: >
           dotnet versionmark --capture --job-id "build-docs"
           --output "artifacts/versionmark-build-docs.json" --
-          dotnet git node npm pandoc weasyprint buildmark versionmark
+          dotnet git node npm pandoc weasyprint buildmark versionmark textlint
 
       - name: Create documents output directory
         shell: bash

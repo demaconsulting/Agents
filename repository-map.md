@@ -106,7 +106,7 @@ Items marked *(optional)* appear only when applicable to the project.
 {repo-root}/
 ├── .config/
 │   └── dotnet-tools.json          # Pinned .NET tool versions
-├── .cspell.yaml                   # Spell-check dictionary
+├── .textlint.yaml                 # Spell-check dictionary
 ├── .editorconfig                  # Cross-editor formatting rules
 ├── .fileassert.yaml               # CI file existence assertions
 ├── .gitignore                     # Git ignore rules

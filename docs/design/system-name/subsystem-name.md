@@ -42,7 +42,7 @@
 ### Design
 
 <!-- TEMPLATE-DIRECTIVE:
-     Describe how the units assemble to fulfil this subsystem's responsibilities.
+     Describe how the units assemble to fulfill this subsystem's responsibilities.
      There is no subsystem-level code — describe the flow of data and control between units.
 
      For simple linear flows, use numbered steps:

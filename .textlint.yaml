@@ -1,5 +1,5 @@
 ---
-# Spell-Checking
+# Spell-Checking with TextLint
 #
 # PURPOSE:
 # - Maintain professional documentation and code quality
@@ -10,8 +10,25 @@
 # - PROPOSE only genuine technical terms/names as needed
 version: '0.2'
 language: en
+
+# Matches cspell, which also checks hidden paths such as .github/ and .*.yaml
+enableGlobDot: true
+
+# The files lint.ps1 spell-checks
+files:
+  - "**/*.{md,yaml,yml,json,cs,cpp,hpp,h,txt}"
 words:
   - buildmark
+  - canvasnet
+  - demaconsulting
+  - dictionarymark
+  - fileshare
+  - pandoctool
+  - SonarQube
+  - thirdparty
+  - venv
+  - WeasyPrintTool
+  - weasyprinttool
   - Dema
   - fileassert
   - Pandoc
@@ -24,6 +41,7 @@ words:
   - sonar
   - sonarmark
   - sysml
+  - textlint
   - versionmark
   - Weasyprint
   - xunit

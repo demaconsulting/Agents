@@ -52,6 +52,7 @@ AGENTS.md
         csharp-language.md
         csharp-testing.md
         design-documentation.md
+        diagram-documentation.md
         reqstream-usage.md
         requirements-principles.md
         reviewmark-usage.md
@@ -188,6 +189,7 @@ based on the type of work being performed:
 | `verification-documentation.md` | Verification design documentation |
 | `reviewmark-usage.md` | Review configuration with ReviewMark |
 | `technical-documentation.md` | Any documentation |
+| `diagram-documentation.md` | Adding or changing diagrams in documentation |
 
 # Continuous Compliance
 

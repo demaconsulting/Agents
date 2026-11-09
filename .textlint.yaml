@@ -18,35 +18,15 @@ enableGlobDot: true
 files:
   - "**/*.{md,yaml,yml,json,cs,cpp,hpp,h,txt}"
 words:
-  - buildmark
-  - canvasnet
+  - Dema
   - demaconsulting
-  - dictionarymark
   - fileshare
-  - pandoctool
-  - SonarQube
+  - SARIF
+  - slnx
   - thirdparty
   - venv
-  - WeasyPrintTool
-  - weasyprinttool
-  - Dema
-  - fileassert
-  - Pandoc
-  - postconditions
-  - reqstream
-  - reviewmark
-  - sarif
-  - sarifmark
-  - slnx
-  - sonar
-  - sonarmark
-  - sysml
-  - textlint
-  - versionmark
-  - Weasyprint
-  - xunit
-  - Xunit
   - yamlfix
+
 ignorePaths:
   - '**/.git/**'
   - '**/node_modules/**'

@@ -55,6 +55,7 @@ reviews:
     paths:
       # <!-- TEMPLATE-DIRECTIVE: paths = structural decomposition under evaluation -->
       - requirements.yaml
+      - docs/reqstream/quality.yaml
       - docs/design/introduction.md
       - docs/sysml2/**/*.sysml
 

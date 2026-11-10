@@ -123,7 +123,7 @@ Items marked *(optional)* appear only when applicable to the project.
 ├── package.json                   # Node.js markdown/YAML tools
 ├── pip-requirements.txt           # Python yamllint/yamlfix dependencies
 ├── README.md                      # Project overview and build steps
-├── requirements.yaml              # ReqStream root includes file
+├── requirements.yaml              # ReqStream root-tags and includes file
 ├── nuget.config                   # NuGet package sources (optional)
 ├── docs/
 ├── include/                       # C++ public headers (optional)
@@ -188,6 +188,7 @@ docs/
 │   └── shared/                    # shared package design files (optional)
 │       └── {package-name}.md      # Shared package integration and usage design
 ├── reqstream/                     # Requirements YAML tree (not a Pandoc collection)
+│   ├── quality.yaml               # Repository quality requirements (quality roots)
 │   ├── {system-name}.yaml         # System-level requirements
 │   ├── {system-name}/
 │   │   ├── platform-requirements.yaml  # Platform/OS/runtime requirements (optional)

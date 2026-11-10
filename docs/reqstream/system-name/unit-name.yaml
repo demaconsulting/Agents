@@ -9,7 +9,9 @@
 #      Replace {SystemName} / {UnitName} with your names (add {SubsystemName} segments
 #      as needed for the full ancestry path).
 #      Spell out the full ancestry path as nested '{ItemName} Requirements' sections -
-#      see the nesting tree in reqstream-usage.md. -->
+#      see the nesting tree in reqstream-usage.md.
+#      If this unit relies on an OTS item or Shared Package, list those requirements under
+#      children: so they trace to a root and are not orphaned; otherwise remove children:. -->
 sections:
   - title: '{SystemName} Requirements'
     sections:
@@ -19,5 +21,7 @@ sections:
             title: 'TODO: {UnitName} shall {observable behavior}.'
             justification: |
               TODO: Explain how this decomposes the parent system requirement.
+            children:
+              - PackageName-Core-Feature
             tests:
               - UnitName_MethodUnderTest_Scenario_ExpectedBehavior

@@ -3,7 +3,16 @@
 # <!-- TEMPLATE-DIRECTIVE:
 #      Replace {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {package-name}
 #      with your actual names (kebab-case). Add or remove lines to match your structure. -->
+
+# Requirements tagged with a root tag are the roots; ReqStream reports any requirement
+# not reachable from one through children links as orphaned (--enforce fails the build).
+# Declaring them here means every ReqStream run checks for orphans without extra flags.
+root-tags:
+  - system
+  - quality
+
 includes:
+  - docs/reqstream/quality.yaml
   - docs/reqstream/system-name.yaml
   - docs/reqstream/system-name/platform-requirements.yaml
   - docs/reqstream/system-name/subsystem-name.yaml

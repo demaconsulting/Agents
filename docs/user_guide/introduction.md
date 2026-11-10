@@ -41,6 +41,7 @@ AGENTS.md
         formal-review.agent.md
         implementation.agent.md
         lint-fix.agent.md
+        orchestrator.agent.md
         planning.agent.md
         quality.agent.md
         software-architect.agent.md
@@ -105,6 +106,20 @@ cause.
 **Invoke with:** `@implementation <description of work to do>`
 
 **Output:** A saved report at `.agent-logs/implementation-<subject>-<id>.md`.
+
+## orchestrator
+
+A long-lived interactive orchestrator. It reads the README, design introduction, and all
+standards at startup, then delegates every request to sub-agents on cheaper models,
+preserving its own context window so one session can keep handling requests competently
+for a long time.
+
+**When to use:** As your main interactive session when you want one well-informed agent to
+coordinate work over time.
+
+**Invoke with:** select the agent and a large-context, high-reasoning model, for example
+`copilot --agent orchestrator --model <model> --reasoning-effort high`. Use `/subagents` to
+set cheaper default models for delegated work.
 
 ## planning
 

@@ -45,6 +45,14 @@ three times if quality gates fail.
 
 **Invoke with:** `@implementation <description of work to do>`
 
+### `orchestrator`
+
+A long-lived interactive orchestrator. It loads the README, design
+introduction, and all standards, then delegates all work to sub-agents on cheaper models to
+preserve its context window.
+
+**Invoke with:** `copilot --agent orchestrator --model <large-context model> --reasoning-effort high`
+
 ### `planning`
 
 A standalone planning agent that investigates the codebase, produces a verified

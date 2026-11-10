@@ -1,0 +1,25 @@
+---
+# Repository quality requirements
+# <!-- TEMPLATE-DIRECTIVE:
+#      Read standards: requirements-principles.md, reqstream-usage.md
+#      Replace ProjectName with project-name from AGENTS.md.
+#      Each requirement states a repository or process outcome the project needs (WHAT),
+#      never the tool that currently achieves it (HOW). The tool appears only as a
+#      children: link to its OTS requirement, so the outcome survives a tool change.
+#      Every OTS requirement for build, analysis, review, test, or documentation tooling
+#      must be a child of one of these; runtime OTS items and Shared Packages are children
+#      of the requirement of the item that uses them instead.
+#      Typical outcomes: build integrity, traceable versions, static analysis, peer review,
+#      documentation generation, test infrastructure, requirements traceability.
+#      Keep only outcomes that have OTS children. Keep tags: [quality] on every requirement. -->
+sections:
+  - title: Repository Quality Requirements
+    requirements:
+      - id: ProjectName-Quality-PeerReview
+        title: 'TODO: Every change to reviewable files shall be peer reviewed before release.'
+        justification: |
+          TODO: Explain why the project needs this outcome (customer, regulatory, or quality).
+          Satisfied by its children: verification evidence is carried by their tests.
+        tags: [quality]
+        children:
+          - OtsName-Core-Feature

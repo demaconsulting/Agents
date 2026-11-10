@@ -5,7 +5,9 @@
 #      Replace {SystemName} / {system-name} with your system name.
 #      For each requirement, add a children: list linking down to subsystem requirements
 #      (SystemName-SubsystemName-Feature) or directly to unit requirements
-#      (SystemName-UnitName-Feature) as the design is decomposed. -->
+#      (SystemName-UnitName-Feature) as the design is decomposed.
+#      Keep tags: [system] on every system-level requirement - it marks the roots that
+#      orphan detection traces from. -->
 sections:
   - title: '{SystemName} Requirements'
     requirements:
@@ -13,6 +15,7 @@ sections:
         title: 'TODO: The system shall {observable behavior}.'
         justification: |
           TODO: Explain the business or regulatory reason for this requirement.
+        tags: [system]
         children:
           - SystemName-SubsystemName-Feature
           - SystemName-UnitName-Feature

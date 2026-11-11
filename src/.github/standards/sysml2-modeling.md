@@ -212,10 +212,11 @@ There is no dedicated `DependencyView`/`{SubsystemName}DependencyView` diagram c
 `dependency` relationships are consumed via `sysml2tools query` (see Dependency Relationships
 above), not rendered.
 
-When a repository has multiple systems, `SoftwareStructureView` exposes each system's
-package members individually (`expose {SystemNameA}::**; expose {SystemNameB}::**;`).
-Note that `asInterconnectionDiagram` currently draws only the first root `part def` when
-several are exposed; check the rendered SVG shows every system.
+When a repository has multiple systems, `asInterconnectionDiagram` currently draws only the
+first root `part def`, so a single `SoftwareStructureView` cannot show every system. Until
+`sysml2tools` supports multiple roots in one interconnection diagram, omit
+`SoftwareStructureView` and embed each `{SystemName}View` in `docs/design/introduction.md`
+instead.
 
 ## Diagram Embedding
 
@@ -238,7 +239,8 @@ in one invocation, one file per view, using each view's own name as the filename
 Embed diagrams in `docs/design/` per this rule: every design doc for an item embeds the
 diagram for the narrowest view that still shows that item's own immediate structure —
 
-- `docs/design/introduction.md` — `SoftwareStructureView.svg` (the full-detail overview)
+- `docs/design/introduction.md` — `SoftwareStructureView.svg` (the full-detail overview; in a
+  multi-system repository, each `{SystemName}View.svg` instead — see Views above)
 - `docs/design/{system-name}.md` and every unit doc for a unit directly under the system
   (no subsystem parent) — `{SystemName}View.svg`
 - `docs/design/{system-name}/{subsystem-name}.md` and every unit doc nested under that

@@ -172,7 +172,8 @@ Views control what gets rendered into diagrams for the design document. Use name
 ```sysml
 package {SystemName} {
     view SoftwareStructureView {
-        expose {SystemName};         // whole package: system + subsystems + units
+        expose {SystemName}::**;     // all members, recursively: system + subsystems + units
+        render asInterconnectionDiagram;
     }
 
     view {SystemName}View {
@@ -193,6 +194,12 @@ named element's containment subtree). `render <kind>;` selects a rendering *styl
 **definition**. `expose` targets must be `::`-qualified or locally-resolvable names, not
 dotted member-access chains (`expose foo.bar;` is invalid — use `expose Bar;`).
 
+**Exposing a package needs a membership wildcard.** `expose {Package};` exposes only the
+package element itself, not its contents, and renders an **empty** diagram. To show what a
+package contains, expose its members: `expose {Package}::*;` (direct members) or
+`expose {Package}::**;` (recursively). Exposing a `part def` by name (as `{SystemName}View`
+and `{SubsystemName}View` do) is fine: its own parts are its structure.
+
 **Naming convention** — one `View` suffix per rendered diagram, no `System`/`Subsystem`
 suffix duplication:
 
@@ -205,9 +212,10 @@ There is no dedicated `DependencyView`/`{SubsystemName}DependencyView` diagram c
 `dependency` relationships are consumed via `sysml2tools query` (see Dependency Relationships
 above), not rendered.
 
-When a repository has multiple systems, `SoftwareStructureView` may expose each system's
-package individually (`expose {SystemNameA}; expose {SystemNameB};`) or the whole workspace,
-whichever produces a single coherent overview diagram.
+When a repository has multiple systems, `SoftwareStructureView` exposes each system's
+package members individually (`expose {SystemNameA}::**; expose {SystemNameB}::**;`).
+Note that `asInterconnectionDiagram` currently draws only the first root `part def` when
+several are exposed; check the rendered SVG shows every system.
 
 ## Diagram Embedding
 

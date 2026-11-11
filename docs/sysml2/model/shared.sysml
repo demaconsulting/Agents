@@ -18,7 +18,6 @@ package SharedPackages {
         doc /* Shared: PackageName - TODO: one sentence describing its purpose here. */
 
         metadata info : SoftwareInfo {
-            description = "Shared: PackageName - TODO: one sentence describing its purpose here.";
             designFiles = ("docs/design/shared/package-name.md");
             verificationFiles = ("docs/verification/shared/package-name.md");
             requirementFiles = ("docs/reqstream/shared/package-name.yaml");

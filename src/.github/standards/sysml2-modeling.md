@@ -77,7 +77,9 @@ PowerShell and bash, since neither shell needs to (or reliably does) expand `**`
   referencing its direct Subsystems/Units (defined in their own files, see below).
 - Each `{subsystem-name}.sysml` / `{unit-name}.sysml` defines exactly one `part def`, with a
   `doc /* ... */` comment stating its purpose — mirroring what would otherwise be written as
-  prose in `docs/design/introduction.md`'s Software Structure section. Subsystem files add
+  prose in `docs/design/introduction.md`'s Software Structure section. The standard SysML v2
+  `doc` comment is the single purpose statement for every System/Subsystem/Unit/OTS `part def`;
+  do not duplicate it in metadata. Subsystem files add
   `part` usages for their own direct children (nested subsystems or units), matching the
   Software Item Hierarchy in `software-items.md`.
 - `ots.sysml` / `shared.sysml` define one `part def` per OTS item / Shared Package, referenced
@@ -94,7 +96,9 @@ SoftwareInfo.{attribute}: {value}` summary lines — one call gets every artifac
 unit without grepping the source tree. (Prior to beta.13, `query describe` silently dropped
 metadata attribute values entirely; this is why an earlier version of this standard recommended
 `comment` elements instead — that workaround is no longer needed and should not be used in new
-work.) Metadata annotations have zero effect on rendered diagrams.
+work.) `SoftwareInfo` carries artifact locations only — the purpose statement lives solely in
+the `doc` comment (shown by `query describe` as the `Documentation:` line). Metadata
+annotations have zero effect on rendered diagrams.
 
 ```sysml
 private import SoftwareItemMetadata::*;
@@ -103,7 +107,6 @@ part def {UnitName} {
     doc /* One-line purpose statement. */
 
     metadata info : SoftwareInfo {
-        description = "One-line purpose statement (same text as the doc comment).";
         sourceFiles = ("{path to the unit's source file}");
         testFiles = ("{path to the unit's test file}");
         designFiles = ("{path to the unit's design doc}");
@@ -122,7 +125,8 @@ attribute entirely (do not assign an empty list) when it does not apply to the i
 - **Units without a dedicated companion doc** (e.g. small data-model types documented inline
   within their subsystem's design doc rather than in their own file) point `designFiles` /
   `verificationFiles` / `requirementFiles` at the subsystem-level doc, with a short parenthetical
-  note in `description`, e.g. `"... (documented as a supporting value type in the subsystem doc)"`.
+  note in the `doc` comment, e.g. `/* ... (documented as a supporting value type in the subsystem
+  doc). */`.
 - **Units without a dedicated test file** (exercised only indirectly through another unit's
   tests) omit `testFiles` entirely rather than pointing at an unrelated test file.
 - **OTS items** have no `sourceFiles`/`testFiles` (no local integration code); set `designFiles`
@@ -277,7 +281,7 @@ sync.
   with `sourceFiles`/`testFiles`/`designFiles`/`verificationFiles`/`requirementFiles` set where
   applicable (see Artifact-Location Metadata for documented exceptions); System/Subsystem
   `part def`s set `testFiles`/`designFiles`/`verificationFiles`/`requirementFiles` but no
-  `sourceFiles`
+  `sourceFiles`; the purpose statement appears only in the `doc` comment, never in `SoftwareInfo`
 - [ ] `docs/sysml2/views/design-views.sysml` uses `view Name { expose ...; }` usages, not
   `view def` definitions
 - [ ] View names follow the `SoftwareStructureView` / `{SystemName}View` /

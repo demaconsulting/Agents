@@ -19,7 +19,6 @@ package SystemName {
         //      subsystem). Keep designFiles/verificationFiles/requirementFiles pointed at
         //      the subsystem-level companion docs. -->
         metadata info : SoftwareInfo {
-            description = "TODO: One sentence describing this subsystem's responsibility.";
             designFiles = ("docs/design/system-name/subsystem-name.md");
             verificationFiles = ("docs/verification/system-name/subsystem-name.md");
             requirementFiles = ("docs/reqstream/system-name/subsystem-name.yaml");

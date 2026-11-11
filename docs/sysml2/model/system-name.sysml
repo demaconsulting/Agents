@@ -28,7 +28,6 @@ package SystemName {
         //      system). Keep designFiles/verificationFiles/requirementFiles pointed at
         //      the system-level companion docs. -->
         metadata info : SoftwareInfo {
-            description = "The SystemName system as a whole.";
             designFiles = ("docs/design/system-name.md");
             verificationFiles = ("docs/verification/system-name.md");
             requirementFiles = ("docs/reqstream/system-name.yaml");

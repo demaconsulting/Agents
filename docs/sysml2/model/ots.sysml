@@ -18,7 +18,6 @@ package OtsDependencies {
         doc /* OTS: OtsName - TODO: one sentence describing its purpose here. */
 
         metadata info : SoftwareInfo {
-            description = "OTS: OtsName - TODO: one sentence describing its purpose here.";
             designFiles = ("docs/design/ots/ots-name.md");
             verificationFiles = ("docs/verification/ots/ots-name.md");
             requirementFiles = ("docs/reqstream/ots/ots-name.yaml");

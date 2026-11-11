@@ -19,9 +19,8 @@ package SystemName {
         //      another unit's tests). If this unit has no dedicated design/verification/
         //      requirements doc, point designFiles/verificationFiles/requirementFiles at
         //      the parent subsystem's doc instead, with a short parenthetical note in
-        //      description. -->
+        //      the doc comment above. -->
         metadata info : SoftwareInfo {
-            description = "TODO: One sentence describing this unit's responsibility.";
             sourceFiles = ("src/{Project}/{SubsystemName}/UnitName.cs");
             testFiles = ("test/{Project}.Tests/{SubsystemName}/UnitNameTests.cs");
             designFiles = ("docs/design/system-name/subsystem-name/unit-name.md");

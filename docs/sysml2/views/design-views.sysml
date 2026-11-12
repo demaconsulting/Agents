@@ -14,7 +14,13 @@
 //      SubsystemName with your actual names (PascalCase). Add or remove views to match
 //      the systems and subsystems actually modeled in this repository.
 //
-//      Each view exposes both the container part def and its direct children
+//      SoftwareStructureView is typed by the standard `InterconnectionView` definition
+//      (imported from `StandardViewDefinitions`) and exposes the whole system package
+//      recursively. In a repository with multiple systems, type it by `GeneralView`
+//      instead, expose each system package's members, and add
+//      `filter not @SysML::Documentation;` - see sysml2-modeling.md.
+//
+//      Each other view exposes both the container part def and its direct children
 //      (`expose X; expose X::*;`) and renders `asInterconnectionDiagram` so nested
 //      composition (and, where declared, `dependency` relationships) render correctly.
 //      Prefer `sysml2tools query uses`/`used-by`/`dependencies` over dedicated dependency
@@ -24,10 +30,10 @@
 package SystemName {
     // <!-- TEMPLATE-DIRECTIVE: Uncomment if this repository has a model/ots.sysml file. -->
     // import OtsDependencies::*;
+    private import StandardViewDefinitions::*;
 
-    view SoftwareStructureView {
+    view SoftwareStructureView : InterconnectionView {
         expose SystemName::**;
-        render asInterconnectionDiagram;
     }
 
     view SystemNameSystemView {

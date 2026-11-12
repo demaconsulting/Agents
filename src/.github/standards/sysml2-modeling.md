@@ -175,9 +175,10 @@ Views control what gets rendered into diagrams for the design document. Use name
 
 ```sysml
 package {SystemName} {
-    view SoftwareStructureView {
+    private import StandardViewDefinitions::*;
+
+    view SoftwareStructureView : InterconnectionView {
         expose {SystemName}::**;     // all members, recursively: system + subsystems + units
-        render asInterconnectionDiagram;
     }
 
     view {SystemName}View {
@@ -190,17 +191,22 @@ package {SystemName} {
 }
 ```
 
+Type `SoftwareStructureView` by a standard view definition from the SysML v2 Views library
+(`GeneralView`, `InterconnectionView`, ...; requires `sysml2tools` 0.3.0-beta.3+). The view
+definition selects the diagram notation; `InterconnectionView` draws the system as nested
+containment boxes, which is the clearest full-detail overview for a single system.
+
 **Critical distinction** (do not confuse these — this cost significant trial-and-error to
 discover): `expose <name>;` is what scopes a rendered diagram's content (the union of the
-named element's containment subtree). `render <kind>;` selects a rendering *style* (e.g.
-`asInterconnectionDiagram`) — it has **no effect on scope**. `expose` is only legal inside a named
+named element's containment subtree). The view definition (or a `render <kind>;` member)
+selects a rendering *style* — it has **no effect on scope**. `expose` is only legal inside a named
 `view Name { ... }` **usage**; it is a syntax/semantic error inside a `view def Name { ... }`
 **definition**. `expose` targets must be `::`-qualified or locally-resolvable names, not
 dotted member-access chains (`expose foo.bar;` is invalid — use `expose Bar;`).
 
 **Exposing a package needs a membership wildcard.** `expose {Package};` exposes only the
-package element itself, not its contents, and renders an **empty** diagram. To show what a
-package contains, expose its members: `expose {Package}::*;` (direct members) or
+package element itself, which renders as an empty package symbol. To show what a package
+contains, expose its members: `expose {Package}::*;` (direct members) or
 `expose {Package}::**;` (recursively). Exposing a `part def` by name (as `{SystemName}View`
 and `{SubsystemName}View` do) is fine: its own parts are its structure.
 
@@ -216,11 +222,22 @@ There is no dedicated `DependencyView`/`{SubsystemName}DependencyView` diagram c
 `dependency` relationships are consumed via `sysml2tools query` (see Dependency Relationships
 above), not rendered.
 
-When a repository has multiple systems, `SoftwareStructureView` exposes each system
-package's members (`expose {SystemNameA}::**; expose {SystemNameB}::**;`) and omits the
-`render` line, so the default general view draws every system in one diagram.
-`asInterconnectionDiagram` draws only a single root `part def`, so do not use it for a
-multi-system overview.
+When a repository has multiple systems, type `SoftwareStructureView` by `GeneralView`,
+expose each system package's members, and filter out documentation so the overview stays
+readable — the general view draws one package frame per system, while an interconnection
+view places all systems in a single row:
+
+```sysml
+view SoftwareStructureView : GeneralView {
+    expose {SystemNameA}::**;
+    expose {SystemNameB}::**;
+    filter not @SysML::Documentation;
+}
+```
+
+Documentation (`doc`) is exposed with its owner and drawn as a `doc` compartment unless a
+view filters it out; use `filter not @SysML::Documentation;` wherever doc text would clutter
+a diagram.
 
 ## Diagram Embedding
 

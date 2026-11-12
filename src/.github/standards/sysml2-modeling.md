@@ -228,10 +228,14 @@ readable — the general view draws one package frame per system, while an inter
 view places all systems in a single row:
 
 ```sysml
-view SoftwareStructureView : GeneralView {
-    expose {SystemNameA}::**;
-    expose {SystemNameB}::**;
-    filter not @SysML::Documentation;
+package {RepoName}DesignViews {
+    private import StandardViewDefinitions::*;
+
+    view SoftwareStructureView : GeneralView {
+        expose {SystemNameA}::**;
+        expose {SystemNameB}::**;
+        filter not @SysML::Documentation;
+    }
 }
 ```
 

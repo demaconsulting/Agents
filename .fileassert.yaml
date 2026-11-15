@@ -32,9 +32,9 @@ tests:
         pdf:
           metadata:
             - field: Title
-              contains: {ProjectName} Build Notes
+              contains: "{ProjectName} Build Notes"
             - field: Author
-              contains: {OrganizationName}
+              contains: "{OrganizationName}"
             - field: Subject
               contains: Build Notes
           pages:
@@ -65,7 +65,7 @@ tests:
             - field: Title
               contains: Code Quality
             - field: Author
-              contains: {OrganizationName}
+              contains: "{OrganizationName}"
             - field: Subject
               contains: Code Quality
           pages:
@@ -96,7 +96,7 @@ tests:
             - field: Title
               contains: Review Plan
             - field: Author
-              contains: {OrganizationName}
+              contains: "{OrganizationName}"
             - field: Subject
               contains: Review Plan
           pages:
@@ -127,7 +127,7 @@ tests:
             - field: Title
               contains: Review Report
             - field: Author
-              contains: {OrganizationName}
+              contains: "{OrganizationName}"
             - field: Subject
               contains: Review Report
           pages:
@@ -158,7 +158,7 @@ tests:
             - field: Title
               contains: Design
             - field: Author
-              contains: {OrganizationName}
+              contains: "{OrganizationName}"
             - field: Subject
               contains: Design
           pages:
@@ -189,7 +189,7 @@ tests:
             - field: Title
               contains: Verification
             - field: Author
-              contains: {OrganizationName}
+              contains: "{OrganizationName}"
             - field: Subject
               contains: Verification
           pages:
@@ -220,7 +220,7 @@ tests:
             - field: Title
               contains: User Guide
             - field: Author
-              contains: {OrganizationName}
+              contains: "{OrganizationName}"
             - field: Subject
               contains: User Guide
           pages:
@@ -251,7 +251,7 @@ tests:
             - field: Title
               contains: Requirements
             - field: Author
-              contains: {OrganizationName}
+              contains: "{OrganizationName}"
             - field: Subject
               contains: Requirements
           pages:
@@ -282,7 +282,7 @@ tests:
             - field: Title
               contains: Trace Matrix
             - field: Author
-              contains: {OrganizationName}
+              contains: "{OrganizationName}"
             - field: Subject
               contains: Trace Matrix
           pages:

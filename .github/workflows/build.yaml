@@ -19,11 +19,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24.x
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -46,18 +41,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
-
       - name: Setup dotnet
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.x
-
-      - name: Install npm dependencies
-        run: npm install
 
       - name: Restore Tools
         run: dotnet tool restore
@@ -71,7 +58,7 @@ jobs:
         run: >
           dotnet versionmark --capture --job-id "build-docs"
           --output "artifacts/versionmark-build-docs.json" --
-          dotnet git node npm pandoc weasyprint buildmark versionmark textlint
+          dotnet git pandoc weasyprint buildmark versionmark textlint lintmark
 
       - name: Create documents output directory
         shell: bash

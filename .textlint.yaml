@@ -15,8 +15,7 @@ language: en
 # The files that lint.ps1 spell-checks
 files:
   - "**/*.{md,yaml,yml,json,cs,cpp,hpp,h,txt}"
-
-# Matches cspell, which also checks hidden paths such as .github/ and .*.yaml
+# Let wildcards match hidden (dot-prefixed) paths such as .github/ and .*.yaml
 enableGlobDot: true
 
 # Project-specific technical terms and tool names
@@ -25,6 +24,7 @@ words:
   - DEMA
   - demaconsulting
   - gmock
+  - lintmark
   - ncipollo
   - nestings
   - netstandard
@@ -50,4 +50,3 @@ ignorePaths:
   - "**/.agent-logs/**"
   - "**/bin/**"
   - "**/obj/**"
-  - package-lock.json

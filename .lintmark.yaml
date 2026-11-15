@@ -1,0 +1,28 @@
+---
+# Markdown Linting Standards (LintMark)
+#
+# PURPOSE:
+# - Maintain professional technical documentation standards
+# - Ensure consistent formatting for readability and maintenance
+# - Support automated documentation generation and publishing
+#
+# DO NOT MODIFY: These settings represent coding standards
+# - If files fail linting, fix the files to meet these standards
+# - Do not relax rules to accommodate existing non-compliant files
+# - Consistency across repositories is critical for documentation quality
+
+# The built-in LintMark defaults (120-column lines, ATX headings, '-' bullets, compact tables) match the DEMA style,
+# so only the ignore list is configured here.
+
+# Exclude common build artifacts, dependencies, and vendored third-party code.
+# This list replaces the LintMark defaults, so every pattern to ignore must be listed.
+ignore:
+  - ".git/**"
+  - "node_modules/**"
+  - "**/.venv/**"
+  - "**/generated/**"
+  - "**/thirdparty/**"
+  - "**/third-party/**"
+  - "**/3rd-party/**"
+  - "**/AGENT_REPORT_*.md"
+  - ".agent-logs/**"

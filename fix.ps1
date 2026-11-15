@@ -73,7 +73,6 @@ Normalize-YamlLineEndings
 
 # --- Markdown Auto-Fix ---
 Write-Host "Fixing: markdown..."
-$env:PUPPETEER_SKIP_DOWNLOAD = "true"
 npm install --silent 2>$null
 if ($LASTEXITCODE -eq 0) {
     npx markdownlint-cli2 --fix "**/*.md" 2>$null

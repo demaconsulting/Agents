@@ -71,17 +71,12 @@ if (-not $skipDotnetTools) {
 
 # --- Markdown ---
 Write-Host "Linting: markdown..."
-$skipNpm = $false
-npm install --silent
-if ($LASTEXITCODE -ne 0) { $lintError = $true; $skipNpm = $true }
-
-if (-not $skipNpm) {
-
-    npx markdownlint-cli2 "**/*.md"
+if (-not $skipDotnetTools) {
+    dotnet lintmark
     if ($LASTEXITCODE -ne 0) { $lintError = $true }
 }
 
-# [PROJECT-SPECIFIC] Add additional npm-based lint checks here.
+# [PROJECT-SPECIFIC] Add additional lint checks here.
 
 # --- Compliance Tools ---
 Write-Host "Linting: compliance tools..."

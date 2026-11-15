@@ -109,8 +109,9 @@ Items marked *(optional)* appear only when applicable to the project.
 ├── .textlint.yaml                 # Spell-check configuration (files, ignorePaths, words, overrides)
 ├── .editorconfig                  # Cross-editor formatting rules
 ├── .fileassert.yaml               # CI file existence assertions
+├── .gitattributes                 # Git line-ending normalization (LF; CRLF for .bat/.cmd)
 ├── .gitignore                     # Git ignore rules
-├── .markdownlint-cli2.yaml        # Markdown lint configuration
+├── .lintmark.yaml                 # Markdown lint/format configuration (LintMark)
 ├── .reviewmark.yaml               # Review-set definitions (protected)
 ├── .versionmark.yaml              # Tool version tracking
 ├── .yamlfix.toml                  # YAML auto-formatter configuration
@@ -120,7 +121,6 @@ Items marked *(optional)* appear only when applicable to the project.
 ├── build.ps1                      # Build solution and run tests
 ├── fix.ps1                        # Auto-fix all linting; always exits 0
 ├── lint.ps1                       # Full lint check for CI
-├── package.json                   # Node.js markdown/YAML tools
 ├── pip-requirements.txt           # Python yamllint/yamlfix dependencies
 ├── README.md                      # Project overview and build steps
 ├── requirements.yaml              # ReqStream root-tags and includes file

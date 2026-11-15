@@ -49,11 +49,14 @@
      1. Step one.
      2. Step two.
 
-     For flows with branching or parallel paths, use a Mermaid diagram:
+     For flows with branching or parallel paths, use a Mermaid diagram.
+     The example below uses dashed open arrows (--)) for the replies because the usual dashed
+     reply arrow (two hyphens followed by two greater-than signs) contains a sequence that would
+     end this HTML comment early; use the usual reply arrow in the real diagram:
      ```mermaid
      sequenceDiagram
          CallerUnit->>UnitA: method call
          UnitA->>UnitB: method call
-         UnitB-->>UnitA: result
-         UnitA-->>CallerUnit: result
+         UnitB--)UnitA: result
+         UnitA--)CallerUnit: result
      ``` -->

@@ -178,7 +178,7 @@ files.
 ## Other Agents
 
 | Agent | Purpose |
-| ----- | ------- |
+| --- | --- |
 | `developer` | General-purpose development - applies the right standards for the detected languages and file types |
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
 | `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
@@ -190,7 +190,7 @@ Standards documents in `.github/standards/` are loaded selectively by agents
 based on the type of work being performed:
 
 | Standards file | When to load |
-| -------------- | ------------ |
+| --- | --- |
 | `coding-principles.md` | Any source code changes |
 | `cpp-language.md` | C++ source code |
 | `cpp-testing.md` | C++ tests |

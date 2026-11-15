@@ -71,7 +71,7 @@ producing a populated review report saved to `.agent-logs/reviews/`.
 ## Other Available Agents
 
 | Agent | Purpose |
-| ----- | ------- |
+| --- | --- |
 | `developer` | General-purpose development - applies the right standards for the detected languages and file types |
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
 | `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |

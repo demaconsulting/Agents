@@ -17,12 +17,12 @@
 # Exclude common build artifacts, dependencies, and vendored third-party code.
 # This list replaces the LintMark defaults, so every pattern to ignore must be listed.
 ignore:
-  - ".git/**"
-  - "node_modules/**"
+  - "**/.git/**"
+  - "**/node_modules/**"
   - "**/.venv/**"
   - "**/generated/**"
   - "**/thirdparty/**"
   - "**/third-party/**"
   - "**/3rd-party/**"
   - "**/AGENT_REPORT_*.md"
-  - ".agent-logs/**"
+  - "**/.agent-logs/**"

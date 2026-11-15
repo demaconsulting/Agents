@@ -47,7 +47,8 @@ pwsh ./build.ps1
      links. In particular, do not link to individual source files in docs/ as these are source
      chapters for a compiled PDF and are not useful as standalone documents. -->
 
-The {ProjectName} User Guide is available on the [{ProjectName} releases page](https://github.com/{org}/{repo}/releases).
+The {ProjectName} User Guide is available on the
+[{ProjectName} releases page](https://github.com/{org}/{repo}/releases).
 
 ## Contributing
 

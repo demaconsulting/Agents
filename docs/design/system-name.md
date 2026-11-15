@@ -62,10 +62,12 @@
      1. Step one.
      2. Step two.
 
-     For flows with branching, parallel paths, or multiple subsystems, use a Mermaid diagram:
+     For flows with branching, parallel paths, or multiple subsystems, use a Mermaid diagram.
+     The example below uses thick (==>) arrows because a standard arrow (two hyphens followed by
+     a greater-than sign) would end this HTML comment early; use standard arrows in the real diagram:
      ```mermaid
      flowchart LR
-         A[Input] --> B[SubsystemOne] --> C[SubsystemTwo] --> D[Output]
+         A[Input] ==> B[SubsystemOne] ==> C[SubsystemTwo] ==> D[Output]
      ``` -->
 
 ## Design Constraints

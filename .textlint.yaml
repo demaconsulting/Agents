@@ -35,7 +35,7 @@
 version: '0.2'
 language: en
 
-# Matches cspell, which also checks hidden paths such as .github/ and .*.yaml
+# Also check hidden paths such as .github/ and .*.yaml
 enableGlobDot: true
 
 # The files lint.ps1 spell-checks
@@ -45,6 +45,7 @@ words:
   - Dema
   - demaconsulting
   - fileshare
+  - lintmark
   - SARIF
   - slnx
   - thirdparty
@@ -62,4 +63,3 @@ ignorePaths:
   - '**/bin/**'
   - '**/obj/**'
   - '**/generated/**'
-  - package-lock.json

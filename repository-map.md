@@ -144,6 +144,8 @@ committed** to the repository - do not flag its absence as a conformance issue.
 docs/
 ├── template/                      # Pandoc HTML template (not a doc collection)
 │   └── template.html              # Shared template used by all definition.yaml files (optional)
+├── filters/                       # Pandoc filters (not a doc collection)
+│   └── canvasnet.lua              # CanvasNet shim - written by the tool, never edited by hand
 ├── sysml2/                        # SysML2 architecture model (not a Pandoc doc collection)
 │   ├── model/
 │   │   ├── {system-name}.sysml    # System-level part def only - see sysml2-modeling.md
@@ -299,6 +301,9 @@ When auditing a repository against this standard:
 
 - **Optional items**: Absence of any *(optional)* item is not a violation
 - **`generated/` folders**: Absence is not a violation - they are created by the build
+- **`docs/filters/canvasnet.lua`**: A shim written by the CanvasNet tool - compare it with the output of
+  `dotnet canvasnet pandoc-filter --write-shim`, not with the template's copy, and never edit it by hand; rewrite it
+  when the tool reports a protocol mismatch
 - **`bin/` and `obj/` folders**: Build outputs - not subject to conformance checking
 - **Extra files**: Additional files not listed here (CI workflow definitions,
   tool-specific configuration) are not violations unless they conflict with the

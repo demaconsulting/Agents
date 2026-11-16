@@ -41,22 +41,34 @@ supported, and follow its *See also* links to the style and composition cards.
 
 ## Workflow
 
-1. Write the source file next to where it will be used (normally `docs/images/`).
-2. Render it with `--strict`, so that unsupported constructs fail instead of being silently
-   skipped:
+1. Write the source file next to where it will be used: beside the document that references it,
+   or in `docs/images/`.
+2. Render it with `--strict` to a scratch preview, so that unsupported constructs fail instead of
+   being silently skipped:
 
    ```pwsh
-   dotnet canvasnet render docs/images/name.svg -o docs/images/name.png --strict
+   dotnet canvasnet render docs/images/name.svg -o preview.png --strict
    ```
 
 3. **View the PNG** and critique it: clipped or overlapping text, uneven spacing, misaligned
    elements, unreadable labels, poor contrast. Fix the source and render again. The first render is
    rarely the final one.
-4. When the PNG will be published on a page of unknown theme, check it on a dark background too:
+4. When the picture will be published on a page of unknown theme, check it on a dark background
+   too:
 
    ```pwsh
-   dotnet canvasnet render docs/images/name.svg -o preview.png --background "#0d1117" --strict
+   dotnet canvasnet render docs/images/name.svg -o preview-dark.png --background "#0d1117" --strict
    ```
+
+5. Decide what is committed, following the diagram standard:
+   - **A picture in a Pandoc document**: commit only the source; the document references it and
+     the pipeline draws it.
+   - **A figure used outside the Pandoc pipeline** (for example the README): render the final PNG
+     beside the source and commit both:
+
+     ```pwsh
+     dotnet canvasnet render docs/images/name.svg -o docs/images/name.png --strict
+     ```
 
    Delete previews and other scratch output when done.
 

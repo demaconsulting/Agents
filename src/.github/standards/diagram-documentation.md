@@ -56,19 +56,23 @@ Do not add a diagram when it:
   source is the maintainable artifact and is reviewed like code.
 - **In documents built by the Pandoc pipeline, reference the source directly** (for example
   `![Flow](flow.mmd)` or `![Sales](sales.vl.json)`) and commit no PNG: the CanvasNet filter draws
-  and caches the picture during the build.
-- **Commit the rendered PNG only when a consumer cannot use the source directly.** For
-  example, the README is published in the NuGet package, which does not reliably render
-  external SVG, so its image is a committed PNG.
+  the picture during the build and caches it under `docs/generated/canvasnet/`, which is never
+  committed. Keep such a source beside the document that uses it, or in `docs/images/`, with its
+  embedded assets and data in that folder or below.
+- **Commit the rendered PNG only when a consumer outside the Pandoc pipeline cannot use the source
+  directly.** For example, the README is published in the NuGet package, which does not reliably
+  render external SVG, so its image is a committed PNG.
 - Composite SVGs that embed `.mmd`, `.scad`, `.vl.json`, or document files can only be drawn
   by CanvasNet: outside the Pandoc pipeline a PNG (or a flattened SVG) is always required for them.
-- Keep CanvasNet-authored sources and outputs together in `docs/images/` with matching
-  base names (`name.svg` and `name.png`). Keep embedded assets and data in that folder or below,
-  so a figure moves with its folder and still draws when a build restricts file access.
-  This does not apply to generator-managed outputs (for example SysML2 views rendered into
-  `docs/design/generated/`), which stay where their generator writes them.
-- Render with `--strict` and review the result visually before committing. Regenerate the
-  PNG in the same commit whenever the source changes so the two never disagree.
+- For a figure with a committed PNG, keep the source and the PNG together in `docs/images/` with
+  matching base names (`name.svg` and `name.png`).
+- In every case keep embedded assets and data in the source's folder or below, so a figure moves
+  with its folder and still draws when a build restricts file access. This does not apply to
+  generator-managed outputs (for example SysML2 views rendered into `docs/design/generated/`),
+  which stay where their generator writes them.
+- Render with `--strict` and review the result visually before committing. When a figure has a
+  committed PNG, regenerate it in the same commit whenever the source changes so the two never
+  disagree.
 - Images referenced from a README that ships in a package use absolute URLs, per the
   README's own conventions.
 

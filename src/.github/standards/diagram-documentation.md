@@ -42,8 +42,8 @@ Do not add a diagram when it:
   Do not hand-draw a competing description of the same structure; a diagram derived from
   it is fine, and the model wins when they disagree.
 - **Simple flows and relationships** in design or verification documents may use
-  Mermaid, but only where the documentation pipeline has Mermaid rendering configured;
-  otherwise it is emitted as a plain code block.
+  Mermaid: a fenced code block of class `mermaid`, or a `.mmd` file referenced as a picture,
+  which the documentation pipeline's CanvasNet filter draws.
 - **Illustrative or marketing-quality figures** (README, user guide): SVG.
 - **Data charts**: VegaLite, with the data file kept beside the spec.
 - **3D or physical objects**: OpenSCAD. Rare for software documentation.
@@ -52,16 +52,19 @@ Do not add a diagram when it:
 
 # Source and Rendered Output
 
-- **Always commit the source** (`.svg`, `.scad`, `.vl.json`, and any data it uses). The
+- **Always commit the source** (`.svg`, `.mmd`, `.scad`, `.vl.json`, and any data it uses). The
   source is the maintainable artifact and is reviewed like code.
+- **In documents built by the Pandoc pipeline, reference the source directly** (for example
+  `![Flow](flow.mmd)` or `![Sales](sales.vl.json)`) and commit no PNG: the CanvasNet filter draws
+  and caches the picture during the build.
 - **Commit the rendered PNG only when a consumer cannot use the source directly.** For
   example, the README is published in the NuGet package, which does not reliably render
-  external SVG, so its image is a committed PNG. Where the documentation pipeline can
-  consume the SVG directly, embed the SVG and commit no PNG.
-- Composite SVGs that embed `.scad`, `.vl.json`, or document files can only be rendered
-  by CanvasNet, so a PNG is always required for them.
+  external SVG, so its image is a committed PNG.
+- Composite SVGs that embed `.mmd`, `.scad`, `.vl.json`, or document files can only be drawn
+  by CanvasNet: outside the Pandoc pipeline a PNG (or a flattened SVG) is always required for them.
 - Keep CanvasNet-authored sources and outputs together in `docs/images/` with matching
-  base names (`name.svg` and `name.png`). Embedded assets must be in that folder or below.
+  base names (`name.svg` and `name.png`). Keep embedded assets and data in that folder or below,
+  so a figure moves with its folder and still draws when a build restricts file access.
   This does not apply to generator-managed outputs (for example SysML2 views rendered into
   `docs/design/generated/`), which stay where their generator writes them.
 - Render with `--strict` and review the result visually before committing. Regenerate the

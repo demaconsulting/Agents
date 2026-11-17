@@ -1,6 +1,6 @@
 ---
 name: docdown
-description: Read PDF and Microsoft Office documents (.pdf, .docx, .xlsx, .pptx, .vsdx) with the DocDown tool, extracting their text, tables, images, comments, and page images to Markdown and PNG. Use this when asked to read, summarize, or take information from a data sheet, specification, report, slide deck, drawing, spreadsheet, or meeting transcript, instead of installing Python or other document libraries.
+description: Read PDF and Microsoft Office documents (.pdf, .docx, .xlsx, .pptx, .vsdx, .vsdm) with the DocDown tool, extracting their text, tables, images, comments, and page images to Markdown and PNG. Use this when asked to read, summarize, or take information from a data sheet, specification, report, slide deck, drawing, spreadsheet, or meeting transcript, instead of installing Python or other document libraries.
 ---
 
 # DocDown Skill
@@ -62,7 +62,8 @@ Never extract into the repository.
 - **Limit large documents.** Use `--page-range` to extract only the pages needed.
 - **Tracked changes.** Word redlines appear as `{++inserted++}` / `{--deleted--}`; pass
   `--accept-changes` to read the accepted text.
-- **Cite the source.** When reporting facts, name the document and page they came from.
+- **Cite the source.** When reporting facts, name the document and the location they came from
+  (page, slide, section heading, or worksheet and cell); never invent a page number.
 
 ## Limitations
 

@@ -29,7 +29,7 @@ Do not assert on:
 - Runtime internals: allocated bytes, GC reachability, thread identity, JIT or scheduler behavior
 - Wall-clock budgets or timing ratios (assert cancellation/timeout behavior instead)
 - Private state via reflection or memory inspection
-- The repository's own source, project, or config file text
+- Text of the repository's checked-in source, project, or config files
 
 Allowed: calls on documented dependencies via mocks, and output files produced by the item under test.
 

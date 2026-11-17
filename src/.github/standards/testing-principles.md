@@ -46,7 +46,8 @@ file organization patterns, and tooling requirements.
 - [ ] Tests respect software item hierarchy boundaries (System/Subsystem/Unit scope)
 - [ ] Cross-hierarchy test dependencies documented in design documentation
 - [ ] All tests follow AAA pattern with descriptive comments
-- [ ] Tests assert observable behavior only (no runtime internals, timing budgets, private state, or source-text scans)
+- [ ] Tests assert observable behavior only (no runtime internals, timing budgets, private state, or checked-in
+  file-text scans)
 - [ ] Test names follow hierarchical naming conventions for requirement linkage
 - [ ] Every requirement has at least one linked passing test
 - [ ] Tests without a corresponding requirement are accepted as valid

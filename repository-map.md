@@ -146,6 +146,12 @@ docs/
 │   └── template.html              # Shared template used by all definition.yaml files (optional)
 ├── filters/                       # Pandoc filters (not a doc collection)
 │   └── canvasnet.lua              # CanvasNet shim - written by the tool, never edited by hand
+├── images/                        # README figures with committed PNGs (not a doc collection)
+│   ├── hero/                      # README hero banner sources
+│   │   ├── hero.svg               # Shared DEMA Consulting banner, customized per project
+│   │   └── dc-logo-dark.svg       # DEMA Consulting logo for dark backgrounds - fixed, never edited
+│   ├── render-hero.ps1            # Renders hero/hero.svg to hero.png; -Check detects a stale PNG
+│   └── hero.png                   # Rendered banner shown by README.md - generated per project, committed
 ├── sysml2/                        # SysML2 architecture model (not a Pandoc doc collection)
 │   ├── model/
 │   │   ├── {system-name}.sysml    # System-level part def only - see sysml2-modeling.md
@@ -304,6 +310,9 @@ When auditing a repository against this standard:
 - **`docs/filters/canvasnet.lua`**: A shim written by the CanvasNet tool - compare it with the output of
   `dotnet canvasnet pandoc-filter --write-shim`, not with the template's copy, and never edit it by hand; rewrite it
   when the tool reports a protocol mismatch
+- **`docs/images/hero.png`**: Not provided by the template - each repository renders its own from its customized
+  `docs/images/hero/hero.svg` with `docs/images/render-hero.ps1` and commits it; a missing or stale PNG is a
+  violation once the README shows the banner (`pwsh docs/images/render-hero.ps1 -Check`)
 - **`bin/` and `obj/` folders**: Build outputs - not subject to conformance checking
 - **Extra files**: Additional files not listed here (CI workflow definitions,
   tool-specific configuration) are not violations unless they conflict with the

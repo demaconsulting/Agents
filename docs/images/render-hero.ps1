@@ -1,11 +1,12 @@
 <#
 .SYNOPSIS
-    Draws the README hero banner, docs/images/hero.png, from docs/images/hero/hero.svg, or checks that it is current.
+    Draws the README hero banner, docs/images/hero.png, from docs/images/hero.svg, or checks that it is current.
 
 .DESCRIPTION
-    hero/hero.svg is the 1600x640 README banner; hero/dc-logo-dark.svg is the DEMA Consulting "DC" monogram it
-    shows, redrawn as vector paths in colors for a dark background. Both follow the shared DEMA Consulting hero
-    (CanvasNet and BuildMark docs/images/hero). The banner is drawn with "dotnet canvasnet" from the tool manifest.
+    hero.svg is the 1600x640 README banner, kept beside the hero.png it draws (matching base names). The files it
+    embeds are in hero/, such as hero/dc-logo-dark.svg, the DEMA Consulting "DC" monogram redrawn as vector paths
+    in colors for a dark background. They follow the shared DEMA Consulting hero of
+    CanvasNet and BuildMark. The banner is drawn with "dotnet canvasnet" from the tool manifest.
 
     Without -Check it draws the banner over docs/images/hero.png. Commit the changed hero.png with the change to
     the SVG that made it differ.
@@ -31,7 +32,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 $repo = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
-$source = 'docs/images/hero/hero.svg'
+$source = 'docs/images/hero.svg'
 $committed = 'docs/images/hero.png'
 
 Push-Location $repo

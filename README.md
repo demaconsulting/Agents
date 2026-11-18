@@ -10,10 +10,11 @@
 
 <!-- TEMPLATE-DIRECTIVE:
      The hero banner is the shared DEMA Consulting README banner, the first element after the badges.
-     1. Customize docs/images/hero/hero.svg by following the TEMPLATE-DIRECTIVE comments inside it
+     1. Customize docs/images/hero.svg by following the TEMPLATE-DIRECTIVE comments inside it
         (name, tagline, body, command, footnote, engine label, and the input and output cards).
      2. Run `pwsh docs/images/render-hero.ps1` and look at docs/images/hero.png.
-     3. Commit hero.svg and hero.png together (`pwsh docs/images/render-hero.ps1 -Check` detects a stale PNG).
+     3. Commit docs/images/hero.svg and docs/images/hero.png together, with any files the SVG embeds
+        from docs/images/hero/ (`pwsh docs/images/render-hero.ps1 -Check` detects a stale PNG).
      4. Replace the alt text below with a description of what the banner shows: the name, the tagline,
         the command, what flows in, the tool, and what comes out. BuildMark's example:
         "BuildMark banner: the BuildMark name with the tagline 'Every build, documented. Every change, traced.'

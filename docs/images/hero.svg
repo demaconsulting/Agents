@@ -2,8 +2,9 @@
   <!-- The README hero banner. {ProjectName}: replace this sentence with one that says what the banner shows, for
        example "Version tags, pull requests, and issues flow into the buildmark tool and come out as Markdown build
        notes, a Pandoc PDF, release notes, and a CI pipeline artifact."
-       The definitions and the left panel follow the shared DEMA Consulting hero (CanvasNet and BuildMark
-       docs/images/hero). -->
+       The definitions and the left panel follow the shared DEMA Consulting hero (CanvasNet and BuildMark).
+       This file is docs/images/hero.svg, beside its rendered docs/images/hero.png (matching base names, per the
+       diagram documentation standard); the files it embeds are in docs/images/hero/. -->
   <!-- TEMPLATE-DIRECTIVE:
        This banner is shared by every DEMA Consulting repository so that their READMEs look like one family.
        Customize it once, when the repository is created, and then only when what it shows changes.
@@ -20,13 +21,14 @@
        RULES FOR ALL ART:
        - Draw the card art in SVG (shapes and text); no external raster images. A card may instead embed a real
          source file of the repository with <image href="..."> (an .mmd, .vl.json, .scad, .svg, or a document
-         page), as CanvasNet does, when the repository has a suitable one. Keep embedded files in this folder or
-         below it.
+         page), as CanvasNet does, when the repository has a suitable one. Put every embedded file in
+         docs/images/hero/ (beside dc-logo-dark.svg) and reference it as href="hero/name.ext".
        - Every text is at least 22px in this 1600x640 frame (the .mini and .miniMono classes are 22px).
        - Nothing may be clipped: keep each illustration inside its card panel and each label inside its card.
        - Delete these TEMPLATE-DIRECTIVE comments once the banner is customized; keep the short descriptive
          comments.
-       - Then run docs/images/render-hero.ps1, look at docs/images/hero.png, and commit both. -->
+       - Then run docs/images/render-hero.ps1, look at docs/images/hero.png, and commit hero.svg, hero.png,
+         and anything added to docs/images/hero/ together. -->
   <defs>
     <style>
       .word { font: bold 92px sans-serif; fill: #ffffff; }
@@ -135,7 +137,7 @@
   <rect width="1600" height="640" fill="url(#dots)"/>
 
   <!-- Wordmark and tagline -->
-  <image href="dc-logo-dark.svg" x="46" y="54" width="50" height="50"/>
+  <image href="hero/dc-logo-dark.svg" x="46" y="54" width="50" height="50"/>
   <text class="eyebrow" x="100" y="90">DEMA Consulting</text>
   <!-- TEMPLATE-DIRECTIVE: the wordmark.
        Split the project name into two words at a natural boundary (Build|Mark, Req|Stream, Canvas|Net). The

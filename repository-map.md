@@ -147,11 +147,11 @@ docs/
 ├── filters/                       # Pandoc filters (not a doc collection)
 │   └── canvasnet.lua              # CanvasNet shim - written by the tool, never edited by hand
 ├── images/                        # README figures with committed PNGs (not a doc collection)
-│   ├── hero/                      # README hero banner sources
-│   │   ├── hero.svg               # Shared DEMA Consulting banner, customized per project
+│   ├── hero.svg                   # Shared DEMA Consulting banner source, customized per project
+│   ├── hero.png                   # Rendered banner shown by README.md - generated per project, committed
+│   ├── hero/                      # Files embedded by hero.svg
 │   │   └── dc-logo-dark.svg       # DEMA Consulting logo for dark backgrounds - fixed, never edited
-│   ├── render-hero.ps1            # Renders hero/hero.svg to hero.png; -Check detects a stale PNG
-│   └── hero.png                   # Rendered banner shown by README.md - generated per project, committed
+│   └── render-hero.ps1            # Renders hero.svg to hero.png; -Check detects a stale PNG
 ├── sysml2/                        # SysML2 architecture model (not a Pandoc doc collection)
 │   ├── model/
 │   │   ├── {system-name}.sysml    # System-level part def only - see sysml2-modeling.md
@@ -311,7 +311,7 @@ When auditing a repository against this standard:
   `dotnet canvasnet pandoc-filter --write-shim`, not with the template's copy, and never edit it by hand; rewrite it
   when the tool reports a protocol mismatch
 - **`docs/images/hero.png`**: Not provided by the template - each repository renders its own from its customized
-  `docs/images/hero/hero.svg` with `docs/images/render-hero.ps1` and commits it; a missing or stale PNG is a
+  `docs/images/hero.svg` with `docs/images/render-hero.ps1` and commits it; a missing or stale PNG is a
   violation once the README shows the banner (`pwsh docs/images/render-hero.ps1 -Check`)
 - **`bin/` and `obj/` folders**: Build outputs - not subject to conformance checking
 - **Extra files**: Additional files not listed here (CI workflow definitions,

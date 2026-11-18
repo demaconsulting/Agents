@@ -8,6 +8,25 @@
      Add status badges here (e.g. CI, version, license).
      Example: [![CI](https://github.com/{org}/{repo}/actions/workflows/ci.yaml/badge.svg)](https://github.com/{org}/{repo}/actions/workflows/ci.yaml) -->
 
+<!-- TEMPLATE-DIRECTIVE:
+     The hero banner is the shared DEMA Consulting README banner, the first element after the badges.
+     1. Customize docs/images/hero.svg by following the TEMPLATE-DIRECTIVE comments inside it
+        (name, tagline, body, command, footnote, engine label, and the input and output cards).
+     2. Run `pwsh docs/images/render-hero.ps1` and look at docs/images/hero.png.
+     3. Commit docs/images/hero.svg and docs/images/hero.png together, with any files the SVG embeds
+        from docs/images/hero/ (`pwsh docs/images/render-hero.ps1 -Check` detects a stale PNG).
+     4. Replace the alt text below with a description of what the banner shows: the name, the tagline,
+        the command, what flows in, the tool, and what comes out. BuildMark's example:
+        "BuildMark banner: the BuildMark name with the tagline 'Every build, documented. Every change, traced.'
+        and the command 'buildmark --report notes.md --build-version v1.2.3'. Version tags, pull requests,
+        GitHub issues, and Azure DevOps work items flow on curved arrows into the buildmark .NET tool, and
+        arrows lead out to Markdown build notes with Changes, Bugs Fixed, and Known Issues sections, a Pandoc
+        PDF, release notes, and a CI pipeline artifact"
+     The image link must stay an absolute URL: replace {org}/{repo} in the [hero] reference at the end of
+     this file. -->
+
+![{ProjectName} banner: the {ProjectName} name with its tagline and command, showing what flows into the tool and what comes out][hero]
+
 ## Overview
 
 <!-- TEMPLATE-DIRECTIVE:
@@ -69,3 +88,5 @@ The {ProjectName} User Guide is available on the
      Example:
      - [Report a bug or request a feature](https://github.com/{org}/{repo}/issues)
      - [Ask a question or start a discussion](https://github.com/{org}/{repo}/discussions) -->
+
+[hero]: https://raw.githubusercontent.com/{org}/{repo}/main/docs/images/hero.png

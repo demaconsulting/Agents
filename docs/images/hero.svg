@@ -151,9 +151,13 @@
          n 611  o 611  p 611  q 611  r 389  s 556  t 333  u 611  v 556  w 778  x 556  y 556  z 500
        Examples: "Canvas" = 3557 units, x = 379.2; "Build" = 2500 units, x = 282 (BuildMark uses 281.9);
        "Tool" = 2111 units, x = 246.2. Check the result by rendering: the two words must read as one name with
-       the same spacing as the letters inside a word. The whole name must end before x = 560, so the sum over
-       both words must stay under about 5500 units (about 9 letters; "ProjectName" at 6113 units runs into the
-       cards). For a longer name, ask before shrinking the font. -->
+       the same spacing as the letters inside a word. The whole name must end before about x = 540 so it keeps
+       clear of the cards: at 92px that is a total of about 5300 units over both words (about 9 letters).
+       A LONGER NAME ADAPTS ITS FONT SIZE: pick the largest whole size that fits,
+         size = floor(488000 / total units), at most 92
+       set it on both words with style="font-size:{size}px", and compute the second word's x with the same
+       formula using size/1000 instead of 0.092 (x = 52 + size/1000 * first-word units). Keep y = 176 and
+       everything else unchanged. Example: "TestResults" = 5668 units, size 86 (TestResults uses 84). -->
   <text class="word" x="52" y="176">Tool</text>
   <text class="word brandText" x="246.2" y="176">Name</text>
   <rect x="58" y="200" width="132" height="6" rx="3" fill="url(#brand)"/>

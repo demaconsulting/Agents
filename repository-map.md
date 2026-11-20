@@ -154,15 +154,15 @@ docs/
 │   └── render-hero.ps1            # Renders hero.svg to hero.png; -Check detects a stale PNG
 ├── sysml2/                        # SysML2 architecture model (not a Pandoc doc collection)
 │   ├── model/
-│   │   ├── {system-name}.sysml    # System-level part def only - see sysml2-modeling.md
+│   │   ├── {system-name}.sysml    # Package {SystemName}: system part def only - see sysml2-modeling.md
 │   │   ├── {system-name}/
-│   │   │   ├── {subsystem-name}.sysml   # Subsystem part def; nests for sub-subsystems
+│   │   │   ├── {subsystem-name}.sysml   # Package {SystemName}_{SubsystemName}Subsystem; nests for sub-subsystems
 │   │   │   └── {subsystem-name}/
-│   │   │       └── {unit-name}.sysml    # One file per unit
-│   │   ├── ots.sysml               # OTS dependency model (optional)
-│   │   └── shared.sysml            # Shared package dependency model (optional)
+│   │   │       └── {unit-name}.sysml    # Package {SystemName}_{UnitName}; one file per unit
+│   │   ├── ots.sysml               # OTS dependency model, package OtsDependencies (optional)
+│   │   └── shared.sysml            # Shared package model, package SharedPackages (optional)
 │   └── views/
-│       └── design-views.sysml     # View definitions rendered to docs/design/generated/
+│       └── design-views.sysml     # Package {SystemName}DesignViews; views rendered to docs/design/generated/
 ├── build_notes/                   # Toolchain installation guide
 │   ├── title.txt
 │   ├── definition.yaml

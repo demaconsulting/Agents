@@ -18,7 +18,7 @@
 //      (imported from `StandardViewDefinitions`) and exposes the whole system package
 //      recursively. In a repository with multiple systems, type it by `GeneralView`
 //      instead, expose each system package's members, and add
-//      `filter not @SysML::Documentation;` - see sysml2-modeling.md.
+//      `filter not (@SysML::Documentation);` - see sysml2-modeling.md.
 //
 //      Each other view exposes both the container part def and its direct children
 //      (`expose X; expose X::*;`) and renders `asInterconnectionDiagram` so nested
@@ -27,13 +27,15 @@
 //      diagrams to answer "what uses/depends on this?" questions - see
 //      sysml2-modeling.md. Uncomment the OTS import below if this repository has a
 //      model/ots.sysml file. -->
-package SystemName {
+package SystemNameDesignViews {
     // <!-- TEMPLATE-DIRECTIVE: Uncomment if this repository has a model/ots.sysml file. -->
-    // import OtsDependencies::*;
+    // private import OtsDependencies::*;
     private import StandardViewDefinitions::*;
+    private import SystemName::*;
+    private import SystemName_SubsystemNameSubsystem::*;
 
     view SoftwareStructureView : InterconnectionView {
-        expose SystemName::**;
+        expose SystemName::SystemNameSystem::**;
     }
 
     view SystemNameSystemView {

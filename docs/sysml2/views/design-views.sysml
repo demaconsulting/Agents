@@ -1,7 +1,8 @@
 // <!-- TEMPLATE-DIRECTIVE:
 //      Read the sysml2-modeling.md standard before editing this file. Views rendered into
-//      docs/design/generated/ and embedded in the Design document. Reopens each system's
-//      package so `expose` statements can reference their target `part def` directly. Per
+//      docs/design/generated/ and embedded in the Design document. Declares one
+//      repository-level views package that imports the system and subsystem packages so
+//      `expose` statements can reference their target `part def` directly. Per
 //      SysML2Tools syntax, `expose` is only valid inside a named `view` usage (not a
 //      `view def` definition), and it - not `render` - is what scopes the rendered
 //      diagram content.
@@ -11,7 +12,7 @@
 //
 //      Naming convention: SoftwareStructureView (whole model), {SystemName}SystemView (one
 //      per system), {SubsystemName}View (one per subsystem). Replace SystemName and
-//      SubsystemName with your actual names (PascalCase). This one views file declares
+//      SubsystemName with your actual names (PascalCase). This views file declares
 //      the single repository-level package `{RepoName}DesignViews` (replace RepoName with
 //      the repository name, PascalCase), even when the repository has several systems.
 //      Add or remove views to match

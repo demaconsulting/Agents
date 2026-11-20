@@ -8,7 +8,9 @@
 //      ({SystemName}_{UnitName}; never reuse a package name from another file). To
 //      reference another unit, add `private import SystemName_OtherUnit::*;`; where
 //      that would form an import cycle, use the qualified name instead
-//      (`dependency UnitName to SystemName_OtherUnit::OtherUnit;`). -->
+//      (`dependency UnitName to SystemName_OtherUnit::OtherUnit;`). Package names must be
+//      unique repository-wide: if another subsystem has a unit with the same name, qualify
+//      both (`SystemName_SubsystemName_UnitName`). -->
 package SystemName_UnitName {
     private import SoftwareItemMetadata::*;
 

@@ -11,7 +11,10 @@
 //
 //      Naming convention: SoftwareStructureView (whole model), {SystemName}SystemView (one
 //      per system), {SubsystemName}View (one per subsystem). Replace SystemName and
-//      SubsystemName with your actual names (PascalCase). Add or remove views to match
+//      SubsystemName with your actual names (PascalCase). This one views file declares
+//      the single repository-level package `{RepoName}DesignViews` (replace RepoName with
+//      the repository name, PascalCase), even when the repository has several systems.
+//      Add or remove views to match
 //      the systems and subsystems actually modeled in this repository.
 //
 //      SoftwareStructureView is typed by the standard `InterconnectionView` definition
@@ -27,7 +30,7 @@
 //      diagrams to answer "what uses/depends on this?" questions - see
 //      sysml2-modeling.md. Uncomment the OTS import below if this repository has a
 //      model/ots.sysml file. -->
-package SystemNameDesignViews {
+package RepoNameDesignViews {
     // <!-- TEMPLATE-DIRECTIVE: Uncomment if this repository has a model/ots.sysml file. -->
     // private import OtsDependencies::*;
     private import StandardViewDefinitions::*;

@@ -162,7 +162,7 @@ docs/
 │   │   ├── ots.sysml               # OTS dependency model, package OtsDependencies (optional)
 │   │   └── shared.sysml            # Shared package model, package SharedPackages (optional)
 │   └── views/
-│       └── design-views.sysml     # Package {SystemName}DesignViews; views rendered to docs/design/generated/
+│       └── design-views.sysml     # Package {RepoName}DesignViews; views rendered to docs/design/generated/
 ├── build_notes/                   # Toolchain installation guide
 │   ├── title.txt
 │   ├── definition.yaml

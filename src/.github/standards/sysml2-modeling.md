@@ -39,7 +39,7 @@ docs/sysml2/
 │   ├── ots.sysml                      # package OtsDependencies: OTS parts (optional; if OTS items exist)
 │   └── shared.sysml                   # package SharedPackages: Shared Package parts (optional; if Shared Packages exist)
 └── views/
-    └── design-views.sysml             # package {SystemName}DesignViews; named view usages rendered for the design document
+    └── design-views.sysml             # package {RepoName}DesignViews; named view usages rendered for the design document
 ```
 
 `docs/sysml2/common/software-items.sysml` defines the `SoftwareItemMetadata::SoftwareInfo`
@@ -84,9 +84,13 @@ so:
 - Name each package from its place in the hierarchy, joined with an underscore:
   `{SystemName}` for the system file, `{SystemName}_{SubsystemName}Subsystem` for a subsystem
   (including a nested sub-subsystem, which is not prefixed with its parent subsystem), and
-  `{SystemName}_{UnitName}` for a unit. The system prefix keeps unit names unique across
-  systems. The shared files use `OtsDependencies` and `SharedPackages`, and the views file
-  uses `{SystemName}DesignViews`.
+  `{SystemName}_{UnitName}` for a unit. The system prefix keeps names unique across systems.
+  The shared files use `OtsDependencies` and `SharedPackages`, and the single views file uses
+  one repository-level package, `{RepoName}DesignViews` (not one per system).
+- Package names must be unique **repository-wide**. The short forms above are the default;
+  when one would collide (two `Storage` subsystems in different branches, or two units named
+  `Cache` in different subsystems), qualify it with the owning subsystem path, for example
+  `{SystemName}_{SubsystemName}_{UnitName}` (`Acme_Ingest_Cache` and `Acme_Query_Cache`).
 - Reference other files with an explicit `private import {PackageName}::*;` (a system or
   subsystem file imports the package of each direct member so its `part` usages resolve; every
   file that applies `SoftwareInfo` imports `SoftwareItemMetadata::*`).
@@ -198,7 +202,7 @@ Views control what gets rendered into diagrams for the design document. Use name
 **usages** (not `view def` **definitions**) — `expose` is only valid inside a usage:
 
 ```sysml
-package {SystemName}DesignViews {
+package {RepoName}DesignViews {
     private import StandardViewDefinitions::*;
     private import {SystemName}::*;
     private import {SystemName}_{SubsystemName}Subsystem::*;

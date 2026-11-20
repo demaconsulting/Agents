@@ -4,10 +4,14 @@
 //      docs/sysml2/model/{system-name}/{subsystem-name}/{unit-name}.sysml (kebab-case),
 //      matching the folder depth of this unit's companion docs/design/, docs/reqstream/,
 //      and docs/verification/ files. Replace SystemName and UnitName with your actual
-//      names (PascalCase). This file reopens the `SystemName` package so its part def
-//      merges with the rest of the model - no `import` is needed as long as all files
-//      are passed to sysml2tools together. -->
-package SystemName {
+//      names (PascalCase). This file declares its own package, `SystemName_UnitName`
+//      ({SystemName}_{UnitName}; never reuse a package name from another file). To
+//      reference another unit, add `private import SystemName_OtherUnit::*;`; where
+//      that would form an import cycle, use the qualified name instead
+//      (`dependency UnitName to SystemName_OtherUnit::OtherUnit;`). Package names must be
+//      unique repository-wide: if another subsystem has a unit with the same name, qualify
+//      both (`SystemName_SubsystemName_UnitName`). -->
+package SystemName_UnitName {
     private import SoftwareItemMetadata::*;
 
     part def UnitName {

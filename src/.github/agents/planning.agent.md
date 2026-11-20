@@ -111,9 +111,12 @@ Then respond to the caller with ONLY the lean structured summary below.
 
 1. **[severity]** {risk} — {mitigation}
 
-## Feasibility Assessment
+## Feasibility and Delivery
 
 {Single-pass or not, and why. Any preconditions.}
+
+{Proposed pull-request grouping: one pull request, or ordered parts split by behavior,
+each with what it delivers on its own.}
 
 ## Unknowns
 

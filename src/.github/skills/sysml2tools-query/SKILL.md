@@ -26,8 +26,10 @@ dotnet tool restore
   `docs/sysml2/model/{system-name}/{subsystem-name}/{unit-name}.sysml` — one file per
   Subsystem/Unit, nested to mirror the same folder depth as that item's companion
   `docs/design/`, `docs/reqstream/`, and `docs/verification/` files. Each declares its own
-  uniquely named package, `{SystemName}_{SubsystemName}Subsystem` or `{SystemName}_{UnitName}`,
-  so an element's qualified name is e.g. `{SystemName}_{UnitName}::{UnitName}`.
+  uniquely named package; by default `{SystemName}_{SubsystemName}Subsystem` or
+  `{SystemName}_{UnitName}`, qualified with the subsystem path
+  (`{SystemName}_{SubsystemName}_{UnitName}`) when the short name would collide. An element's
+  qualified name is e.g. `{SystemName}_{UnitName}::{UnitName}`.
 - `docs/sysml2/model/ots.sysml` — off-the-shelf (OTS) dependency parts (present when OTS items
   exist).
 - `docs/sysml2/model/shared.sysml` — Shared Package parts (present when Shared Package items

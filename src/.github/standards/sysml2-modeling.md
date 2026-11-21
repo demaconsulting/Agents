@@ -224,7 +224,7 @@ package {RepoName}DesignViews {
 Views import (or qualify) every package whose members they expose, like any other file.
 
 Type `SoftwareStructureView` by a standard view definition from the SysML v2 Views library
-(`GeneralView`, `InterconnectionView`, ...; requires `sysml2tools` 0.3.0-beta.3+). The view
+(`GeneralView`, `InterconnectionView`, ...; requires `sysml2tools` 0.3.0-beta.4+). The view
 definition selects the diagram notation; `InterconnectionView` draws the system as nested
 containment boxes, which is the clearest full-detail overview for a single system.
 
@@ -234,7 +234,9 @@ named element's containment subtree). The view definition (or a `render <kind>;`
 selects a rendering *style* — it has **no effect on scope**. `expose` is only legal inside a named
 `view Name { ... }` **usage**; it is a syntax/semantic error inside a `view def Name { ... }`
 **definition**. `expose` targets must be `::`-qualified or locally-resolvable names, not
-dotted member-access chains (`expose foo.bar;` is invalid — use `expose Bar;`).
+dotted member-access chains (`expose foo.bar;` is invalid — use `expose Bar;`). A `render <kind>;`
+member such as `render asInterconnectionDiagram;` needs `private import Views::*;` in the views package,
+or `lint --strict-unresolved` reports it as an unresolved reference.
 
 **Exposing a package needs a membership wildcard.** `expose {Package};` exposes only the
 package element itself, which renders as an empty package symbol. To show what a package
@@ -316,7 +318,8 @@ Document dependencies in prose instead of a diagram: each System/Subsystem desig
 - `sysml2tools lint` belongs in `lint.ps1`'s compliance-tools section, **not** as a separate
   step in the CI design-document job — `lint.ps1` gates every later job (including document
   generation) transitively, so linting the model there is both earlier and non-duplicated.
-  Pass a single quoted recursive glob, e.g. `dotnet sysml2tools lint 'docs/sysml2/**/*.sysml'`
+  Pass a single quoted recursive glob and `--strict-unresolved` (0.3.0-beta.4+, which fails the lint on unresolved
+  references), e.g. `dotnet sysml2tools lint --strict-unresolved 'docs/sysml2/**/*.sysml'`
   — `sysml2tools` (0.1.0-beta.5+) expands and recurses this itself, so no
   `Get-ChildItem`/shell-side globbing is needed.
 - The CI design-document job renders the views (see the render command above) before running Pandoc, so generated SVGs

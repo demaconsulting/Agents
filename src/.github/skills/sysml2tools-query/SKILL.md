@@ -11,7 +11,8 @@ querying this model over grepping/reading source files when you need to understa
 
 ## Prerequisites
 
-The `sysml2tools` CLI is a local .NET tool pinned in `.config/dotnet-tools.json`.
+The `sysml2tools` CLI (minimum version 0.3.0-beta.4) is a local .NET tool pinned in
+`.config/dotnet-tools.json`.
 Restore it once per session if not already available:
 
 ```pwsh

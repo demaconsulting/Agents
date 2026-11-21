@@ -174,15 +174,22 @@ not-yet-scheduled change.)
 - Add a one-line comment above each unit's dependency block stating *why*, not just *what*.
 - Source each Unit's dependency list from that Unit's own design doc, not a Subsystem-level
   summary diagram (which may omit real edges, e.g. re-entrant calls).
-- Consume dependencies by **querying**, not by rendering a dedicated diagram: `sysml2tools query
-  uses`/`used-by`/`dependencies --element {QualifiedName}` return every `dependency` edge (in
-  addition to structural typing/containment references) directly from the model — see the
-  `sysml2tools-query` skill. Do not declare a dedicated `DependencyView`/
-  `{SubsystemName}DependencyView` diagram for this purpose: `render asInterconnectionDiagram`
-  ignores `dependency` edges entirely (only renders `connect`), and an earlier `asGeneralDiagram`-
-  based dependency-diagram approach was abandoned as unmaintainable at scale (unreadable/clipped
-  canvases once a system has more than a handful of cross-unit dependencies). Model `dependency`
-  statements purely as queryable facts, never as a rendering target.
+- `sysml2tools query uses`/`used-by`/`dependencies --element {QualifiedName}` remain the
+  **primary** way to consume dependencies: they return every `dependency` edge (in addition to
+  structural typing/containment references) directly from the model — see the
+  `sysml2tools-query` skill.
+- Focused dependency views are also allowed in the design docs (requires `sysml2tools`
+  0.3.0-beta.4+, which draws part trees and `«depend»` edge labels, and scales oversized PNGs
+  instead of clipping them). A dependency edge renders only when both ends are exposed, so each
+  view must follow these rules:
+  - Expose one subsystem's units plus the suppliers named in their `dependency` statements, so
+    the `«depend»` edges render.
+  - Keep each view to at most about 12–15 dependency edges; split a large subsystem into themed
+    views.
+  - Omit hub suppliers that most units depend on from unit-level views. State the omission in
+    each view's `doc`; hub usage may be shown once in a small shared view.
+  - No view should need PNG downscaling: beta.4 scales PNGs over 8192 px and prints a warning,
+    which is a signal that the view is too big.
 
 ## Attribute Modeling
 
@@ -251,24 +258,28 @@ suffix duplication:
 - `{SystemName}View` - one per system, direct members only (not expanded into subsystems)
 - `{SubsystemName}View` - one per subsystem (at any nesting depth), that subsystem's own
   members only
+- `{SubsystemName}{Theme}View` - optional focused dependency views for a large subsystem (see
+  Dependency Relationships), each exposing the units of one theme plus their suppliers
+- `OtsView` - optional, the OTS items from `ots.sysml` kept apart from the system overview
 
-There is no dedicated `DependencyView`/`{SubsystemName}DependencyView` diagram convention —
-`dependency` relationships are consumed via `sysml2tools query` (see Dependency Relationships
-above), not rendered.
-
-When a repository has multiple systems, type `SoftwareStructureView` by `GeneralView`,
-expose each system's part def (and each subsystem's, by qualified name), and filter out
-documentation so the overview stays readable — the general view draws one package frame per
-system, while an interconnection view places all systems in a single row:
+When a repository has multiple systems, type `SoftwareStructureView` by
+`InterconnectionView` and expose each system's part def. Each system renders as a frame with
+its subsystem part usages nested inside (beta.4 draws a part def's interior). Keep OTS
+dependencies out of the overview in a separate small `OtsView`, and exclude metadata defs such
+as `SoftwareInfo` from overviews. Use `GeneralView` for part-tree, composition-style views and
+for the dependency views above; filter out documentation so each diagram stays readable:
 
 ```sysml
 package {RepoName}DesignViews {
     private import StandardViewDefinitions::*;
 
-    view SoftwareStructureView : GeneralView {
+    view SoftwareStructureView : InterconnectionView {
         expose {SystemNameA}::{SystemNameA}System;
-        expose {SystemNameA}_{SubsystemName}Subsystem::{SubsystemName}Subsystem;
         expose {SystemNameB}::{SystemNameB}System;
+    }
+
+    view OtsView : GeneralView {
+        expose OtsDependencies::*;
         filter not (@SysML::Documentation);
     }
 }
@@ -309,9 +320,9 @@ diagram for the narrowest view that still shows that item's own immediate struct
 Place the image directly under the file's top-level heading, before its first prose
 subsection, e.g. `![{Name} Structure]({ViewName}.svg)`.
 
-Document dependencies in prose instead of a diagram: each System/Subsystem design doc's
-"Dependencies" section should be generated/maintained from `sysml2tools query dependencies
---element {QualifiedName}` output (Markdown format), not an embedded image.
+Each System/Subsystem design doc's "Dependencies" section should be generated/maintained from
+`sysml2tools query dependencies --element {QualifiedName}` output (Markdown format); it may
+also embed that subsystem's focused dependency view(s) alongside the query output.
 
 ## Build and Lint Integration
 
@@ -327,8 +338,8 @@ Document dependencies in prose instead of a diagram: each System/Subsystem desig
   definition. Pass the common, model, and views globs as separate quoted arguments (e.g.
   `'docs/sysml2/common/**/*.sysml' 'docs/sysml2/model/**/*.sysml' 'docs/sysml2/views/design-views.sysml'`) — plain
   PowerShell (the default shell) is sufficient; no `shell: bash`/`shopt -s globstar` workaround is needed.
-- Add `sysml2tools` to `.config/dotnet-tools.json` (`demaconsulting.sysml2tools.tool`) and to
-  `.versionmark.yaml`'s captured tool list.
+- Add `sysml2tools` to `.config/dotnet-tools.json` (`demaconsulting.sysml2tools.tool`, minimum
+  version 0.3.0-beta.4) and to `.versionmark.yaml`'s captured tool list.
 
 ## Fallback
 
@@ -354,10 +365,15 @@ sync.
   in two files), named per Package Structure, and references other files through
   `private import` or qualified names (qualified where an import would form a cycle)
 - [ ] View names follow the `SoftwareStructureView` / `{SystemName}View` /
-  `{SubsystemName}View` convention (no dedicated `DependencyView`)
+  `{SubsystemName}View` convention (plus optional `{SubsystemName}{Theme}View` dependency
+  views and `OtsView`)
+- [ ] A multi-system `SoftwareStructureView` is an `InterconnectionView` exposing the system
+  part defs, with OTS items in a separate `OtsView` and no metadata defs (`SoftwareInfo`)
 - [ ] Each Unit's real collaborators are captured as `dependency A to B;` statements, and each
   System/Subsystem design doc's "Dependencies" section reflects `sysml2tools query
-  dependencies` output rather than an embedded diagram
+  dependencies` output
+- [ ] Each focused dependency view has at most about 12–15 dependency edges, omits hub
+  suppliers (stated in its `doc`), and renders without PNG downscaling warnings
 - [ ] `sysml2tools lint` passes on all `.sysml` files
 - [ ] Rendered diagrams are embedded in every design doc per the Diagram Embedding rule
 - [ ] `sysml2tools` is present in `lint.ps1`, `.config/dotnet-tools.json`, and

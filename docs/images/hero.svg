@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640">
   <!-- The README hero banner. {ProjectName}: replace this sentence with one that says what the banner shows, for
        example "Version tags, pull requests, and issues flow into the buildmark tool and come out as Markdown build
-       notes, a Pandoc PDF, release notes, and a CI pipeline artifact."
+       notes, release notes, a CI pipeline artifact, and a PDF made from the notes by Pandoc."
        The definitions and the left panel follow the shared DEMA Consulting hero (CanvasNet and BuildMark).
        This file is docs/images/hero.svg, beside its rendered docs/images/hero.png (matching base names, per the
        diagram documentation standard); the files it embeds are in docs/images/hero/. -->
@@ -33,7 +33,7 @@
     <style>
       .word { font: bold 92px sans-serif; fill: #ffffff; }
       .eyebrow { font: bold 25px sans-serif; fill: #a5b4fc; }
-      .tag { font: bold 40px sans-serif; fill: #f8fafc; }
+      .tag { font: bold 36px sans-serif; fill: #f8fafc; }
       .body { font: 25px sans-serif; fill: #cbd5e1; }
       .cmd { font: 25px monospace; fill: #e2e8f0; }
       .prompt { fill: #5eead4; }
@@ -161,16 +161,22 @@
   <text class="word" x="52" y="176">Tool</text>
   <text class="word brandText" x="246.2" y="176">Name</text>
   <rect x="58" y="200" width="132" height="6" rx="3" fill="url(#brand)"/>
-  <!-- TEMPLATE-DIRECTIVE: the tagline is two short lines of at most about 22 characters each: a promise and
-       its payoff. The second line is in the brand gradient. Examples: "Every build, documented." / "Every change,
-       traced." (BuildMark); "Every format in." / "Crisp pictures out." (CanvasNet). -->
-  <text class="tag" x="56" y="266">Tagline line one.</text>
-  <text class="tag brandText" x="56" y="316">Tagline line two.</text>
-  <!-- TEMPLATE-DIRECTIVE: the body is three lines of at most about 38 characters each, saying what the project
-       does and for whom, in plain words. Break the lines by hand; SVG text does not wrap. -->
-  <text class="body" x="58" y="368">Body line one: what the project does,</text>
-  <text class="body" x="58" y="402">body line two: where it gets its</text>
-  <text class="body" x="58" y="436">input, and body line three: for whom.</text>
+  <!-- TEMPLATE-DIRECTIVE: the tagline is a PLAIN STATEMENT of what the project is and what it produces, in two
+       short lines of at most about 25 characters each: the category on line one, input -> output on line two.
+       No promises: no "every", no superlatives, and no claim that the tests do not back.
+       Examples: "Markdown build notes from" / "GitHub or Azure DevOps." (BuildMark); "Requirements traced" /
+       "to test results." (ReqStream); "PDF and Office documents" / "as Markdown." (DocDown).
+       Line one is solid white (class "tag"); line two is solid #a5b4fc (style="fill: #a5b4fc"). No gradient
+       text in the tagline: the brand gradient is kept for the second wordmark word and the underline bar. -->
+  <text class="tag" x="56" y="266">Tagline line one</text>
+  <text class="tag" x="56" y="314" style="fill: #a5b4fc">tagline line two.</text>
+  <!-- TEMPLATE-DIRECTIVE: the body is three factual lines of at most about 38 characters each: what goes in
+       and what comes out, in plain words. Do not repeat the tagline. Example (BuildMark): "Reads version tags,
+       pull requests and" / "issues; writes the changes, bugs fixed" / "and known issues between two versions."
+       Break the lines by hand; SVG text does not wrap. -->
+  <text class="body" x="58" y="368">Body line one: what goes in,</text>
+  <text class="body" x="58" y="402">body line two: what the project</text>
+  <text class="body" x="58" y="436">does, line three: what comes out.</text>
   <!-- TEMPLATE-DIRECTIVE: the command box shows the single most typical command.
        ONE LINE (default, as CanvasNet): at most about 28 characters after the "$" prompt. The monospace font
        advances 15px per character, so a part that starts N characters after x="108" is at x = 108 + 15 * N;
@@ -190,16 +196,20 @@
   <text class="cmd prompt" x="78" y="503">$</text>
   <text class="cmd" x="108" y="503">toolname --input</text>
   <text class="cmd file" x="363" y="503">file.ext</text>
-  <!-- TEMPLATE-DIRECTIVE: the footnote is one short italic line (at most about 34 characters), for example
-       "Built for Continuous Compliance." (BuildMark) or "This banner is that one SVG file." (CanvasNet). It is
-       at y="568" below a one-line command box and at y="604" below a two-line one. -->
-  <text class="note" x="58" y="568">Footnote: one short closing line.</text>
+  <!-- TEMPLATE-DIRECTIVE: the footnote is one short italic line (at most about 38 characters) stating a fact,
+       not a slogan: the targets, the platforms, or a notable absence, for example
+       ".NET 10 and 11 &#183; Windows, Linux, macOS" (BuildMark) or "No Node.js". If nothing short and true
+       fits, delete the line. It is at y="568" below a one-line command box and at y="604" below a two-line one. -->
+  <text class="note" x="58" y="568">Footnote: targets or platforms.</text>
 
   <!-- TEMPLATE-DIRECTIVE: the right side tells the project's story from top to bottom: what goes in (input
        cards), the project itself (the engine pill), and what comes out (output cards).
        - TOOL repositories show the command-line flow: the files and services the tool reads, the tool, and the
          reports or artifacts it writes (BuildMark: version tags, pull requests, issues, work items -> buildmark
-         -> Markdown notes, Pandoc PDF, release notes, CI pipelines).
+         -> Markdown notes, release notes, CI pipeline artifact, and a PDF made from them by Pandoc).
+       - OUTPUT CARDS show what the project itself produces. Anything made downstream by another tool from that
+         output (for example a PDF made by Pandoc from the tool's Markdown) must say so in its label (for example
+         "PDF via Pandoc"); never present it as the project's own output.
        - LIBRARY repositories show what the API consumes and produces instead: the inputs are the data or files
          the API reads, the engine is the main type or namespace with the secondary label ".NET library", and
          the outputs are the results a caller gets back.

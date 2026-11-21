@@ -1,4 +1,4 @@
-# ![{ProjectName}: {tagline line one} {tagline line two} {body text}. Shown with the command '{command}' and the note '{footnote}'. {Inputs} flow into the {tool} tool, and arrows lead out to {outputs}][hero]
+# ![{ProjectName}: {tagline line one} {tagline line two}][hero]
 
 <!-- IMPORTANT: All links in this file must be absolute URLs.
      This file is distributed in packages and relative links will not resolve. -->
@@ -12,15 +12,10 @@
      2. Run `pwsh docs/images/render-hero.ps1` and look at docs/images/hero.png.
      3. Commit docs/images/hero.svg and docs/images/hero.png together, with any files the SVG embeds
         from docs/images/hero/ (`pwsh docs/images/render-hero.ps1 -Check` detects a stale PNG).
-     4. Replace the alt text in the heading with a factual description of the banner. It starts with the
-        project name and a colon (it names the heading), then gives the tagline and body text as written on the
-        banner, the command, the footnote, what flows in, the tool, and what comes out. BuildMark's example:
-        "BuildMark: Markdown build notes from GitHub or Azure DevOps. Reads version tags, pull requests and
-        issues; writes the changes, bugs fixed and known issues between two versions. Shown with the command
-        'buildmark --report notes.md --build-version v1.2.3' and the note '.NET 10 and 11, Windows, Linux,
-        macOS'. Version tags, pull requests, GitHub issues, and Azure DevOps work items flow into the buildmark
-        .NET tool, and arrows lead out to Markdown build notes with Changes, Bugs Fixed, and Known Issues
-        sections, release notes, a CI pipeline artifact, and a PDF made from the notes by Pandoc"
+     4. Replace the alt text in the heading with the project name, a colon, and the two tagline lines as one
+        phrase, with no trailing period. Because the image is the H1, its alt text is the page title that screen
+        readers announce, so keep it short; the README text below gives the details. BuildMark's example:
+        "BuildMark: Markdown build notes from GitHub or Azure DevOps"
      The image link must stay an absolute URL: replace {org}/{repo} in the [hero] reference at the end of
      this file. -->
 

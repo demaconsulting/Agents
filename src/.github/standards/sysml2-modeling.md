@@ -215,7 +215,7 @@ package {RepoName}DesignViews {
     private import {SystemName}_{SubsystemName}Subsystem::*;
 
     view SoftwareStructureView : InterconnectionView {
-        expose {SystemName}::{SystemName}System::**;  // system part def, recursively: subsystems + units
+        expose {SystemName}::{SystemName}System;  // system part def: system frame with its direct subsystem usages
     }
 
     view {SystemName}View {
@@ -233,7 +233,7 @@ Views import (or qualify) every package whose members they expose, like any othe
 Type `SoftwareStructureView` by a standard view definition from the SysML v2 Views library
 (`GeneralView`, `InterconnectionView`, ...; requires `sysml2tools` 0.3.0-beta.4+). The view
 definition selects the diagram notation; `InterconnectionView` draws the system as nested
-containment boxes, which is the clearest full-detail overview for a single system.
+containment boxes, which is the clearest system-level overview.
 
 **Critical distinction** (do not confuse these — this cost significant trial-and-error to
 discover): `expose <name>;` is what scopes a rendered diagram's content (the union of the
@@ -254,7 +254,8 @@ and `{SubsystemName}View` do) is fine: its own parts are its structure.
 **Naming convention** — one `View` suffix per rendered diagram, no `System`/`Subsystem`
 suffix duplication:
 
-- `SoftwareStructureView` - full detail: every system, subsystem, and unit in one diagram
+- `SoftwareStructureView` - system-level overview: every system as a frame with its direct
+  subsystem usages (unit detail lives in the per-system and per-subsystem views)
 - `{SystemName}View` - one per system, direct members only (not expanded into subsystems)
 - `{SubsystemName}View` - one per subsystem (at any nesting depth), that subsystem's own
   members only
@@ -266,8 +267,9 @@ When a repository has multiple systems, type `SoftwareStructureView` by
 `InterconnectionView` and expose each system's part def. Each system renders as a frame with
 its subsystem part usages nested inside (beta.4 draws a part def's interior). Keep OTS
 dependencies out of the overview in a separate small `OtsView`, and exclude metadata defs such
-as `SoftwareInfo` from overviews. Use `GeneralView` for part-tree, composition-style views and
-for the dependency views above; filter out documentation so each diagram stays readable:
+as `SoftwareInfo` from overviews by not exposing the package that declares them. Use
+`GeneralView` for part-tree, composition-style views and for the dependency views above;
+filter out documentation so each diagram stays readable:
 
 ```sysml
 package {RepoName}DesignViews {
@@ -276,6 +278,7 @@ package {RepoName}DesignViews {
     view SoftwareStructureView : InterconnectionView {
         expose {SystemNameA}::{SystemNameA}System;
         expose {SystemNameB}::{SystemNameB}System;
+        filter not (@SysML::Documentation);
     }
 
     view OtsView : GeneralView {
@@ -311,7 +314,7 @@ in one invocation, one file per view, using each view's own name as the filename
 Embed diagrams in `docs/design/` per this rule: every design doc for an item embeds the
 diagram for the narrowest view that still shows that item's own immediate structure —
 
-- `docs/design/introduction.md` — `SoftwareStructureView.svg` (the full-detail overview)
+- `docs/design/introduction.md` — `SoftwareStructureView.svg` (the system-level overview)
 - `docs/design/{system-name}.md` and every unit doc for a unit directly under the system
   (no subsystem parent) — `{SystemName}View.svg`
 - `docs/design/{system-name}/{subsystem-name}.md` and every unit doc nested under that

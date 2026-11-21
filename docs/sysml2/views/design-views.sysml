@@ -38,7 +38,7 @@
 //      `dependency` statements, keep it to about 12-15 dependency edges (split large
 //      subsystems into themed views), omit hub suppliers (say so in the view's `doc`), and
 //      make sure it renders without PNG downscaling - see sysml2-modeling.md. Uncomment the
-//      OTS import below if this repository has a model/ots.sysml file. -->
+//      OTS import and the `OtsView` below if this repository has a model/ots.sysml file. -->
 package RepoNameDesignViews {
     // <!-- TEMPLATE-DIRECTIVE: Uncomment if this repository has a model/ots.sysml file. -->
     // private import OtsDependencies::*;
@@ -51,6 +51,13 @@ package RepoNameDesignViews {
         expose SystemName::SystemNameSystem;
         filter not (@SysML::Documentation);
     }
+
+    // <!-- TEMPLATE-DIRECTIVE: Uncomment this view together with the OtsDependencies import
+    //      above if this repository has a model/ots.sysml file. -->
+    // view OtsView : GeneralView {
+    //     expose OtsDependencies::*;
+    //     filter not (@SysML::Documentation);
+    // }
 
     view SystemNameSystemView {
         expose SystemNameSystem;

@@ -27,6 +27,8 @@
 //      Each other view exposes both the container part def and its direct children
 //      (`expose X; expose X::*;`) and renders `asInterconnectionDiagram` so nested
 //      composition (and, where declared, `dependency` relationships) render correctly.
+//      `asInterconnectionDiagram` comes from the `Views` library, so keep
+//      `private import Views::*;` (`lint --strict-unresolved` reports it unresolved otherwise).
 //      Prefer `sysml2tools query uses`/`used-by`/`dependencies` over dedicated dependency
 //      diagrams to answer "what uses/depends on this?" questions - see
 //      sysml2-modeling.md. Uncomment the OTS import below if this repository has a
@@ -35,6 +37,7 @@ package RepoNameDesignViews {
     // <!-- TEMPLATE-DIRECTIVE: Uncomment if this repository has a model/ots.sysml file. -->
     // private import OtsDependencies::*;
     private import StandardViewDefinitions::*;
+    private import Views::*;
     private import SystemName::*;
     private import SystemName_SubsystemNameSubsystem::*;
 

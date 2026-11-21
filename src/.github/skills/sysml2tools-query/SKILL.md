@@ -157,5 +157,5 @@ standard for full modeling and view-authoring conventions.
 Before committing changes to any `.sysml` file, lint it:
 
 ```pwsh
-dotnet sysml2tools lint 'docs/sysml2/**/*.sysml'
+dotnet sysml2tools lint --strict-unresolved 'docs/sysml2/**/*.sysml'
 ```

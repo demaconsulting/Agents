@@ -10,7 +10,7 @@
 //      This file is a sibling of docs/sysml2/model/ (not nested inside it), so a single
 //      'docs/sysml2/model/**/*.sysml' glob never needs to exclude view files.
 //
-//      Naming convention: SoftwareStructureView (whole model), {SystemName}SystemView (one
+//      Naming convention: SoftwareStructureView (system-level overview), {SystemName}SystemView (one
 //      per system), {SubsystemName}View (one per subsystem). Replace SystemName and
 //      SubsystemName with your actual names (PascalCase). This views file declares
 //      the single repository-level package `{RepoName}DesignViews` (replace RepoName with
@@ -18,21 +18,27 @@
 //      Add or remove views to match
 //      the systems and subsystems actually modeled in this repository.
 //
-//      SoftwareStructureView is typed by the standard `InterconnectionView` definition
-//      (imported from `StandardViewDefinitions`) and exposes the whole system package
-//      recursively. In a repository with multiple systems, type it by `GeneralView`
-//      instead, expose each system package's members, and add
-//      `filter not (@SysML::Documentation);` - see sysml2-modeling.md.
+//      SoftwareStructureView is the system-level overview, typed by the standard
+//      `InterconnectionView` definition (imported from `StandardViewDefinitions`). It exposes
+//      the system part defs: each system renders as a frame with its direct subsystem part
+//      usages nested inside (unit detail lives in the per-system and per-subsystem views), so
+//      with several systems expose each system's part def (not the whole package recursively)
+//      and add `filter not (@SysML::Documentation);`. Keep OTS items in a separate small
+//      `OtsView : GeneralView` that exposes `OtsDependencies::*` with the same filter. Keep
+//      metadata defs such as SoftwareInfo out of overviews - see sysml2-modeling.md.
+//      Requires sysml2tools 0.3.0-beta.4 or later.
 //
 //      Each other view exposes both the container part def and its direct children
 //      (`expose X; expose X::*;`) and renders `asInterconnectionDiagram` so nested
-//      composition (and, where declared, `dependency` relationships) render correctly.
-//      `asInterconnectionDiagram` comes from the `Views` library, so keep
-//      `private import Views::*;` (`lint --strict-unresolved` reports it unresolved otherwise).
-//      Prefer `sysml2tools query uses`/`used-by`/`dependencies` over dedicated dependency
-//      diagrams to answer "what uses/depends on this?" questions - see
-//      sysml2-modeling.md. Uncomment the OTS import below if this repository has a
-//      model/ots.sysml file. -->
+//      composition renders correctly. `asInterconnectionDiagram` comes from the `Views`
+//      library, so keep `private import Views::*;` (`lint --strict-unresolved` reports it
+//      unresolved otherwise). Prefer `sysml2tools query uses`/`used-by`/
+//      `dependencies` for "what uses/depends on this?" questions. A focused dependency
+//      view is also allowed: expose one subsystem's units plus the suppliers named in their
+//      `dependency` statements, keep it to about 12-15 dependency edges (split large
+//      subsystems into themed views), omit hub suppliers (say so in the view's `doc`), and
+//      make sure it renders without PNG downscaling - see sysml2-modeling.md. Uncomment the
+//      OTS import and the `OtsView` below if this repository has a model/ots.sysml file. -->
 package RepoNameDesignViews {
     // <!-- TEMPLATE-DIRECTIVE: Uncomment if this repository has a model/ots.sysml file. -->
     // private import OtsDependencies::*;
@@ -42,8 +48,16 @@ package RepoNameDesignViews {
     private import SystemName_SubsystemNameSubsystem::*;
 
     view SoftwareStructureView : InterconnectionView {
-        expose SystemName::SystemNameSystem::**;
+        expose SystemName::SystemNameSystem;
+        filter not (@SysML::Documentation);
     }
+
+    // <!-- TEMPLATE-DIRECTIVE: Uncomment this view together with the OtsDependencies import
+    //      above if this repository has a model/ots.sysml file. -->
+    // view OtsView : GeneralView {
+    //     expose OtsDependencies::*;
+    //     filter not (@SysML::Documentation);
+    // }
 
     view SystemNameSystemView {
         expose SystemNameSystem;

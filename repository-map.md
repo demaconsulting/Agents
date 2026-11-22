@@ -154,9 +154,9 @@ docs/
 │   └── render-hero.ps1            # Renders hero.svg to hero.png; -Check detects a stale PNG
 ├── sysml2/                        # SysML2 architecture model (not a Pandoc doc collection)
 │   ├── model/
-│   │   ├── {system-name}.sysml    # Package {SystemName}: system part def only - see sysml2-modeling.md
+│   │   ├── {system-name}.sysml    # Package {SystemName} (facade): system part def only - see sysml2-modeling.md
 │   │   ├── {system-name}/
-│   │   │   ├── {subsystem-name}.sysml   # Package {SystemName}_{SubsystemName}Subsystem; nests for sub-subsystems
+│   │   │   ├── {subsystem-name}.sysml   # Package {SystemName}_{SubsystemName}Subsystem (facade); nests for sub-subsystems
 │   │   │   └── {subsystem-name}/
 │   │   │       └── {unit-name}.sysml    # Package {SystemName}_{UnitName}; one file per unit
 │   │   ├── ots.sysml               # OTS dependency model, package OtsDependencies (optional)

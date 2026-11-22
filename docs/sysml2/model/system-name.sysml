@@ -7,12 +7,15 @@
 //      of this item's companion docs/design/, docs/reqstream/, and docs/verification/
 //      files. If this repository contains more than one system, create one system-level
 //      file per system instead of reusing this one. Every file declares exactly one
-//      uniquely named package; this one is `SystemName`. Import the package of each
-//      direct member (the `SystemName_{SubsystemName}Subsystem` package declared in that
-//      member's own file) so the `part` usages below resolve. -->
+//      uniquely named top-level package; this one is `SystemName`, the system facade that
+//      consumers use. `public import` the package of each direct member (the
+//      `SystemName_{SubsystemName}Subsystem` package declared in that member's own file)
+//      so the `part` usages below resolve and `SystemName::{AnyItem}` resolves through the
+//      chained re-exports. Public imports go downward only, following ownership; use
+//      `private import` for everything else (see Package Structure in sysml2-modeling.md). -->
 package SystemName {
     private import SoftwareItemMetadata::*;
-    private import SystemName_SubsystemNameSubsystem::*;
+    public import SystemName_SubsystemNameSubsystem::*;
 
     // <!-- TEMPLATE-DIRECTIVE: Uncomment if this repository has a model/ots.sysml file. -->
     // private import OtsDependencies::*;

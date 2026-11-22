@@ -5,9 +5,12 @@
 //      matching the folder depth of this unit's companion docs/design/, docs/reqstream/,
 //      and docs/verification/ files. Replace SystemName and UnitName with your actual
 //      names (PascalCase). This file declares its own package, `SystemName_UnitName`
-//      ({SystemName}_{UnitName}; never reuse a package name from another file). To
-//      reference another unit, add `private import SystemName_OtherUnit::*;`; where
-//      that would form an import cycle, use the qualified name instead
+//      ({SystemName}_{UnitName}; never reuse a package name from another file). Import
+//      exactly what this unit references, with `private import` of the specific item's
+//      package (`private import SystemName_OtherUnit::*;`), never of a facade
+//      (`SystemName` or a subsystem package): the facade re-exports this unit, so that
+//      would form an import cycle. For a part def owned by a facade (the system or a
+//      subsystem), or where two units depend on each other, use the qualified name instead
 //      (`dependency UnitName to SystemName_OtherUnit::OtherUnit;`). Package names must be
 //      unique repository-wide: if another subsystem has a unit with the same name, qualify
 //      both (`SystemName_SubsystemName_UnitName`). -->

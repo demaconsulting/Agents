@@ -1,8 +1,10 @@
 // <!-- TEMPLATE-DIRECTIVE:
 //      Read the sysml2-modeling.md standard before editing this file. Views rendered into
 //      docs/design/generated/ and embedded in the Design document. Declares one
-//      repository-level views package that imports the system and subsystem packages so
-//      `expose` statements can reference their target `part def` directly. Per
+//      repository-level views package that imports the system facade (which re-exports the
+//      subsystem and unit packages) so
+//      `expose` statements can reference their target `part def` directly. Never name this
+//      package after a library package such as `Views`, which would shadow the library. Per
 //      SysML2Tools syntax, `expose` is only valid inside a named `view` usage (not a
 //      `view def` definition), and it - not `render` - is what scopes the rendered
 //      diagram content.
@@ -44,8 +46,7 @@ package RepoNameDesignViews {
     // private import OtsDependencies::*;
     private import StandardViewDefinitions::*;
     private import Views::*;
-    private import SystemName::*;
-    private import SystemName_SubsystemNameSubsystem::*;
+    private import SystemName::*;   // the system facade re-exports every subsystem and unit package
 
     view SoftwareStructureView : InterconnectionView {
         expose SystemName::SystemNameSystem;

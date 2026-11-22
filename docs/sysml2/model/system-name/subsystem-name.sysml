@@ -7,11 +7,13 @@
 //      contained in this subsystem under docs/sysml2/model/{system-name}/{subsystem-name}/,
 //      and one file per nested sub-subsystem alongside this file. This file declares its
 //      own package, `SystemName_SubsystemNameSubsystem` ({SystemName}_{SubsystemName}Subsystem;
-//      never reuse a package name from another file), and imports the package of each
-//      unit it contains (`SystemName_UnitName`). -->
+//      never reuse a package name from another file). It is a facade: `public import` the
+//      package of each unit or nested sub-subsystem it contains (`SystemName_UnitName`),
+//      downward only, so they resolve through `SystemName::*`. Use `private import` for
+//      anything else this file references, and never import a facade from below it. -->
 package SystemName_SubsystemNameSubsystem {
     private import SoftwareItemMetadata::*;
-    private import SystemName_UnitName::*;
+    public import SystemName_UnitName::*;
 
     part def SubsystemNameSubsystem {
         doc /* TODO: One sentence describing this subsystem's responsibility. */

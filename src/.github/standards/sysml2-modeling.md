@@ -151,8 +151,9 @@ To migrate:
 2. Generate each file's `private import` lines from
    `sysml2tools query dependencies --element {QualifiedName}`, run with a tool version that
    still loads the old model (0.3.0-beta.3), so the dependencies reflect the original model.
-3. Make the system and subsystem files facades by adding `public import` of each owned item's
-   package.
+3. Make the system and subsystem files facades: turn the imports of their direct children
+   (owned subsystems, sub-subsystems, and units) into `public import`, and keep `private
+   import` only for references to items they do not own, so no package is imported twice.
 4. Existing `{SystemName}::X` references keep working through the facades; update only
    references that named a package that no longer exists.
 5. Run `sysml2tools lint --strict-unresolved` with the pinned tool version.

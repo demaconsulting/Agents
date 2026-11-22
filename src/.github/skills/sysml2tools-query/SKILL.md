@@ -21,8 +21,8 @@ dotnet tool restore
 
 ## Model files
 
-- `docs/sysml2/model/{system-name}.sysml` — system-level `part def` only (no subsystems/units
-  inline), in package `{SystemName}`, a facade that `public import`s its direct subsystems, so
+- `docs/sysml2/model/{system-name}.sysml` — system-level `part def` only (no subsystems/units inline), in package
+  `{SystemName}`, a facade that `public import`s its direct subsystems and any units it owns directly, so
   `{SystemName}::{AnyItem}` resolves. A repository may contain more than one system.
 - `docs/sysml2/model/{system-name}/{subsystem-name}.sysml` and
   `docs/sysml2/model/{system-name}/{subsystem-name}/{unit-name}.sysml` — one file per

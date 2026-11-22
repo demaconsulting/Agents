@@ -63,7 +63,7 @@ strategy) and record what changed and why; runs may be unattended, so do not sto
 change the process, never the quality gates or the agreed scope.
 
 Finish with the full gates, then focused formal reviews per review-set run in parallel, one round of fixes,
-and report any remaining findings rather than looping.
+the full gates again, and report any remaining findings rather than looping.
 
 # Working with the User
 

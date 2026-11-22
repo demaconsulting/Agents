@@ -97,7 +97,7 @@ or capturing architectural decisions before implementation begins.
 An orchestrator agent that manages complex feature development through a formal
 state machine: **PLANNING → DEVELOPMENT → QUALITY → REPORT**. It automatically
 calls the `planning`, `developer`, and `quality` sub-agents and retries up to
-three times if quality gates fail.
+three times if quality gates fail, each retry planning only the corrections.
 
 **When to use:** Any change introducing new user-visible behavior (features,
 enhancements, new commands or options), or complex bug fixes with unknown root
@@ -112,7 +112,8 @@ cause.
 A long-lived interactive orchestrator. It reads the README, design introduction, and all
 standards at startup, then delegates every request to sub-agents on cheaper models,
 preserving its own context window so one session can keep handling requests competently
-for a long time.
+for a long time. For large efforts such as migrations it estimates the effort, chooses an
+implementation strategy, and adapts on its own if progress diverges, without lowering quality gates.
 
 **When to use:** As your main interactive session when you want one well-informed agent to
 coordinate work over time.

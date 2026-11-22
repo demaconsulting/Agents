@@ -41,7 +41,7 @@ document in the current working directory.
 An orchestrator agent that manages complex feature development through a formal
 state machine: **PLANNING → DEVELOPMENT → QUALITY → REPORT**. It automatically
 calls the `planning`, `developer`, and `quality` sub-agents and retries up to
-three times if quality gates fail.
+three times if quality gates fail, each retry planning only the corrections.
 
 **Invoke with:** `@implementation <description of work to do>`
 
@@ -49,7 +49,8 @@ three times if quality gates fail.
 
 A long-lived interactive orchestrator. It loads the README, design
 introduction, and all standards, then delegates all work to sub-agents on cheaper models to
-preserve its context window.
+preserve its context window. For large efforts it estimates the effort, chooses a strategy,
+and adapts on its own if progress diverges.
 
 **Invoke with:** `copilot --agent orchestrator --model <large-context model> --reasoning-effort high`
 

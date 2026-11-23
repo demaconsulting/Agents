@@ -11,7 +11,7 @@ querying this model over grepping/reading source files when you need to understa
 
 ## Prerequisites
 
-The `sysml2tools` CLI (minimum version 0.3.0-beta.4) is a local .NET tool pinned in
+The `sysml2tools` CLI (minimum version 0.3.0-beta.6) is a local .NET tool pinned in
 `.config/dotnet-tools.json`.
 Restore it once per session if not already available:
 
@@ -41,9 +41,13 @@ dotnet tool restore
   sibling of `model/`, not nested inside it. Not usually needed for query workflows, but
   useful to see how diagrams are scoped.
 
-Use the declared qualified name (`{Package}::{Element}`) with `query describe -e`: it does
-not resolve facade paths such as `{SystemName}::{UnitName}` even where `lint` does. `query
-find --name` shows the declared qualified name.
+`query describe -e` (and the other element-argument verbs) accepts either the declared
+qualified name (`{Package}::{Element}`) or a facade path such as `{SystemName}::{UnitName}`,
+resolved through the facades' `public import`s and aliases, as `lint` resolves it. When the
+name was reached through a facade, the output shows a `Looked up as:` line next to the declared
+qualified name. A name that denotes more than one distinct element is reported as ambiguous,
+with its candidates; use the declared qualified name to choose. `query find --name` shows the
+declared qualified name.
 
 Always pass all `.sysml` files (or a glob covering them) to every `sysml2tools`
 invocation — the model spans multiple files and cross-references between them (each file

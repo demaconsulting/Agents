@@ -243,7 +243,7 @@ function Get-ReviewMarkPattern {
     foreach ($line in Get-Content .reviewmark.yaml -ErrorAction SilentlyContinue) {
         if ($line -match '^needs-review:') { $inList = $true; continue }
         if ($inList -and $line -match '^\s+-\s+["'']?([^"''#\s]+)') {
-            if (-not $found[1].StartsWith('!')) { $globs += $found[1] }
+            if (-not $Matches[1].StartsWith('!')) { $globs += $Matches[1] }
         } elseif ($inList -and $line -match '^\S') { break }
     }
     if ($globs.Count -eq 0) { return '.' }
@@ -380,11 +380,14 @@ function Resolve-RepoPath {
     return $segments -join '/'
 }
 
-# Project item types that name no file, so they can never link a file in from outside the project folder
+# Project item types whose Include is a name or a package, not a file path, so they can never link a file in from
+# outside the project folder. Every other item type is treated as a file item (Compile, None, Content,
+# EmbeddedResource, AvaloniaResource, Page, Resource, COMFileReference, Analyzer, AdditionalFiles, ...).
+# A Reference may name its file in a HintPath instead; Get-ProjectGraph reads that.
 $script:NonFileItems = @(
-    'PackageReference', 'PackageVersion', 'GlobalPackageReference', 'FrameworkReference', 'Reference',
-    'SDKReference', 'COMReference', 'COMFileReference', 'Using', 'InternalsVisibleTo', 'AssemblyAttribute',
-    'Import'
+    'PackageReference', 'PackageVersion', 'GlobalPackageReference', 'PackageDownload', 'DotNetCliToolReference',
+    'FrameworkReference', 'Reference', 'SDKReference', 'COMReference', 'Using', 'InternalsVisibleTo',
+    'AssemblyAttribute', 'ProjectCapability', 'TrimmerRootAssembly'
 )
 
 # Project properties whose value is a file path (relative to the project folder)
@@ -408,6 +411,9 @@ function Get-LinkedFilePattern {
     #>
     param([string]$Directory, [string]$Path)
 
+    # A project at the repository root has no folder to point out of
+    if (-not $Directory) { return }
+
     $part = ($Path -replace '\$\(MSBuildThisFileDirectory\)', '' -replace '\$\(MSBuildProjectDirectory\)[\\/]?', '').Trim()
     if (-not $part -or $part.Contains('$(')) { return }
 
@@ -415,6 +421,22 @@ function Get-LinkedFilePattern {
     if (-not $resolved.StartsWith("$Directory/", [System.StringComparison]::OrdinalIgnoreCase)) {
         return Convert-GlobToRegex $resolved
     }
+}
+
+function Get-ItemMetadata {
+    <#
+    .SYNOPSIS
+        Reads one metadata value of a project item, written either as an attribute or as a child element.
+    .PARAMETER Item
+        The item XML element.
+    .PARAMETER Name
+        The metadata name, for example CopyToOutputDirectory.
+    #>
+    param($Item, [string]$Name)
+
+    $value = $Item.GetAttribute($Name)
+    if (-not $value) { $value = $Item.SelectSingleNode($Name)?.InnerText }
+    return "$value".Trim()
 }
 
 function Get-ProjectGraph {
@@ -433,7 +455,9 @@ function Get-ProjectGraph {
         properties ApplicationIcon, Win32Icon, ApplicationManifest, PackageIcon, PackageReadmeFile,
         PackageLicenseFile, and AssemblyOriginatorKeyFile, resolves to a place outside the project
         folder. Items that name no file (PackageReference, Using, ...) are ignored, and so are files a
-        project only packs into its NuGet package (a None item with Pack=true and no copy to the output).
+        project only packs into its NuGet package (a None item with Pack=true and no copy to the output;
+        CopyToOutputDirectory counts only as Always, PreserveNewest, or IfDifferent). A Reference links
+        the file named by its HintPath.
         Wildcards are supported, and $(MSBuildThisFileDirectory) and $(MSBuildProjectDirectory) are
         understood; any other MSBuild property in a path is left unresolved and ignored.
 
@@ -473,11 +497,16 @@ function Get-ProjectGraph {
                 continue
             }
             # Items that name no file (packages, namespaces, assembly metadata) cannot link a file in
-            if ($item.LocalName -in $script:NonFileItems) { continue }
+            if ($item.LocalName -in $script:NonFileItems) {
+                # An assembly reference by file: <Reference Include="X"><HintPath>..\lib\X.dll</HintPath></Reference>
+                if ($item.LocalName -eq 'Reference') { $links += Get-LinkedFilePattern $directory (Get-ItemMetadata $item 'HintPath') }
+                continue
+            }
 
-            # Files only packed into the NuGet package (README.md, Icon.png, licenses) do not affect tests
-            $pack = $item.GetAttribute('Pack') + $item.SelectSingleNode('Pack')?.InnerText
-            $copy = $item.GetAttribute('CopyToOutputDirectory') + $item.SelectSingleNode('CopyToOutputDirectory')?.InnerText
+            # Files only packed into the NuGet package (README.md, Icon.png, licenses) do not affect tests;
+            # only Always, PreserveNewest, and IfDifferent copy a file to the output ('Never' does not)
+            $pack = Get-ItemMetadata $item 'Pack'
+            $copy = (Get-ItemMetadata $item 'CopyToOutputDirectory') -in @('Always', 'PreserveNewest', 'IfDifferent')
             if ($item.LocalName -eq 'None' -and $pack -eq 'true' -and -not $copy) { continue }
 
             foreach ($spec in @($include, $item.GetAttribute('Update'))) {

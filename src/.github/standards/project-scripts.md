@@ -71,7 +71,8 @@ A project item of any type (`Compile`, `Content`, `None`, `EmbeddedResource`, `A
 `Resource`, ...) whose `Include` or `Update` path points outside the project folder links that file in, so a change
 to it selects the project. The same holds for the file-valued properties `ApplicationIcon`, `Win32Icon`,
 `ApplicationManifest`, `PackageIcon`, `PackageReadmeFile`, `PackageLicenseFile`, and `AssemblyOriginatorKeyFile`.
-Files that are only packed (`None` with `Pack="true"` and no copy to the output) do not count. Such files need no
+Files that are only packed (`None` with `Pack="true"` and no `CopyToOutputDirectory` of `Always`, `PreserveNewest`, or
+`IfDifferent`) do not count; a `Reference` links the file named by its `HintPath`. Such files need no
 `$RuntimeReads` entry; that map is only for files tests read at run time through the repository root.
 
 ## Test Platform

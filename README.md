@@ -11,6 +11,7 @@ on each release:
 - **`src/AGENTS.md`** - top-level instructions loaded by every agent
 - **`src/.github/agents/`** - specialized agent prompts for specific workflows
 - **`src/.github/standards/`** - detailed coding and documentation standards
+- **`src/scripts/ProjectScripts.psm1`** - shared PowerShell module behind `build.ps1`, `lint.ps1`, and `fix.ps1`
 
 See the [User Guide](docs/user_guide/introduction.md) for full documentation
 on available agents, standards, and installation instructions.
@@ -19,7 +20,9 @@ on available agents, standards, and installation instructions.
 
 Download the latest release zip from the
 [Releases](https://github.com/demaconsulting/Agents/releases) page and extract
-its contents into the root of the target repository. Commit the extracted files.
+its contents into the root of the target repository. Commit the extracted files. The zip includes
+`scripts/ProjectScripts.psm1`, the shared module the project scripts import; it must never be edited downstream,
+only replaced by extracting a newer release.
 
 After extraction, open `AGENTS.md` and replace the `TODO` placeholders in the
 **Project Overview** section and the `{project}`/`{test-project}` folder names
@@ -75,7 +78,7 @@ producing a populated review report saved to `.agent-logs/reviews/`.
 | --- | --- |
 | `developer` | General-purpose development - applies the right standards for the detected languages and file types |
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
-| `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
+| `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1 -All` and fixes all issues until the repo is lint-clean |
 | `template-sync` | Audits or synchronizes repository files against the canonical template |
 
 ## License

@@ -25,6 +25,7 @@ DEMA Agents provides:
 - **`AGENTS.md`** - top-level instructions loaded by every agent
 - **`.github/agents/`** - specialized agent prompts for specific workflows
 - **`.github/standards/`** - detailed coding and documentation standards
+- **`scripts/ProjectScripts.psm1`** - shared PowerShell module behind `build.ps1`, `lint.ps1`, and `fix.ps1`
 
 # Installation
 
@@ -54,6 +55,7 @@ AGENTS.md
         csharp-testing.md
         design-documentation.md
         diagram-documentation.md
+        project-scripts.md
         reqstream-usage.md
         requirements-principles.md
         reviewmark-usage.md
@@ -61,7 +63,13 @@ AGENTS.md
         technical-documentation.md
         testing-principles.md
         verification-documentation.md
+scripts/
+    ProjectScripts.psm1
 ```
+
+`scripts/ProjectScripts.psm1` is the shared module that `build.ps1`, `lint.ps1`, and `fix.ps1` import. It is
+delivered by the release zip and must never be edited in the target repository; update it only by extracting a
+newer release.
 
 Commit the extracted files. GitHub Copilot will automatically discover
 `AGENTS.md` at the repository root, the agent prompts in `.github/agents/`,
@@ -182,7 +190,7 @@ files.
 | --- | --- |
 | `developer` | General-purpose development - applies the right standards for the detected languages and file types |
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
-| `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
+| `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1 -All` and fixes all issues until the repo is lint-clean |
 | `template-sync` | Audits or synchronizes repository files against the canonical template |
 
 # Coding Standards
@@ -206,6 +214,7 @@ based on the type of work being performed:
 | `reviewmark-usage.md` | Review configuration with ReviewMark |
 | `technical-documentation.md` | Any documentation |
 | `diagram-documentation.md` | Adding or changing diagrams in documentation |
+| `project-scripts.md` | Running or changing `build.ps1`, `lint.ps1`, `fix.ps1`, or `scripts/` |
 
 # Continuous Compliance
 

@@ -26,7 +26,7 @@ jobs:
 
       - name: Run linters
         shell: pwsh
-        run: ./lint.ps1
+        run: ./lint.ps1 -All
 
   # Builds the supporting documentation including build notes and user guide.
   build-docs:

@@ -325,6 +325,11 @@ When auditing a repository against this standard:
   release. Repository-specific script behavior belongs in the `[PROJECT-SPECIFIC]` blocks of `build.ps1`,
   `lint.ps1`, and `fix.ps1`. The scripts themselves are compared against the template's for structure (scope
   switches, usage text, `[PROJECT-SPECIFIC]` blocks), not byte-for-byte, because they belong to the project
+- **`build.ps1` project data**: The `[PROJECT-SPECIFIC]` block of `build.ps1` holds `$RuntimeReads`, `$ProjectAliases`
+  (short `-Project` names no rule can derive, empty by default), and `$ProjectRoots` (default `src`, `test`, `tools`);
+  these are data a repository fills in, not structural differences. `build.ps1` picks the `dotnet test` arguments
+  itself from the test platform in `global.json` (Microsoft.Testing.Platform or VSTest), so a repository does not
+  customize them
 - **Extra files**: Additional files not listed here (CI workflow definitions,
   tool-specific configuration) are not violations unless they conflict with the
   standard layout

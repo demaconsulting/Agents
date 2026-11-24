@@ -115,7 +115,12 @@ if (-not $All) {
     $selected = [System.Collections.Generic.HashSet[string]]::new()
     $fullReason = $null
 
-    foreach ($single in @($Project | ForEach-Object { $_ -split ',' } | ForEach-Object { $_.Trim() } | Where-Object { $_ })) {
+    $names = @($Project | ForEach-Object { $_ -split ',' } | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+    if ($Project -and $names.Count -eq 0) {
+        Write-Host "Error: no project named in '$($Project -join ' ')'. Known projects: $($graph.Keys -join ', ')"
+        exit 1
+    }
+    foreach ($single in $names) {
         $resolved = Resolve-ProjectName $graph $single
         if (-not $resolved) {
             Write-Host "Unknown project '$single'. Known projects: $($graph.Keys -join ', ')"

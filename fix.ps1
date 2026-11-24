@@ -232,6 +232,16 @@ if ($Changed) {
         $formatInclude = $formatScope.Include
 
         # [PROJECT-SPECIFIC] Add input filters for repository-specific fixers here.
+
+        # A change to this script or the shared module changes the selection logic itself, so every selected
+        # fixer runs over the whole repository (no input filter could say what it affects)
+        if (Test-AnyMatch $files '^(fix\.ps1|scripts/ProjectScripts\.psm1)$') {
+            Write-Host "Running all selected fixers over the whole repository: fix.ps1 or scripts/ProjectScripts.psm1 changed."
+            foreach ($name in $fixers.Keys) { $inputsChanged[$name] = $true }
+            $fixFiles = @{ yamlfix = @(); lintmark = @() }
+            $fixReason.yamlfix = $fixReason.lintmark = 'fix.ps1 or scripts/ProjectScripts.psm1 changed'
+            $formatInclude = @()
+        }
     }
 }
 

@@ -102,6 +102,10 @@ part of the template path, not merely project-level context to be discarded.
 
 Items marked *(optional)* appear only when applicable to the project.
 
+`scripts/ProjectScripts.psm1` is the one item here the template repository does not contain: the
+Agents release zip delivers it (extracted into the repository root) together with `AGENTS.md` and
+`.github/`. See the *Project Scripts* standard for the script contract.
+
 ```text
 {repo-root}/
 ├── .config/
@@ -118,13 +122,15 @@ Items marked *(optional)* appear only when applicable to the project.
 ├── .yamllint.yaml                 # YAML lint rules
 ├── {ProjectName}.slnx             # C# solution file (optional)
 ├── CMakeLists.txt                 # C++ root build file (optional)
-├── build.ps1                      # Build solution and run tests
-├── fix.ps1                        # Auto-fix all linting; always exits 0
-├── lint.ps1                       # Full lint check for CI
+├── build.ps1                      # Build solution and run tests; requires a scope (-All, -Changed, -Project)
+├── fix.ps1                        # Auto-fix formatting; requires a scope (-All, -Changed, -Check); always exits 0
+├── lint.ps1                       # Lint checks (CI merge gate: -All); requires a scope (-All, -Changed, -Check)
 ├── pip-requirements.txt           # Python yamllint/yamlfix dependencies
 ├── README.md                      # Project overview and build steps
 ├── requirements.yaml              # ReqStream root-tags and includes file
 ├── nuget.config                   # NuGet package sources (optional)
+├── scripts/
+│   └── ProjectScripts.psm1        # shared script module - delivered by the Agents release zip, never edited
 ├── docs/
 ├── include/                       # C++ public headers (optional)
 ├── src/
@@ -314,6 +320,11 @@ When auditing a repository against this standard:
   `docs/images/hero.svg` with `docs/images/render-hero.ps1` and commits it; a missing or stale PNG is a
   violation once the README shows the banner (`pwsh docs/images/render-hero.ps1 -Check`)
 - **`bin/` and `obj/` folders**: Build outputs - not subject to conformance checking
+- **`scripts/ProjectScripts.psm1`**: Not provided by the template repository - the Agents release zip delivers it.
+  Compare it byte-for-byte with the copy in the Agents release and never edit it; refresh it by extracting a newer
+  release. Repository-specific script behavior belongs in the `[PROJECT-SPECIFIC]` blocks of `build.ps1`,
+  `lint.ps1`, and `fix.ps1`. The scripts themselves are compared against the template's for structure (scope
+  switches, usage text, `[PROJECT-SPECIFIC]` blocks), not byte-for-byte, because they belong to the project
 - **Extra files**: Additional files not listed here (CI workflow definitions,
   tool-specific configuration) are not violations unless they conflict with the
   standard layout

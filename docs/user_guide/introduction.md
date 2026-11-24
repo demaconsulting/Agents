@@ -54,6 +54,7 @@ AGENTS.md
         csharp-testing.md
         design-documentation.md
         diagram-documentation.md
+        project-scripts.md
         reqstream-usage.md
         requirements-principles.md
         reviewmark-usage.md
@@ -182,7 +183,7 @@ files.
 | --- | --- |
 | `developer` | General-purpose development - applies the right standards for the detected languages and file types |
 | `quality` | Grades completed work against project standards and Continuous Compliance practices |
-| `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1` and fixes all issues until the repo is lint-clean |
+| `lint-fix` | Pre-PR sweep - loops `pwsh ./lint.ps1 -All` and fixes all issues until the repo is lint-clean |
 | `template-sync` | Audits or synchronizes repository files against the canonical template |
 
 # Coding Standards
@@ -206,6 +207,7 @@ based on the type of work being performed:
 | `reviewmark-usage.md` | Review configuration with ReviewMark |
 | `technical-documentation.md` | Any documentation |
 | `diagram-documentation.md` | Adding or changing diagrams in documentation |
+| `project-scripts.md` | Running or changing `build.ps1`, `lint.ps1`, `fix.ps1`, or `scripts/` |
 
 # Continuous Compliance
 

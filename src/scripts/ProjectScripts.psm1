@@ -390,8 +390,18 @@ function Get-ProjectGraph {
         input of the scoped build: a changed file selects its project, every project referencing it,
         and every project that links the file in. Convention: src/ holds libraries, test/ holds test
         projects, and tools/ holds projects that are only built.
+
+        Projects are keyed by file name because ProjectReference entries are matched by file name.
+        When two scanned projects share a file name (for example src/Foo/Foo.csproj and
+        test/Foo/Foo.csproj) the graph would be ambiguous, so the function throws instead.
     .PARAMETER Root
         Folders to scan for projects (missing folders are ignored).
+    .OUTPUTS
+        An ordered dictionary of project name to project record.
+    .NOTES
+        Throws when two scanned projects share a file name; the error names both files. Remediation:
+        rename one project, or exclude the folder holding the duplicate (for example sample or fixture
+        projects that are test inputs) from the scan in the repository's build.ps1.
     #>
     param([string[]]$Root = @('src', 'test', 'tools'))
 

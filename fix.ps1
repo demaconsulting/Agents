@@ -30,7 +30,7 @@
 #   To add a fixer, add it to the $fixers table (its name becomes a valid -Check value and
 #   appears in the usage text), then add its input filter and its run step at the
 #   [PROJECT-SPECIFIC] points. The reusable scoping logic lives in the shared module, which is
-#   synchronized verbatim across repositories and must not be edited here.
+#   delivered by the Agents release zip, identical in every repository, and must not be edited here.
 #   With no arguments the script prints the usage text and exits 1; -All must still apply every
 #   fixer. A fixer run always exits 0 (usage and argument errors exit 1).
 

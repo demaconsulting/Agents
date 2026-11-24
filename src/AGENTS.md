@@ -206,7 +206,8 @@ multi-library repository, or headless tests without GUI automation). Two rules k
 - Never remove or weaken a check to make lint or tests pass.
 
 The shared scoping logic lives in `scripts/ProjectScripts.psm1`, delivered by the Agents release zip (extracted into the
-repository root) and synchronized verbatim from the template: never edit it in a repository. Repository-specific
+repository root; source of truth: `src/scripts/ProjectScripts.psm1` in the Agents repository) and byte-identical to
+that copy: never edit it in a repository. Repository-specific
 behavior belongs in the scripts' `[PROJECT-SPECIFIC]` blocks. See `project-scripts.md`.
 
 # Continuous Compliance Overview

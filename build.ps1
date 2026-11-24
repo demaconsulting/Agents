@@ -13,7 +13,9 @@
 #   pwsh ./build.ps1 -All                      Full local build and all tests
 #   pwsh ./build.ps1 -Changed [-Base <ref>]    Only the test projects affected by the changes since <ref>
 #                                              (default origin/main, else main) plus uncommitted changes
-#   pwsh ./build.ps1 -Project Core,Tests       Only the test projects affected by the named projects
+#   pwsh ./build.ps1 -Project Tests            Only the test projects affected by the named projects (full or short
+#                                              names: Core is the core library, other short names are relative to it,
+#                                              so Tests is SystemName.Tests here; -Help lists this repository's)
 #   Add -DryRun to any scope to print the selection without building anything.
 #   With no arguments the usage text is printed and the script exits 1 (a scope must be chosen).
 #
@@ -77,10 +79,12 @@ function Show-Usage {
             '-All'             = 'Full local build and all tests; cannot be combined with another scope.'
             '-Changed'         = 'Only the test projects affected by files changed since the base, plus uncommitted files.'
             '-Base <ref>'      = 'Base reference for -Changed (default origin/main, else main).'
-            '-Project <names>' = 'Only the test projects affected by these projects (full or short names, e.g. Core,Tests).'
+            '-Project <names>' = 'Only the test projects affected by these projects (full or short names, e.g. Tests).'
             '-DryRun'          = 'Print what would be built, tested, and skipped, then exit 0 without running anything.'
             '-Help'            = 'Print this text and exit 0.'
         }) `
+        -ChecksLabel 'Projects (-Project names; Core is the core library)' `
+        -Checks @(try { (Get-ProjectGraph).Keys } catch { }) `
         -Examples @('-Changed', '-Project Core', '-Changed -DryRun', '-All')
 }
 

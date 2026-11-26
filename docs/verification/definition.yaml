@@ -1,6 +1,7 @@
 ---
 # <!-- TEMPLATE-DIRECTIVE:
-#      Add all verification files in reading order, mirroring the design definition.yaml. -->
+#      Add all verification files in reading order, mirroring the design definition.yaml.
+#      List OTS tool files (ots/tools/{tool-name}.md) after the runtime OTS files. -->
 resource-path:
   - docs/verification
   - docs/template

@@ -36,8 +36,9 @@
 ## Dependencies
 
 <!-- TEMPLATE-DIRECTIVE:
-     List OTS items and Shared Packages this system depends on. Do not include version
+     List runtime OTS items and Shared Packages this system depends on. Do not include version
      numbers — version information is managed in SBOMs outside of design documentation.
+     OTS tools (docs/design/ots/tools/) are not system dependencies and are not listed here.
      Reference their integration design in docs/design/ots/ and docs/design/shared/.
      Example:
      - **{OtsName}**: used for {purpose} - see *{OtsName} Integration Design*

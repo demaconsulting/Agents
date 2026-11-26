@@ -2,8 +2,8 @@
 # ReviewMark Configuration File
 #
 # <!-- TEMPLATE-DIRECTIVE:
-#      Replace all {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {package-name}
-#      placeholders with your actual system's names (kebab-case).
+#      Replace all {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {tool-name},
+#      {package-name} placeholders with your actual system's names (kebab-case).
 #      Update the evidence-source URL to point to your repository's reviews branch.
 #      Add or remove review-sets to match your software structure. -->
 
@@ -163,11 +163,14 @@ reviews:
       - src/**/SubsystemName/UnitName.cs
       - test/**/SubsystemName/UnitNameTests.cs
 
-  # OTS-{OtsName} Review (one per OTS item)
+  # OTS-{OtsName} Review (one per OTS item - runtime OTS and OTS tools)
   - id: OTS-OtsName
     title: Review that {OtsName} Provides Required Functionality
     paths:
-      # <!-- TEMPLATE-DIRECTIVE: paths = OTS integration artifacts under evaluation -->
+      # <!-- TEMPLATE-DIRECTIVE:
+      #      paths = OTS integration artifacts under evaluation. For an OTS tool, use the
+      #      ots/tools/{tool-name} paths instead; its design file is optional and it has no
+      #      OTS test file. -->
       - docs/reqstream/ots/ots-name.yaml
       - docs/design/ots/ots-name.md
       - docs/verification/ots/ots-name.md

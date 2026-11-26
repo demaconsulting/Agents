@@ -35,4 +35,10 @@ package SystemName_UnitName {
             requirementFiles = ("docs/reqstream/system-name/subsystem-name/unit-name.yaml");
         }
     }
+
+    // <!-- TEMPLATE-DIRECTIVE:
+    //      One `dependency` per collaborator this unit uses, each with a one-line comment
+    //      stating why. Every runtime OTS item this unit uses needs one (qualified name, no
+    //      import). Uncomment and adjust if this unit uses a model/ots.sysml item. -->
+    // dependency UnitName to OtsDependencies::OtsName;
 }

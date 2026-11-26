@@ -74,7 +74,7 @@ Create `docs/verification/ots.md` (`#` heading) covering the overall OTS verific
 
 For each OTS item, create `docs/verification/ots[/tools]/{ots-name}.md` (`[/tools]` only for OTS tools)
 (`##` heading) covering: verification approach (integration tests, vendor evidence, or for OTS tools the
-CI self-validation evidence).
+CI evidence: self-validation results, or for a test framework the test run itself).
 
 # Shared Package Verification Evidence (when Shared Packages exist)
 

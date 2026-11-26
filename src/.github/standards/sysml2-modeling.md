@@ -326,10 +326,10 @@ suffix duplication:
 When a repository has multiple systems, type `SoftwareStructureView` by
 `InterconnectionView` and expose each system's part def. Each system renders as a frame with
 its subsystem and runtime OTS part usages nested inside (beta.4 draws a part def's interior).
-Exclude metadata defs such as `SoftwareInfo` from overviews by not exposing the package that
-declares them. Use
-`GeneralView` for part-tree, composition-style views and for the dependency views above;
-filter out documentation so each diagram stays readable:
+Type `ToolchainView` by `InterconnectionView` too: it wraps the `Toolchain`'s tool parts, where a
+`GeneralView` renders one wide, unreadable row. Exclude metadata defs such as `SoftwareInfo` from
+overviews by not exposing the package that declares them. Use `GeneralView` for part-tree,
+composition-style views and for the dependency views above; filter out documentation so each diagram stays readable:
 
 ```sysml
 package {RepoName}DesignViews {
@@ -341,7 +341,7 @@ package {RepoName}DesignViews {
         filter not (@SysML::Documentation);
     }
 
-    view ToolchainView : GeneralView {
+    view ToolchainView : InterconnectionView {
         expose OtsTools::Toolchain;
         filter not (@SysML::Documentation);
     }
@@ -435,7 +435,7 @@ sync.
   `{SubsystemName}View` convention (plus optional `{SubsystemName}{Theme}View` dependency
   views and `ToolchainView`)
 - [ ] A multi-system `SoftwareStructureView` is an `InterconnectionView` exposing the system
-  part defs, with no metadata defs (`SoftwareInfo`)
+  part defs, with no metadata defs (`SoftwareInfo`); a `ToolchainView` is an `InterconnectionView`
 - [ ] Runtime OTS are `part`s of the system only, with a `dependency` from each using unit; OTS tools
   are `part`s of `Toolchain` in `tools.sysml`, never of a system
 - [ ] Each Unit's real collaborators are captured as `dependency A to B;` statements, and each

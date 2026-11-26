@@ -169,8 +169,8 @@ To migrate:
   every System/Subsystem/Unit/OTS `part def`; do not duplicate it in metadata. Subsystem files add
   `part` usages for their own direct children (nested subsystems or units), per `software-items.md`.
 - **Runtime OTS**: one `part def` per item in `ots.sysml`, used as a `part` only in the **system**
-  `part def` (never inside a subsystem or unit). Every subsystem or unit that uses it declares
-  `dependency {Item} to OtsDependencies::{OtsItem};` (required: this is what `query used-by` reads).
+  `part def` (never inside a subsystem or unit). Every unit that uses it declares
+  `dependency {Unit} to OtsDependencies::{OtsItem};` (required: this is what `query used-by` reads).
 - **OTS tools**: one `part def` per tool in `tools.sysml`, each a `part` usage of the single
   `part def Toolchain` in that file; tools are never parts of a system.
 - `shared.sysml` defines one `part def` per Shared Package, referenced as `part` usages from the
@@ -228,8 +228,7 @@ requirements source of truth.
 
 - Model "who uses what" as `dependency A to B;` statements, declared in the file of the
   **Unit that owns the outgoing dependency** (`from` is optional) — never centralized in a
-  shared file, never at the Subsystem level (subsystems are pure containers with no code) except
-  for runtime OTS usage (see Model Content).
+  shared file, never at the Subsystem level (subsystems are pure containers with no code).
 - Add a one-line comment above each unit's dependency block stating *why*, not just *what*.
 - Source each Unit's dependency list from that Unit's own design doc, not a Subsystem-level
   summary diagram (which may omit real edges, e.g. re-entrant calls).
@@ -437,7 +436,7 @@ sync.
   views and `ToolchainView`)
 - [ ] A multi-system `SoftwareStructureView` is an `InterconnectionView` exposing the system
   part defs, with no metadata defs (`SoftwareInfo`)
-- [ ] Runtime OTS are `part`s of the system only, with a `dependency` from each user; OTS tools
+- [ ] Runtime OTS are `part`s of the system only, with a `dependency` from each using unit; OTS tools
   are `part`s of `Toolchain` in `tools.sysml`, never of a system
 - [ ] Each Unit's real collaborators are captured as `dependency A to B;` statements, and each
   System/Subsystem design doc's "Dependencies" section reflects `sysml2tools query

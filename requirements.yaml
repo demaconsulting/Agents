@@ -2,9 +2,7 @@
 # Root requirements file
 # <!-- TEMPLATE-DIRECTIVE:
 #      Replace {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {tool-name}, {package-name}
-#      with your actual names (kebab-case). Add or remove lines to match your structure.
-#      Runtime OTS requirements live in docs/reqstream/ots/, OTS tool requirements in
-#      docs/reqstream/ots/tools/ (e.g. docs/reqstream/ots/tools/{tool-name}.yaml). -->
+#      with your actual names (kebab-case). Add or remove lines to match your structure. -->
 
 # Requirements tagged with a root tag are the roots; ReqStream reports any requirement
 # not reachable from one through children links as orphaned (--enforce fails the build).
@@ -20,4 +18,5 @@ includes:
   - docs/reqstream/system-name/subsystem-name.yaml
   - docs/reqstream/system-name/unit-name.yaml
   - docs/reqstream/ots/ots-name.yaml
+  - docs/reqstream/ots/tools/tool-name.yaml
   - docs/reqstream/shared/package-name.yaml

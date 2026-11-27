@@ -2,8 +2,7 @@
 # <!-- TEMPLATE-DIRECTIVE:
 #      Add all design files in reading order.
 #      Follow the heading-depth rule: files at collection root use #, one folder deep use ##, etc.
-#      Add ots.md / shared.md sections if OTS items or Shared Packages are used. List OTS tool
-#      design files (ots/tools/{tool-name}.md, optional) after the runtime OTS files. -->
+#      Add ots.md / shared.md sections if OTS items or Shared Packages are used. -->
 resource-path:
   - docs/design
   - docs/template
@@ -15,6 +14,7 @@ input-files:
   - docs/design/system-name/subsystem-name/unit-name.md
   - docs/design/ots.md
   - docs/design/ots/ots-name.md
+  - docs/design/ots/tools/tool-name.md
   - docs/design/shared.md
   - docs/design/shared/package-name.md
 template: template.html

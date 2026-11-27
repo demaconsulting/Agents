@@ -321,15 +321,15 @@ suffix duplication:
   members only
 - `{SubsystemName}{Theme}View` - optional focused dependency views for a large subsystem (see
   Dependency Relationships), each exposing the units of one theme plus their suppliers
-- `ToolchainView` - optional (when `tools.sysml` exists), the `Toolchain` and its OTS tools
+- `ToolchainView` - optional (when `tools.sysml` exists), the `Toolchain` and its OTS tools; always type it
+  by `InterconnectionView`, which wraps the tool parts (a `GeneralView` renders one wide, unreadable row)
 
-When a repository has multiple systems, type `SoftwareStructureView` by
-`InterconnectionView` and expose each system's part def. Each system renders as a frame with
-its subsystem and runtime OTS part usages nested inside (beta.4 draws a part def's interior).
-Type `ToolchainView` by `InterconnectionView` too: it wraps the `Toolchain`'s tool parts, where a
-`GeneralView` renders one wide, unreadable row. Exclude metadata defs such as `SoftwareInfo` from
-overviews by not exposing the package that declares them. Use `GeneralView` for part-tree,
-composition-style views and for the dependency views above; filter out documentation so each diagram stays readable:
+When a repository has multiple systems, type `SoftwareStructureView` by `InterconnectionView`
+and expose each system's part def. Each system renders as a frame with its subsystem and
+runtime OTS part usages nested inside (beta.4 draws a part def's interior). Exclude metadata
+defs such as `SoftwareInfo` from overviews by not exposing the package that declares them.
+Use `GeneralView` for part-tree, composition-style views and for the dependency views above;
+filter out documentation so each diagram stays readable:
 
 ```sysml
 package {RepoName}DesignViews {

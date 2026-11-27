@@ -1,8 +1,11 @@
 # OTS Dependencies
 
 <!-- TEMPLATE-DIRECTIVE:
-     Describe the project's overall strategy for OTS dependency selection and integration.
-     The per-item files in ots/ cover the specifics of each individual OTS item. -->
+     Describe the project's overall strategy for OTS dependency selection and integration,
+     covering both runtime OTS items (linked in and shipped with the product) and OTS tools
+     (build, test, documentation, and compliance tooling that never ships). The per-item files
+     in ots/ (runtime OTS) and ots/tools/ (OTS tools, optional) cover the specifics of each
+     individual OTS item. -->
 
 ## Selection Criteria
 

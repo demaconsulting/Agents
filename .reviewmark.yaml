@@ -2,8 +2,8 @@
 # ReviewMark Configuration File
 #
 # <!-- TEMPLATE-DIRECTIVE:
-#      Replace all {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {package-name}
-#      placeholders with your actual system's names (kebab-case).
+#      Replace all {system-name}, {subsystem-name}, {unit-name}, {ots-name}, {tool-name},
+#      {package-name} placeholders with your actual system's names (kebab-case).
 #      Update the evidence-source URL to point to your repository's reviews branch.
 #      Add or remove review-sets to match your software structure. -->
 
@@ -163,7 +163,7 @@ reviews:
       - src/**/SubsystemName/UnitName.cs
       - test/**/SubsystemName/UnitNameTests.cs
 
-  # OTS-{OtsName} Review (one per OTS item)
+  # OTS-{OtsName} Review (one per runtime OTS item)
   - id: OTS-OtsName
     title: Review that {OtsName} Provides Required Functionality
     paths:
@@ -174,6 +174,16 @@ reviews:
       # <!-- TEMPLATE-DIRECTIVE:
       #      Add OTS test file if applicable:
       #      - "test/OtsSoftwareTests/{OtsName}Tests.cs" -->
+
+  # OTS-{ToolName} Review (one per OTS tool)
+  - id: OTS-ToolName
+    title: Review that {ToolName} Provides Required Functionality
+    paths:
+      # <!-- TEMPLATE-DIRECTIVE:
+      #      paths = OTS tool artifacts under evaluation (design file optional; no local tests) -->
+      - docs/reqstream/ots/tools/tool-name.yaml
+      - docs/design/ots/tools/tool-name.md
+      - docs/verification/ots/tools/tool-name.md
 
   # Shared-{PackageName} Review (one per Shared Package)
   - id: Shared-PackageName

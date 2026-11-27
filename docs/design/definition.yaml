@@ -14,6 +14,7 @@ input-files:
   - docs/design/system-name/subsystem-name/unit-name.md
   - docs/design/ots.md
   - docs/design/ots/ots-name.md
+  - docs/design/ots/tools/tool-name.md
   - docs/design/shared.md
   - docs/design/shared/package-name.md
 template: template.html

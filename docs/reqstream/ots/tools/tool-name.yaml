@@ -1,0 +1,17 @@
+---
+# {ToolName} OTS tool requirements
+# <!-- TEMPLATE-DIRECTIVE:
+#      Read standards: requirements-principles.md, software-items.md, reqstream-usage.md
+#      Replace {ToolName} with the OTS tool name. OTS tools never ship; link each requirement
+#      to the tool's own self-validation evidence produced in CI, not to local tests. -->
+sections:
+  - title: OTS Software Requirements
+    sections:
+      - title: '{ToolName} Requirements'
+        requirements:
+          - id: ToolName-Core-Feature
+            title: 'TODO: {ToolName} shall {required functionality}.'
+            justification: |
+              TODO: Explain why this tool functionality is required by the build or CI pipeline.
+            tests:
+              - ToolName_SelfValidation_Scenario_ExpectedBehavior

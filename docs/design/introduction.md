@@ -66,11 +66,13 @@ Each local software item has corresponding artifacts in parallel directory trees
 - Source: `src/{SystemName}[/{SubsystemName}...]/{Item}.cs`
 - Tests: `test/{SystemName}.Tests[/{SubsystemName}...]/{Item}Tests.cs`
 
-OTS items have integration/usage design documentation parallel to system folders:
+OTS items have integration/usage design documentation parallel to system folders - runtime OTS
+(shipped with the product) under `ots/`, OTS tools (build/CI tooling, never shipped) under
+`ots/tools/`:
 
-- Requirements: `docs/reqstream/ots/{ots-name}.yaml`
-- Design: `docs/design/ots/{ots-name}.md`
-- Verification: `docs/verification/ots/{ots-name}.md`
+- Requirements: `docs/reqstream/ots/{ots-name}.yaml`, `docs/reqstream/ots/tools/{tool-name}.yaml`
+- Design: `docs/design/ots/{ots-name}.md`, `docs/design/ots/tools/{tool-name}.md` (optional for OTS tools)
+- Verification: `docs/verification/ots/{ots-name}.md`, `docs/verification/ots/tools/{tool-name}.md`
 
 Shared Packages have integration/usage design documentation parallel to system and OTS folders:
 

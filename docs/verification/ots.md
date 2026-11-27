@@ -1,15 +1,17 @@
 # OTS Verification
 
 <!-- TEMPLATE-DIRECTIVE:
-     Describe the project's overall strategy for verifying OTS items.
-     The per-item files in ots/ cover the verification evidence for each individual OTS item. -->
+     Describe the project's overall strategy for verifying OTS items. The per-item files in
+     ots/ (runtime OTS) and ots/tools/ (OTS tools) cover the verification evidence for each
+     individual OTS item. -->
 
 ## Verification Strategy
 
 <!-- TEMPLATE-DIRECTIVE:
      Describe how OTS items are verified in this project.
-     Examples: reliance on OTS vendor self-validation reports, local integration tests,
-     wrapper tests that exercise the specific APIs and features used. -->
+     Examples: runtime OTS - reliance on vendor self-validation reports, local integration
+     tests, wrapper tests that exercise the specific APIs and features used; OTS tools - the
+     tool's own self-validation evidence produced in CI. -->
 
 ## Qualification Evidence
 

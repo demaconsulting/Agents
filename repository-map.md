@@ -48,13 +48,17 @@ src/               {system_name}[/{subsystem_name}...]/{unit_name}.cpp          
 test/              {system_name}_tests[/{subsystem_name}...]/{unit_name}_tests.cpp (C++)
 ```
 
-OTS items have artifacts in parallel `ots/` folders, plus a single repo-level test project
-(never prefixed with a system name):
+OTS items have artifacts in parallel `ots/` folders - runtime OTS directly under `ots/`, OTS tools
+under `ots/tools/` (design optional, verified by CI self-validation, no tests) - plus a single
+repo-level runtime OTS test project (never prefixed with a system name):
 
 ```text
 docs/reqstream/ots/{ots-name}.yaml
 docs/design/ots/{ots-name}.md
 docs/verification/ots/{ots-name}.md
+docs/reqstream/ots/tools/{tool-name}.yaml
+docs/design/ots/tools/{tool-name}.md        (optional)
+docs/verification/ots/tools/{tool-name}.md
 test/OtsSoftwareTests/             (C# - optional, when no other verification evidence exists)
 test/ots_software_tests/           (C++ - optional, when no other verification evidence exists)
 ```
@@ -87,6 +91,7 @@ paths and IDs throughout this map. Each placeholder has three casing forms:
 - `{subsystem-name}` / `{SubsystemName}` / `{subsystem_name}` — subsystem identifier
 - `{unit-name}` / `{UnitName}` / `{unit_name}` — unit identifier
 - `{ots-name}` / `{OtsName}` — OTS item identifier (docs only; no C++ form)
+- `{tool-name}` / `{ToolName}` — OTS tool identifier (docs only; no C++ form)
 - `{package-name}` / `{PackageName}` — shared package identifier (docs only; no C++ form)
 
 **Template file URL rule**: When fetching a template file, replace every `{placeholder}` in
@@ -165,7 +170,8 @@ docs/
 │   │   │   ├── {subsystem-name}.sysml   # Package {SystemName}_{SubsystemName}Subsystem (facade); nests for sub-subsystems
 │   │   │   └── {subsystem-name}/
 │   │   │       └── {unit-name}.sysml    # Package {SystemName}_{UnitName}; one file per unit
-│   │   ├── ots.sysml               # OTS dependency model, package OtsDependencies (optional)
+│   │   ├── ots.sysml               # Runtime OTS model, package OtsDependencies (optional)
+│   │   ├── tools.sysml             # OTS tool model, package OtsTools with Toolchain (optional)
 │   │   └── shared.sysml            # Shared package model, package SharedPackages (optional)
 │   └── views/
 │       └── design-views.sysml     # Package {RepoName}DesignViews; views rendered to docs/design/generated/
@@ -197,7 +203,9 @@ docs/
 │   │   └── {unit-name}.md         # Unit design
 │   ├── ots.md                     # OTS section heading (optional)
 │   ├── ots/                       # OTS design files (optional)
-│   │   └── {ots-name}.md          # OTS integration and usage design
+│   │   ├── {ots-name}.md          # Runtime OTS integration and usage design
+│   │   └── tools/
+│   │       └── {tool-name}.md     # OTS tool usage design (optional)
 │   ├── shared.md                  # Shared package section heading (optional)
 │   └── shared/                    # shared package design files (optional)
 │       └── {package-name}.md      # Shared package integration and usage design
@@ -209,7 +217,9 @@ docs/
 │   │   ├── {subsystem-name}.yaml  # Subsystem requirements (may nest)
 │   │   └── {unit-name}.yaml       # Unit requirements
 │   ├── ots/                       # OTS requirements (optional)
-│   │   └── {ots-name}.yaml        # OTS item requirements
+│   │   ├── {ots-name}.yaml        # Runtime OTS item requirements
+│   │   └── tools/
+│   │       └── {tool-name}.yaml   # OTS tool requirements
 │   └── shared/                    # shared package requirements (optional)
 │       └── {package-name}.yaml    # Shared package requirements
 ├── requirements_doc/              # Compiled requirements document
@@ -235,7 +245,9 @@ docs/
 │   │   └── {unit-name}.md         # Unit verification design
 │   ├── ots.md                     # OTS section heading (optional)
 │   ├── ots/                       # OTS verification files (optional)
-│   │   └── {ots-name}.md          # OTS verification evidence
+│   │   ├── {ots-name}.md          # Runtime OTS verification evidence
+│   │   └── tools/
+│   │       └── {tool-name}.md     # OTS tool verification (CI self-validation evidence)
 │   ├── shared.md                  # Shared package section heading (optional)
 │   └── shared/                    # shared package verification files (optional)
 │       └── {package-name}.md      # Shared package verification evidence

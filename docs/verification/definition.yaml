@@ -12,6 +12,7 @@ input-files:
   - docs/verification/system-name/subsystem-name/unit-name.md
   - docs/verification/ots.md
   - docs/verification/ots/ots-name.md
+  - docs/verification/ots/tools/tool-name.md
   - docs/verification/shared.md
   - docs/verification/shared/package-name.md
 template: template.html

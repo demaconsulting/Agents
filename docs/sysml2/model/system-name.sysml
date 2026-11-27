@@ -44,7 +44,9 @@ package SystemName {
         //      One `part` line per direct member (subsystem or top-level unit), typed by
         //      the part def declared in that member's own file under
         //      docs/sysml2/model/{system-name}/. Uncomment and adjust the OTS/shared
-        //      example lines below once the corresponding import above is uncommented. -->
+        //      example lines below once the corresponding import above is uncommented.
+        //      Runtime OTS items are `part`s of the system only (never of a subsystem or
+        //      unit); OTS tools (model/tools.sysml) are never parts of a system. -->
         part subsystemName : SubsystemNameSubsystem;
         // part otsName : OtsName;
         // part packageName : PackageName;

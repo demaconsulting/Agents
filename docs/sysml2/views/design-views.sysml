@@ -13,7 +13,8 @@
 //      'docs/sysml2/model/**/*.sysml' glob never needs to exclude view files.
 //
 //      Naming convention: SoftwareStructureView (system-level overview), {SystemName}SystemView (one
-//      per system), {SubsystemName}View (one per subsystem). Replace SystemName and
+//      per system), {SubsystemName}View (one per subsystem), and the optional ToolchainView
+//      (OTS tools). Replace SystemName and
 //      SubsystemName with your actual names (PascalCase). This views file declares
 //      the single repository-level package `{RepoName}DesignViews` (replace RepoName with
 //      the repository name, PascalCase), even when the repository has several systems.
@@ -25,10 +26,12 @@
 //      the system part defs: each system renders as a frame with its direct subsystem part
 //      usages nested inside (unit detail lives in the per-system and per-subsystem views), so
 //      with several systems expose each system's part def (not the whole package recursively)
-//      and add `filter not (@SysML::Documentation);`. Keep OTS items in a separate small
-//      `OtsView : GeneralView` that exposes `OtsDependencies::*` with the same filter. Keep
-//      metadata defs such as SoftwareInfo out of overviews - see sysml2-modeling.md.
-//      Requires sysml2tools 0.3.0-beta.4 or later.
+//      and add `filter not (@SysML::Documentation);`. Runtime OTS part usages render inside
+//      the system frame. If this repository has a model/tools.sysml file, add a small
+//      `ToolchainView : InterconnectionView` (a GeneralView renders every tool in one
+//      unreadably wide row) that exposes `OtsTools::Toolchain` with the same
+//      filter. Keep metadata defs such as SoftwareInfo out of overviews - see
+//      sysml2-modeling.md. Requires sysml2tools 0.3.0-beta.4 or later.
 //
 //      Each other view exposes both the container part def and its direct children
 //      (`expose X; expose X::*;`) and renders `asInterconnectionDiagram` so nested
@@ -40,10 +43,8 @@
 //      `dependency` statements, keep it to about 12-15 dependency edges (split large
 //      subsystems into themed views), omit hub suppliers (say so in the view's `doc`), and
 //      make sure it renders without PNG downscaling - see sysml2-modeling.md. Uncomment the
-//      OTS import and the `OtsView` below if this repository has a model/ots.sysml file. -->
+//      `ToolchainView` below if this repository has a model/tools.sysml file. -->
 package RepoNameDesignViews {
-    // <!-- TEMPLATE-DIRECTIVE: Uncomment if this repository has a model/ots.sysml file. -->
-    // private import OtsDependencies::*;
     private import StandardViewDefinitions::*;
     private import Views::*;
     private import SystemName::*;   // the system facade re-exports every subsystem and unit package
@@ -53,10 +54,10 @@ package RepoNameDesignViews {
         filter not (@SysML::Documentation);
     }
 
-    // <!-- TEMPLATE-DIRECTIVE: Uncomment this view together with the OtsDependencies import
-    //      above if this repository has a model/ots.sysml file. -->
-    // view OtsView : GeneralView {
-    //     expose OtsDependencies::*;
+    // <!-- TEMPLATE-DIRECTIVE: Uncomment this view if this repository has a
+    //      model/tools.sysml file (the qualified name needs no import). -->
+    // view ToolchainView : InterconnectionView {
+    //     expose OtsTools::Toolchain;
     //     filter not (@SysML::Documentation);
     // }
 
